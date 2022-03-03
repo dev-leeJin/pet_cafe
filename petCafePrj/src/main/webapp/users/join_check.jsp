@@ -5,7 +5,6 @@
     <%
     request.setCharacterEncoding("utf-8");
     
-    // form에서 날려준 데이터를 받아서 변수에 저장하기
     String fId = request.getParameter("Fid");
     String fPw = request.getParameter("Fpw");
     String fName = request.getParameter("Fname");
