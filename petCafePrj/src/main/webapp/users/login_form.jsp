@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="login_check.jsp" method="post">
+	<form action="http://loaclhost:8181/petCafePrj/loginCheck" method="post">
 	<input type="text" name="id" placeholder="아이디"><br/>
 	<input type="password" name="pw" placeholder="비밀번호"><br/>	
 	<input type="submit" value="로그인">
