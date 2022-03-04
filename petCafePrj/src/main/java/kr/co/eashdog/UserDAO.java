@@ -10,6 +10,7 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+
 public class UserDAO {
 	
 	private DataSource ds=null;
@@ -32,6 +33,7 @@ public class UserDAO {
 	}
 	
 	public List<UserVO> getAllUserList(){
+		
 		Connection con =null;
 		PreparedStatement pmt=null;
 		ResultSet rs=null;
@@ -66,14 +68,14 @@ public class UserDAO {
 		return userList;
 	}
 	
-	public void deleteUser(String fnum) {
+	public void deleteUser(String unum) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
 			String sql="delete from userinfo where user_num=?";
 			pmt=con.prepareStatement(sql);
-			pmt.setString(1, fnum);
+			pmt.setString(1, unum);
 			pmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -87,19 +89,19 @@ public class UserDAO {
 		}
 	}
 	
-	public void insertUser(int fnum,String fid,String fpw,String fname,String femail,String fadmin) {
+	public void insertUser(int unum,String uid,String upw,String uname,String uemail,String uadmin) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
 			String sql="insert into userinfo value(?,?,?,?,?,?)";
 			pmt=con.prepareStatement(sql);
-			pmt.setInt(1, fnum);
-			pmt.setString(2, fid);
-			pmt.setString(3, fpw);
-			pmt.setString(4, fname);
-			pmt.setString(5, femail);
-			pmt.setString(6, fadmin);
+			pmt.setInt(1, unum);
+			pmt.setString(2, uid);
+			pmt.setString(3, upw);
+			pmt.setString(4, uname);
+			pmt.setString(5, uemail);
+			pmt.setString(6, uadmin);
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -113,7 +115,7 @@ public class UserDAO {
 	}
 	
 	
-	public UserVO getUserData(int fnum) {
+	public UserVO getUserData(int unum) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		ResultSet rs=null;
@@ -122,17 +124,17 @@ public class UserDAO {
 			con=ds.getConnection();
 			String sql="select*from userinfo where user_num=?";
 			pmt=con.prepareStatement(sql);
-			pmt.setInt(1, fnum);
+			pmt.setInt(1, unum);
 			rs=pmt.executeQuery();
 			if(rs.next()) {
-				int unum=rs.getInt("user_num");
+				int unumber=rs.getInt("user_num");
 				String uid=rs.getString("user_id");
 				String upw=rs.getString("pw");
 				String uname=rs.getString("name");
 				String uemail=rs.getString("email");
 				String uadmin=rs.getString("uadmin");
 				
-				user=new UserVO(unum,uid,upw,uname,uemail,uadmin);
+				user=new UserVO(unumber,uid,upw,uname,uemail,uadmin);
 				
 			}
 		}catch(Exception e) {
