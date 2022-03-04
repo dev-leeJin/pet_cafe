@@ -5,9 +5,6 @@
 	if(id==null) {
 		response.sendRedirect("login_form.jsp");
 	}
-	
-	UserDAO userDao = UserDAO.getInstance();
-	UserVO userData = userDao.getUserData(id);
 %>
 <!DOCTYPE html>
 <html>
