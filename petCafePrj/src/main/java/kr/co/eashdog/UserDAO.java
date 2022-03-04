@@ -115,26 +115,26 @@ public class UserDAO {
 	}
 	
 	
-	public UserVO getUserData(int unum) {
+	public UserVO getUserData(int uid) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		ResultSet rs=null;
 		UserVO user=null;
 		try {
 			con=ds.getConnection();
-			String sql="select*from userinfo where user_num=?";
+			String sql="select*from userinfo where user_id=?";
 			pmt=con.prepareStatement(sql);
-			pmt.setInt(1, unum);
+			pmt.setInt(1, uid);
 			rs=pmt.executeQuery();
 			if(rs.next()) {
-				int unumber=rs.getInt("user_num");
-				String uid=rs.getString("user_id");
+				int unum=rs.getInt("user_num");
+				String uId=rs.getString("user_id");
 				String upw=rs.getString("pw");
 				String uname=rs.getString("name");
 				String uemail=rs.getString("email");
 				String uadmin=rs.getString("uadmin");
 				
-				user=new UserVO(unumber,uid,upw,uname,uemail,uadmin);
+				user=new UserVO(unum,uId,upw,uname,uemail,uadmin);
 				
 			}
 		}catch(Exception e) {
