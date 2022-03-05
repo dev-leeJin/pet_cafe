@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import kr.co.easydog.*;
 
 /**
  * Servlet implementation class LoginCheck
@@ -41,10 +42,13 @@ public class LoginCheck extends HttpServlet {
 		String pw = request.getParameter("pw");
 		
 		HttpSession session = request.getSession();
+		
+		UserDAO userdao = UserDAO.getInstance();
+		UserVO uservo = userdao.getUserData(id);
 
-		if(id.equals(uservo.getuId())) {
-			if(pw.equals(uservo.getuPw())) {
-				String name = uservo.getuName();
+		if(id.equals(uservo.getUser_id())) {
+			if(pw.equals(uservo.getPw())) {
+				String name = uservo.getName();
 				session.setAttribute("session_id", id);
 				session.setAttribute("session_pw", pw);
 				session.setAttribute("session_name", name);
