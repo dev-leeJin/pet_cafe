@@ -16,8 +16,8 @@
 	<h1> <%=id %>님의 정보 수정 페이지</h1>
 	<form action="update_check.jsp" method="post">
 	비밀번호 : <input type="password" name="pw" required><br/>
-	이름 : <input type="text" name="name" value=<%=userData.getuName() %> required><br/>
-	이메일 : <input type="email" name="email" value=<%=userData.getuEmail() %>><br/>
+	이름 : <input type="text" name="name" value=<%= %> required><br/>
+	이메일 : <input type="email" name="email" value=<%= %>><br/>
 	<input type="submit" value="수정하기">
 	<input type="reset" value="초기화">
 	</form>
