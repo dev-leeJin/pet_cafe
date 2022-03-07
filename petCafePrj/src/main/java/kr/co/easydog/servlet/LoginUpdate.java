@@ -2,7 +2,6 @@ package kr.co.easydog.servlet;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -39,15 +38,16 @@ public class LoginUpdate extends HttpServlet {
 		}
 		
 		// DAO 연결
-		UserDAO userDao = UserDAO.getInstance();
+		UserDAO userdao = UserDAO.getInstance();
 		// VO 연결 id를 가진 유저 데이터 받아오기 
-		UserVO userData = userDao.getUserData(id);
+		UserVO userData = userdao.getUserData(id);
 		
-		request.setAttribute("boardList", boardData);
+		String pw = userData.getPw();
+		String name = userData.getName();
+		String email = userData.getEmail();
 		
-		RequestDispatcher dp = request.getRequestDispatcher(
-				"/user/user_update.jsp");
-		dp.forward(request, response);
+		userdao.userUpdate(id, pw, name, email);
+		
 		
 	}
 

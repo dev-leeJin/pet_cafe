@@ -115,7 +115,7 @@ public class UserDAO {
 	}
 	
 	
-	public UserVO getUserData(int uid) {
+	public UserVO getUserData(String uid) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		ResultSet rs=null;
@@ -124,7 +124,7 @@ public class UserDAO {
 			con=ds.getConnection();
 			String sql="select*from userinfo where user_id=?";
 			pmt=con.prepareStatement(sql);
-			pmt.setInt(1, uid);
+			pmt.setString(1, uid);
 			rs=pmt.executeQuery();
 			if(rs.next()) {
 				int unum=rs.getInt("user_num");
@@ -151,19 +151,17 @@ public class UserDAO {
 		return user;
 	}
 	
-	public void userUpdate(int unum,String uid,String upw,String uname,String uemail,String uadmin) {
+	public void userUpdate(String uid, String upw,String uname,String uemail) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="update userinfo set user_id=?,pw=?,name=?,email=? where user_num=?";
+			String sql="update userinfo set pw=?,name=?,email=? where user_id=?";
 			pmt=con.prepareStatement(sql);
-			pmt.setString(1, uid);
-			pmt.setString(2, upw);
-			pmt.setString(3, uname);
-			pmt.setString(4, uemail);
-			pmt.setString(5, uemail);
-			pmt.setInt(6, unum);
+			pmt.setString(1, upw);
+			pmt.setString(2, uname);
+			pmt.setString(3, uemail);
+			pmt.setString(4, uid);
 			pmt.executeUpdate();
 			
 		}catch(Exception e) {
