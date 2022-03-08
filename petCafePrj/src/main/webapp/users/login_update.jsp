@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
-<%
-	String id = (String)session.getAttribute("session_id");
-	if(id==null) {
-		response.sendRedirect("login_form.jsp");
-	}
-%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"   %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> <%=id %>님의 정보 수정 페이지</h1>
+	<h1> ${ userdata.id}님의 정보 수정 페이지</h1>
 	<form action="update_check.jsp" method="post">
 	비밀번호 : <input type="password" name="pw" required><br/>
-	이름 : <input type="text" name="name" value=<%= %> required><br/>
-	이메일 : <input type="email" name="email" value=<%= %>><br/>
+	이름 : <input type="text" name="name" value="${ userdata.name}" required><br/>
+	이메일 : <input type="email" name="email" value="${ userdata.email}"><br/>
 	<input type="submit" value="수정하기">
 	<input type="reset" value="초기화">
 	</form>

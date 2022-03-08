@@ -113,8 +113,7 @@ public class UserDAO {
 			}
 		}
 	}
-	
-	
+
 	public UserVO getUserData(String uid) {
 		Connection con=null;
 		PreparedStatement pmt=null;
@@ -151,12 +150,12 @@ public class UserDAO {
 		return user;
 	}
 	
-	public void userUpdate(String uid, String upw,String uname,String uemail) {
+	public void userUpdate(String uid,String upw,String uname,String uemail) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="update userinfo set pw=?,name=?,email=? where user_id=?";
+			String sql="update userinfo set pw=?,name=?,email=? where user_nid=?";
 			pmt=con.prepareStatement(sql);
 			pmt.setString(1, upw);
 			pmt.setString(2, uname);
