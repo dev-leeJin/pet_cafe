@@ -14,14 +14,14 @@ import kr.co.easydog.*;
 /**
  * Servlet implementation class LoginUpdate
  */
-@WebServlet("/loginUpdate")
-public class LoginUpdate extends HttpServlet {
+@WebServlet("/userUpdate")
+public class UserUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public LoginUpdate() {
+    public UserUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,6 +31,7 @@ public class LoginUpdate extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		
 		String id = (String)session.getAttribute("session_id");

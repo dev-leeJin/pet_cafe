@@ -6,6 +6,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+
+import kr.co.easydog.UserDAO;
+import kr.co.easydog.UserVO;
 
 /**
  * Servlet implementation class LoginCheck
@@ -26,7 +30,21 @@ public class UpdateCheck extends HttpServlet {
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		response.sendRedirect("login_welcone.jsp");
+		
+		request.setCharacterEncoding("utf-8");
+		HttpSession session = request.getSession();
+		
+		String id = (String)session.getAttribute("session_id");
+		if(id==null) {
+			response.sendRedirect("login_form.jsp");
+		}
+		
+		UserDAO userDao = UserDAO.getInstance();
+		// VO 연결 id를 가진 유저 데이터 받아오기 
+		UserVO userData = userDao.getUserData(id);
+		userDao.userUpdate(id, userData.getPw(), userData.getName(), userData.getEmail());
+		
+		response.sendRedirect("login_welcome.jsp");
 	}
 
 

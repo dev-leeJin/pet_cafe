@@ -155,7 +155,7 @@ public class UserDAO {
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="update userinfo set pw=?,name=?,email=? where user_nid=?";
+			String sql="update userinfo set pw=?,name=?,email=? where user_id=?";
 			pmt=con.prepareStatement(sql);
 			pmt.setString(1, upw);
 			pmt.setString(2, uname);

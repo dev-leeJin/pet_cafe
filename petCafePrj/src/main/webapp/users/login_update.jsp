@@ -8,11 +8,11 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> ${ userdata.id}님의 정보 수정 페이지</h1>
-	<form action="update_check.jsp" method="post">
+	<h1> ${userdata.id}님의 정보 수정 페이지</h1>
+	<form action="http://loaclhost:8181/petCafePrj/updateCheck" method="post">
 	비밀번호 : <input type="password" name="pw" required><br/>
-	이름 : <input type="text" name="name" value="${ userdata.name}" required><br/>
-	이메일 : <input type="email" name="email" value="${ userdata.email}"><br/>
+	이름 : <input type="text" name="name" value="${userdata.name}" required><br/>
+	이메일 : <input type="email" name="email" value="${userdata.email}"><br/>
 	<input type="submit" value="수정하기">
 	<input type="reset" value="초기화">
 	</form>
