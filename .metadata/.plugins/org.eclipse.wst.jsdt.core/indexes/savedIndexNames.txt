@@ -1,8 +1,0 @@
-INDEX VERSION 1.4+C:\jsp_teamprj\.metadata\.plugins\org.eclipse.wst.jsdt.core\indexes
-2285126512.index
-3898717342.index
-3719136771.index
-2711071571.index
-1454559182.index
-940673591.index
-1058488287.index

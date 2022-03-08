@@ -1,3 +1,0 @@
-INDEX VERSION 1.131
-C:\jsp_teamprj\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\2285126512.index
-\petCafePrj\src\main\java
