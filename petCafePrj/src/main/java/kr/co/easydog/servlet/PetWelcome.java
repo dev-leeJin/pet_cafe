@@ -1,6 +1,7 @@
 package kr.co.easydog.servlet;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -8,21 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import kr.co.easydog.PetDAO;
 import kr.co.easydog.PetVO;
 
 /**
- * Servlet implementation class PetJoin
+ * Servlet implementation class PetWelcome
  */
-@WebServlet("/petJoin")
-public class PetJoin extends HttpServlet {
+@WebServlet("/petWelcome")
+public class PetWelcome extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PetJoin() {
+    public PetWelcome() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -32,7 +34,21 @@ public class PetJoin extends HttpServlet {
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 
-		response.sendRedirect("http://localhost:8181/petCafePrj/pet/pet_join.jsp");
+		HttpSession session = request.getSession();
+		
+		String uid = (String)session.getAttribute("session_id");
+		
+		PetDAO petdao = PetDAO.getInstance();
+		
+		List<PetVO> petList = petdao.getPetsList(uid);
+		
+		request.setAttribute("petList", petList);
+		
+		RequestDispatcher dp = request.getRequestDispatcher(
+				"/pet/pet_welcome.jsp");
+		dp.forward(request, response);
+		
+		
 	}
 
 }

@@ -7,12 +7,13 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost:8181/petCafePrj/petJoin" method="post">
+	<form action="http://localhost:8181/petCafePrj/petJoinCheck" method="post">
 		<input type="text" name="id" value="${session_id}" >
 		<input type="text" name="kind" required>
 		<input type="text" name="name" required>
 		<input type="number" name="age" required>
 		<input type="checkbox" name="gender" required>
+		<input type="submit" value="»ı¼º">
 	</form>
 </body>
 </html>

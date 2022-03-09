@@ -13,16 +13,16 @@ import kr.co.easydog.PetDAO;
 import kr.co.easydog.PetVO;
 
 /**
- * Servlet implementation class PetJoin
+ * Servlet implementation class PetUpdate
  */
-@WebServlet("/petJoin")
-public class PetJoin extends HttpServlet {
+@WebServlet("/petUpdate")
+public class PetUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PetJoin() {
+    public PetUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,8 +31,16 @@ public class PetJoin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-		response.sendRedirect("http://localhost:8181/petCafePrj/pet/pet_join.jsp");
+		
+		PetDAO petdao = PetDAO.getInstance();
+		
+		PetVO petData = petdao.getOnePet(Integer.parseInt(request.getParameter("pet_num")));
+		
+		request.setAttribute("petData", petData);
+		
+		RequestDispatcher dp = request.getRequestDispatcher("/pet/pet_update.jsp");
+		dp.forward(request, response);
+		
 	}
 
 }

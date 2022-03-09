@@ -36,7 +36,7 @@ public class UserUpdate extends HttpServlet {
 		
 		String id = (String)session.getAttribute("session_id");
 		if(id==null) {
-			response.sendRedirect("login_form.jsp");
+			response.sendRedirect("http://localhost:8181/petCafePrj//users/login_form.jsp");
 		}
 		
 		// DAO 연결

@@ -36,7 +36,7 @@ public class UpdateCheck extends HttpServlet {
 		
 		String id = (String)session.getAttribute("session_id");
 		if(id==null) {
-			response.sendRedirect("login_form.jsp");
+			response.sendRedirect("http://localhost:8181/perCafePrj/users/login_form.jsp");
 		}
 		
 		UserDAO userDao = UserDAO.getInstance();
@@ -44,7 +44,7 @@ public class UpdateCheck extends HttpServlet {
 		UserVO userData = userDao.getUserData(id);
 		userDao.userUpdate(id, userData.getPw(), userData.getName(), userData.getEmail());
 		
-		response.sendRedirect("login_welcome.jsp");
+		response.sendRedirect("http://localhost:8181/perCafePrj/users/login_welcome.jsp");
 	}
 
 

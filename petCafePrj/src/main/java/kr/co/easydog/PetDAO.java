@@ -126,6 +126,48 @@ private DataSource ds=null;
 		return pets;
 	}
 	
+	public PetVO getOnePet(int pnum) {
+		
+		Connection con =null;
+		PreparedStatement pmt=null;
+		ResultSet rs=null;
+		PetVO petData = null;
+		try {
+			con=ds.getConnection();
+			
+			String sql="select*from petTbl where pet_num=?";
+			
+			pmt=con.prepareStatement(sql);
+			
+			pmt.setInt(1, pnum);
+			
+			rs=pmt.executeQuery();
+			
+			if(rs.next()) {
+				String uid=rs.getString("user_id");
+				String pkind=rs.getString("pet_kind");
+				String pname=rs.getString("pet_name");
+				int page=rs.getInt("pet_age");
+				Boolean pgender=rs.getBoolean("pet_gender");
+				
+				petData = new PetVO(pnum,uid,pkind,pname,page,pgender);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				pmt.close();
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return petData;
+	}
+	
 	public void petUpdate(String uid,String pkind,String pname,int page, boolean pgender) {
 		Connection con=null;
 		PreparedStatement pmt=null;

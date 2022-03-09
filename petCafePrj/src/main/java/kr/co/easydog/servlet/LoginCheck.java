@@ -52,10 +52,10 @@ public class LoginCheck extends HttpServlet {
 				session.setAttribute("session_id", id);
 				session.setAttribute("session_pw", pw);
 				session.setAttribute("session_name", name);
-				response.sendRedirect("login_welcome.jsp");
+				response.sendRedirect("http://loaclhost:8181/petCafePrj/users/login_welcome.jsp");
 			}
 		}
-		response.sendRedirect("login_form.jsp");
+		response.sendRedirect("http://loaclhost:8181/petCafePrj/users/login_form.jsp");
 		
 		
 	}

@@ -1,8 +1,6 @@
 package kr.co.easydog.servlet;
 
 import java.io.IOException;
-
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -10,19 +8,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.easydog.PetDAO;
-import kr.co.easydog.PetVO;
 
 /**
- * Servlet implementation class PetJoin
+ * Servlet implementation class PetUpdateCheck
  */
-@WebServlet("/petJoin")
-public class PetJoin extends HttpServlet {
+@WebServlet("/petUpdateCheck")
+public class PetUpdateCheck extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public PetJoin() {
+    public PetUpdateCheck() {
         super();
         // TODO Auto-generated constructor stub
     }
@@ -31,8 +28,18 @@ public class PetJoin extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
+		PetDAO petdao = PetDAO.getInstance();
+		
+		String uid = request.getParameter("user_id");
+		String pkind = request.getParameter("pet_kind");
+		String pname = request.getParameter("pet_name");
+		int page = Integer.parseInt(request.getParameter("pet_age"));
+		Boolean pgender = Boolean.parseBoolean(request.getParameter("pet_gender"));
+		
+		petdao.petUpdate(uid, pkind, pname, page, pgender);
 
-		response.sendRedirect("http://localhost:8181/petCafePrj/pet/pet_join.jsp");
+		response.sendRedirect("http://localhost:8181/petCafePrj/petWelcome");
 	}
 
 }
