@@ -1,0 +1,106 @@
+package kr.co.easydog;
+
+public class PetLostVO {
+
+	private int lost_num;
+	private String lost_name;
+	private String user_id;
+	private String lost_zone;
+	private String lost_size;
+	private int lost_phone;
+	
+	
+	
+	public PetLostVO(int lost_num, String lost_name, String user_id, String lost_zone, String lost_size,
+			int lost_phone) {
+		super();
+		this.lost_num = lost_num;
+		this.lost_name = lost_name;
+		this.user_id = user_id;
+		this.lost_zone = lost_zone;
+		this.lost_size = lost_size;
+		this.lost_phone = lost_phone;
+	}
+
+
+
+	public int getLost_num() {
+		return lost_num;
+	}
+
+
+
+	public void setLost_num(int lost_num) {
+		this.lost_num = lost_num;
+	}
+
+
+
+	public String getLost_name() {
+		return lost_name;
+	}
+
+
+
+	public void setLost_name(String lost_name) {
+		this.lost_name = lost_name;
+	}
+
+
+
+	public String getUser_id() {
+		return user_id;
+	}
+
+
+
+	public void setUser_id(String user_id) {
+		this.user_id = user_id;
+	}
+
+
+
+	public String getLost_zone() {
+		return lost_zone;
+	}
+
+
+
+	public void setLost_zone(String lost_zone) {
+		this.lost_zone = lost_zone;
+	}
+
+
+
+	public String getLost_size() {
+		return lost_size;
+	}
+
+
+
+	public void setLost_size(String lost_size) {
+		this.lost_size = lost_size;
+	}
+
+
+
+	public int getLost_phone() {
+		return lost_phone;
+	}
+
+
+
+	public void setLost_phone(int lost_phone) {
+		this.lost_phone = lost_phone;
+	}
+
+
+
+	@Override
+	public String toString() {
+		return "PetLostVO [lost_num=" + lost_num + ", lost_name=" + lost_name + ", user_id=" + user_id + ", lost_zone="
+				+ lost_zone + ", lost_size=" + lost_size + ", lost_phone=" + lost_phone + "]";
+	}
+	
+	
+}

@@ -6,7 +6,7 @@
     <%
     request.setCharacterEncoding("utf-8");
     
-    int unum = request.getInt("num");
+    int unum = Integer.parseInt(request.getParameter("num"));
     String uid = request.getParameter("id");
     String upw = request.getParameter("pw");
     String uname = request.getParameter("name");
