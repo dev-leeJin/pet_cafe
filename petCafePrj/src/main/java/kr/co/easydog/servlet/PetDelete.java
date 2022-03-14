@@ -6,40 +6,33 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import kr.co.easydog.PetDAO;
 
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class PetDelete
  */
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+@WebServlet("/petDelete")
+public class PetDelete extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public PetDelete() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.invalidate();
-
-		response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");
-
-	}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		PetDAO petdao = PetDAO.getInstance();
+		petdao.deletePet((String)request.getParameter("pet_num"));
+		
+		response.sendRedirect("http://localhost:8181/petCafePrj/petWelcome");
 	}
 
 }

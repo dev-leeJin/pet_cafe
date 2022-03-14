@@ -1,45 +1,46 @@
 package kr.co.easydog.servlet;
 
 import java.io.IOException;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
+
+import kr.co.easydog.PetDAO;
+import kr.co.easydog.PetVO;
 
 /**
- * Servlet implementation class Logout
+ * Servlet implementation class PetUpdate
  */
-@WebServlet("/logout")
-public class Logout extends HttpServlet {
+@WebServlet("/petUpdate")
+public class PetUpdate extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public Logout() {
+    public PetUpdate() {
         super();
         // TODO Auto-generated constructor stub
     }
 
 	/**
-	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		HttpSession session = request.getSession();
-		session.invalidate();
-
-		response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");
-
-	}
-
-	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		
+		PetDAO petdao = PetDAO.getInstance();
+		
+		PetVO petData = petdao.getOnePet(Integer.parseInt(request.getParameter("pet_num")));
+		
+		request.setAttribute("petData", petData);
+		
+		RequestDispatcher dp = request.getRequestDispatcher("/pet/pet_update.jsp");
+		dp.forward(request, response);
+		
 	}
 
 }
