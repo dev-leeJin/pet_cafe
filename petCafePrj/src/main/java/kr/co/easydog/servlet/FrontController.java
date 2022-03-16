@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletResponse;
 import kr.co.easydog.servlet.service.IPetService;
 import kr.co.easydog.servlet.service.IUesrService;
 import kr.co.easydog.servlet.service.LogoutService;
+import kr.co.easydog.servlet.service.PetDeleteService;
 import kr.co.easydog.servlet.service.PetJoinCheckService;
+import kr.co.easydog.servlet.service.PetUpdateFormService;
+import kr.co.easydog.servlet.service.PetUpdateService;
 import kr.co.easydog.servlet.service.PetWelcomeService;
 import kr.co.easydog.servlet.service.UserUpdateFormSerivce;
 import kr.co.easydog.servlet.service.UserUpdateService;
@@ -80,7 +83,19 @@ public class FrontController extends HttpServlet {
 			pv = new PetWelcomeService();
 			pv.execute(request, response);
 			ui = "/petCafePrj/petWelcome.jsp";
-		} else {
+		} else if(uri.equals("/petCafePerj/petUpdate.do")) {
+			pv = new PetUpdateFormService();
+			pv.execute(request, response);
+			ui = "/pet/pet_update.jsp";
+		} else if(uri.equals("/petCafePerj/petUpdateChack.do")) {
+			pv = new PetUpdateService();
+			pv.execute(request, response);
+			ui = "/petCafePrj/petWelcome.do";
+		} else if(uri.equals("/petCafePerj/petDelete.do")) {
+			pv = new PetDeleteService();
+			pv.execute(request, response);
+			ui = "/petCafePrj/petWelcome.do";
+		} else{
 			ui = "/";
 		}
 		
