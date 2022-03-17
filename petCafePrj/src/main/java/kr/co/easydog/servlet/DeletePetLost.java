@@ -7,35 +7,32 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import kr.co.easydog.UserDAO;
+import kr.co.easydog.PetLostDAO;
 
 /**
- * Servlet implementation class MemberoutServlet
+ * Servlet implementation class DeletePetLost
  */
-@WebServlet("/memberout")
-public class Memberout extends HttpServlet {
+@WebServlet("/deletepetlost")
+public class DeletePetLost extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-
+       
     /**
-     * Default constructor. 
+     * @see HttpServlet#HttpServlet()
      */
-    public Memberout() {
+    public DeletePetLost() {
+        super();
         // TODO Auto-generated constructor stub
     }
 
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String lostnum = request.getParameter("lost_num");
+		int lostNum = Integer.parseInt(lostnum);
 		
-        String unum = request.getParameter("unum");
-        int uNum = Integer.parseInt(unum);
+		PetLostDAO dao = PetLostDAO.getInstance();
 
-        UserDAO dao = UserDAO.getInstance();
+		dao.deletePetLost(lostNum);
 
-        dao.deleteUser(unum);
-
-        response.sendRedirect("join_form.jsp");
+		response.sendRedirect("http://localhost:8181/petCafePrj/petlostlist");
 	}
 
 }
