@@ -192,11 +192,11 @@ margin-top:70px;}
             </div>
 
             <div class="item item3">
-                <a href ="#"><img src="img/freeboard.png"></a>
+                <a href ="#"><img src="img/music.png"></a>
             </div>
 
             <div class="item item4">
-                <a href ="#"><img src="img/freeboard.png"></a>
+                <a href ="#"><img src="img/tv.png"></a>
             </div>
             </div>
 
