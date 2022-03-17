@@ -15,7 +15,7 @@ public class UserVO {
 		this.name = name;
 		this.email = email;
 		this.admin = admin;
-	}
+	} 
 	public int getUser_num() {
 		return user_num;
 	}
