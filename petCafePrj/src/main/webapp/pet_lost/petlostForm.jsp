@@ -6,7 +6,7 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
-<body> 
+<body>
    <form action="http://localhost:8181/petCafePrj/petlostlist" method="post">
       <input type="text" name="lost_name" placeholder="유기견 이름" required><br/>
       <input type="text" name="lost_zone" placeholder="유기견 실종장소" required><br/>
