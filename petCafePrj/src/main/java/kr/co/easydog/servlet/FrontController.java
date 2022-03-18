@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+import kr.co.easydog.servlet.service.IPetLostService;
 import kr.co.easydog.servlet.service.IPetService;
 import kr.co.easydog.servlet.service.IUesrService;
 import kr.co.easydog.servlet.service.LogoutService;
@@ -62,12 +62,13 @@ public class FrontController extends HttpServlet {
 	
 	private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		request.setCharacterEncoding("urf-8");
+		request.setCharacterEncoding("utf-8");
 		
 		String uri = request.getRequestURI();
 		
 		String ui = null;
-		
+				
+		IPetLostService lv = null;
 		IUesrService uv = null;
 		IPetService pv = null;
 		IContestService sv = null;
@@ -134,6 +135,46 @@ public class FrontController extends HttpServlet {
 			sv=new ContestUpdateService();
 			sv.execute(request, response);
 			ui="/contestdetail.do?"+request.getParameter("cont_num");
+		}else if(uri.equals("/petCafePrj/petlostlist.do")) {
+	    	lv = new PetLostListService();
+	    	lv.excute(request, response);
+	    	ui = "/pet_lost/petlost_list.jsp";
+	    	
+	    }else if(uri.equals("/petCafePrj/detailpetlost.do")) {
+	    	lv = new PetLostDetailService();
+	    	lv.excute(request, response);
+	    	ui = "/pet_lost/petlost_detail.jsp";
+	    
+	    }else if(uri.equals("/petCafePrj/insertpetlostform.do")) {
+	    	lv = new PetLostInsertFormService();
+	    	lv.excute(request, response);
+	    	ui = "/pet_lost/petlostForm.jsp";
+	    
+	    }else if(uri.equals("/petCafePrj/insertpetlost.do")) {
+	    	lv = new PetLostInsertService();
+	    	lv.excute(request, response);
+	    	ui = "/petlostlist.do";
+	    
+	    }else if(uri.equals("/petCafePrj/deletepetlost.do")) {
+	    	lv = new PetLostDeleteService();
+	    	lv.excute(request, response);
+	    	ui = "/petlostlist.do";
+	    
+	    }else if(uri.equals("/petCafePrj/updateformpetlost.do")) {
+	    	lv = new PetLostUpdateFormService();
+	    	lv.excute(request, response);
+	    	ui = "/pet_lost/petlost_updateForm.jsp";
+	    
+	    }else if(uri.equals("/petCafePrj/updatepetlost.do")) {
+	    	lv = new PetLostUpdateService();
+	    	lv.excute(request, response);
+	    	ui = "/petlostdetail.do?lost_num=" + request.getParameter("lost_num");
+	    
+	    }else if(uri.equals("/petCafePrj/searchpetlost.do")) {
+	    	lv = new PetLostSearchService();
+	    	lv.excute(request, response);
+	    	ui = "";	    
+	    }
 		else{
 			ui = "/";
 		}
