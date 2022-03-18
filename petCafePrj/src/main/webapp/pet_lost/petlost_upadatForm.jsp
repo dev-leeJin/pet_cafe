@@ -17,7 +17,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-
+	
   <title>Pet</title>
   <style>
     *{
@@ -135,7 +135,7 @@ color:#fff;}
   <!-- 헤더 -->
     <header class="header">
       <div class="container">
-      <h1 class="logo"><a href ="#"><img src="logo.png"></a></h1>
+      <h1 class="logo"><a href ="#"><img src="img/logo.png"></a></h1>
 
       <div class="login_Box">
       <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
