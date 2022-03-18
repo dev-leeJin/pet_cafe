@@ -16,6 +16,7 @@ public class ContestDetailService implements IContestService{
 		ContestDAO dao = ContestDAO.getInstance();
 		String snum=request.getParameter("cont_num");
 		int cnum=Integer.parseInt(snum);
+		dao.upHit(cnum);
 		ContestVO contest = dao.getDetail(cnum);
 		request.setAttribute("contest", contest);
 		

@@ -14,7 +14,7 @@
 </head>
 <body>
 <form action="/petCafePrj/contestInsert.do" method="post">
-<input type="text" name="uid" value="${contest.user_id}"readonly/> 
+<input type="text" name="uid" value="${sId}"readonly/> 
 <input type="text" name="title" placeholder="글제목" required/><br/><br/>
 <textarea rows="30" cols="50" name="content" placeholder="글내용" required></textarea><br/>
 펫종류:<input type="text" value="${pet.pet_kind}" readonly/><br/>
