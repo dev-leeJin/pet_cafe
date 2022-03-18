@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -681,6 +680,7 @@ padding: 10px;}
 
   </section>
   
+  ${petlost }
    <table class="table table-hover">
 	 <thead>
 		  <tr>
@@ -692,12 +692,12 @@ padding: 10px;}
        <c:forEach var="petlost" items="${petlost }">
 	      <tr>
 	        <td>${petlost.lost_num }<td/>
-	        <td><a href="http://localhost:8181/petCafePrj/detailpetlost?lost_num=${petlost.lost_num }">${petlost.lost_name }</a><td/>
+	        <td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a><td/>
 	      </tr>
 	    </c:forEach>
      </tbody>
 	</table>
-	<form action="http://localhost:8181/petCafePrj/insertpetlostform">
+	<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
 	<input type="submit" value="글쓰기">
 	</form>
   
