@@ -1,9 +1,10 @@
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head> 
-<!-- 부트스트랩 주소 -->
+<!-- 부?�스?�랩 주소 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
     <meta charset="UTF-8">
@@ -46,7 +47,7 @@ body{background:#fffaed;}
 
 .header .login_Box .form-group{display: flex;align-items: center;}
 
-/* 헤더 폼 */
+/* ?�더 ??*/
 .form-group .form-control{border: 1px solid red;
   width:190px;
   margin-left: 10px;;}
@@ -83,12 +84,12 @@ transition: 0.5s;}
   display: flex;
 }
 
-/* 헤더 메뉴 hover */
+/* ?�더 메뉴 hover */
 
 .header .menu-li:hover a{color:#484848;}
 
 
-/* 세선1 */
+/* ?�선1 */
  .section1 .content{
  border: 1px solid red;
  margin-left: 200px;
@@ -140,57 +141,57 @@ margin-top:70px;}
 </head>
 
 <body>
-  <!-- 헤더 -->
+  <!-- ?�더 -->
     <header class="header">
       <div class="container">
       <h1 class="logo"><a href ="#"><img src="img/logo.png"></a></h1>
 
       <div class="login_Box">
       <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-         <input type="text" class="form-control" name="id" placeholder="아이디">
-         <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-        <input type="submit" class="btn btn-outline-primary" value="로그인">
+         <input type="text" class="form-control" name="id" placeholder="?�이??>
+         <input type="password" class="form-control" name="pw" placeholder="비�?번호">
+        <input type="submit" class="btn btn-outline-primary" value="로그??>
    
         </form>
       </div>
     </div>
 
     <ul class="menu">
-      <li class="menu-li"><a href="#">애견콘테스트</a></li>
-      <li class="menu-li"><a href="#">애견 분양</a></li>
-      <li class="menu-li"><a href="#">유기견게시판</a></li>
-      <li class="menu-li"><a href="#">자유게시판</a></li>
+      <li class="menu-li"><a href="#">?�견콘테?�트</a></li>
+      <li class="menu-li"><a href="#">?�견 분양</a></li>
+      <li class="menu-li"><a href="#">?�기견게?�판</a></li>
+      <li class="menu-li"><a href="#">?�유게시??/a></li>
     </ul>
     </header>
 
     <section class="section section1">
     <div class="content">
 
-      <!-- 전체글,오늘게시물 등 -->
+      <!-- ?�체글,?�늘게시�???-->
       <div class="today_Box">
         <ul class="today">
-          <li>전체글 / 오늘게시물</li>
-          <li>방문자수 / 전체</li>
-          <li>시간</li>
+          <li>?�체글 / ?�늘게시�?/li>
+          <li>방문?�수 / ?�체</li>
+          <li>?�간</li>
         </ul>
 
         <div class="join_Box">
           <form>
-            <input type="submit" value="회원가입하기" class="join_Button">
+            <input type="submit" value="?�원가?�하�? class="join_Button">
           </form>
         </div>
     </div>
 
-        <!-- 컨텐츠  -->
+        <!-- 컨텐�? -->
         <body>
           <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group row" method="post">
           <div class="col-lg-2">
-           <input type="text" class="form-control" name="id" placeholder="아이디"><br/>
-           <input type="password" class="form-control" name="pw" placeholder="비밀번호"><br/>	
+           <input type="text" class="form-control" name="id" placeholder="?�이??><br/>
+           <input type="password" class="form-control" name="pw" placeholder="비�?번호"><br/>	
           </div>
           <div class="cel-lg-1">
-          <input type="submit" class="btn btn-outline-primary" value="로그인">
-          <input type="submit" class="btn btn-outline-primary" value="회원가입">
+          <input type="submit" class="btn btn-outline-primary" value="로그??>
+          <input type="submit" class="btn btn-outline-primary" value="?�원가??>
           </div>
           </form>
         </body>
@@ -201,14 +202,14 @@ margin-top:70px;}
        
   </section>
     <hr>
-<!-- 푸터 -->
+<!-- ?�터 -->
     <footer class="footer">
     <div class="contaier">
       <address>
 
-             서울특별시 마포구 양화로 첨단빌딩 7층<br>
-            연락처 : 02-0202-0202<br>
-                COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+             ?�울?�별??마포�??�화�?첨단빌딩 7�?br>
+            ?�락�?: 02-0202-0202<br>
+                COPYRIGHT &copy; ICT?�재개발??All Rights Reserved
 
     </address>
   </div>

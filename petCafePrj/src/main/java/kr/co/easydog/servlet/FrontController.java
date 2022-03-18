@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 package kr.co.easydog.servlet;
 
 import java.io.IOException;
@@ -28,6 +29,7 @@ import kr.co.easydog.service.ContestUpdateService;
 import kr.co.easydog.service.ContestInsertService;
 import kr.co.easydog.service.ContestListService;
 import kr.co.easydog.service.IContestService;
+import kr.co.easydog.servlet.service.PetLostService;
 
 /**
  * Servlet implementation class FrontController
