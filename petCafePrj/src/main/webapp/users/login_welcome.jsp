@@ -1,17 +1,17 @@
 
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${session_name }(${session_id }) ´Ô ·Î±×ÀÎÀ» È¯¿µÇÕ´Ï´Ù.</h1>
-	<a href="http://loaclhost:8181/petCafePrj/userUpdate">Á¤º¸¼öÁ¤ÇÏ±â</a><br/>
-	<a href="http://loaclhost:8181/petCafePrj/logout">·Î±×¾Æ¿ôÇÏ±â</a><br/>
-	<a href="member_out.jsp">È¸¿øÅ»ÅğÇÏ±â</a><br/> 
+	<h1>${session_name }(${session_id }) ë‹˜ ë¡œê·¸ì¸ì„ í™˜ì˜í•©ë‹ˆë‹¤.</h1>
+	<a href="http://localhost:8181/petCafePrj/userUpdate">ì •ë³´ìˆ˜ì •í•˜ê¸°</a><br/>
+	<a href="http://localhost:8181/petCafePrj/logout">ë¡œê·¸ì•„ì›ƒí•˜ê¸°</a><br/>
+	<a href="member_out.jsp">íšŒì›íƒˆí‡´í•˜ê¸°</a><br/> 
 </body>
 </html>

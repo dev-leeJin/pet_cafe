@@ -99,23 +99,23 @@ public class FrontController extends HttpServlet {
 		} else if(uri.equals("/petCafePrj/petJoinCheck.do")) {
 			pv = new PetJoinCheckService();
 			pv.execute(request, response);
-			ui = "/petCafePrj/petWelcome.do";
+			ui = "/petWelcome.do";
 		} else if(uri.equals("/petCafePrj/petWelcome.do")) {
 			pv = new PetWelcomeService();
 			pv.execute(request, response);
-			ui = "/petCafePrj/petWelcome.jsp";
-		} else if(uri.equals("/petCafePerj/petUpdate.do")) {
+			ui = "/pet/pet_welcome.jsp";
+		} else if(uri.equals("/petCafePrj/petUpdate.do")) {
 			pv = new PetUpdateFormService();
 			pv.execute(request, response);
 			ui = "/pet/pet_update.jsp";
-		} else if(uri.equals("/petCafePerj/petUpdateChack.do")) {
+		} else if(uri.equals("/petCafePrj/petUpdateCheck.do")) {
 			pv = new PetUpdateService();
 			pv.execute(request, response);
-			ui = "/petCafePrj/petWelcome.do";
-		} else if(uri.equals("/petCafePerj/petDelete.do")) {
+			ui = "/petWelcome.do";
+		} else if(uri.equals("/petCafePrj/petDelete.do")) {
 			pv = new PetDeleteService();
 			pv.execute(request, response);
-			ui = "/petCafePrj/petWelcome.do";
+			ui = "/petWelcome.do";
 		} else if(uri.equals("/petCafePrj/contestlist.do")) {
 			sv=new ContestListService();
 			sv.execute(request, response);
@@ -143,7 +143,7 @@ public class FrontController extends HttpServlet {
 		}else if(uri.equals("/petCafePrj/contestUpdate.do")) {
 			sv=new ContestUpdateService();
 			sv.execute(request, response);
-			ui="/contestdetail.do?"+request.getParameter("cont_num");
+			ui="/contestdetail.do?cont_num="+request.getParameter("cont_num");
 		}else if(uri.equals("/petCafePrj/petlostlist.do")) {
 	    	lv = new PetLostListService();
 	    	lv.excute(request, response);

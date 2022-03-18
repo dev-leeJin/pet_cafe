@@ -1,15 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<!-- °­¾ÆÁö Á¤º¸ ¼öÁ¤ÆäÀÌÁö -->
-	<form action="http://localhost:8181/petCafePrj/petUpdateCheck" method="post">
-		${petData }
+	<!-- ê°•ì•„ì§€ ì •ë³´ ìˆ˜ì •í˜ì´ì§€ -->
+	<form action="http://localhost:8181/petCafePrj/petUpdateCheck.do" method="post">
+		<input type="text" name="id" value="${session_id}" readonly>
+		<input type="text" name="kind" value="${petData.pet_kind }" required>
+		<input type="text" name="name" value="${petData.pet_name }" required>
+		<input type="text" name="age" value="${petData.pet_age }" required>
+		<input type="hidden" name="pet_num" value="${petData.pet_num }" required>
+		<input type="checkbox" name="gender">
+		<input type="submit" value="ìˆ˜ì •">
 	</form>
 </body>
 </html>

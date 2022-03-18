@@ -29,7 +29,7 @@ public class UpdateCheck extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
@@ -37,17 +37,20 @@ public class UpdateCheck extends HttpServlet {
 		String id = (String)session.getAttribute("session_id");
 		if(id==null) {
 
-			response.sendRedirect("http://localhost:8181/perCafePrj/users/login_form.jsp");
+			response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");
 
 		}
 		
+		String pw = request.getParameter("pw");
+		String name = request.getParameter("name");
+		String email = request.getParameter("email");
+		
 		UserDAO userDao = UserDAO.getInstance();
 		// VO 연결 id를 가진 유저 데이터 받아오기 
-		UserVO userData = userDao.getUserData(id);
-		userDao.userUpdate(id, userData.getPw(), userData.getName(), userData.getEmail());
+		userDao.userUpdate(id, pw, name, email);
 		
 
-		response.sendRedirect("http://localhost:8181/perCafePrj/users/login_welcome.jsp");
+		response.sendRedirect("http://localhost:8181/petCafePrj/users/login_welcome.jsp");
 
 	}
 

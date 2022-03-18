@@ -40,7 +40,7 @@ public class InsertPetLost extends HttpServlet {
 
         dao.insertPetLost(lostName, lostZone, lostSize, lostPhone);
     
-        response.sendRedirect("http://localhost:8181/petcafeprj/petlostlist");
+        response.sendRedirect("http://localhost:8181/petCafePrj/petlostlist");
 	}
 }
 

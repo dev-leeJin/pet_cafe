@@ -19,6 +19,6 @@ public class PetLostListService implements IPetLostService{
 
 		List<PetLostVO> petlostList = dao.getAllPetLostList();
 		
-		request.setAttribute("petlostList", petlostList);		
+		request.setAttribute("petlost", petlostList);		
 	}
 }

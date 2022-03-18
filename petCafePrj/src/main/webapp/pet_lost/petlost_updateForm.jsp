@@ -157,7 +157,7 @@ color:#fff;}
   
     <section class="section section1">
       <div class="board_Update">
-      <form action="http://localhost:8181/" method="post">
+      <form action="http://localhost:8181/petCafePrj/petlostlist.do" method="post">
         <input type="hidden" name="lost_num" value="${petlost.lost_num }">
         유기견 이름<input type="text" name="lost_name" value="${petlost.lost_name}"><br/>
         유기견 실종장소 <input type="text" name="lost_zone" value="${petlost.lost_zone}"><br/>

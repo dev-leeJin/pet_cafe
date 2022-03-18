@@ -32,7 +32,7 @@ public class DeletePetLost extends HttpServlet {
 
 		dao.deletePetLost(lostNum);
 
-		response.sendRedirect("http://localhost:8181/petCafePrj/petlostlist");
+		response.sendRedirect("http://localhost:8181/petCafePrj/petlostlist.do");
 	}
 
 }

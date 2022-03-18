@@ -47,7 +47,7 @@ public class UserUpdate extends HttpServlet {
 		request.setAttribute("userdata", userData);
 		
 		RequestDispatcher dp = request.getRequestDispatcher(
-				"/user/login_update.jsp");
+				"/users/login_update.jsp");
 		dp.forward(request, response);
 		
 	}

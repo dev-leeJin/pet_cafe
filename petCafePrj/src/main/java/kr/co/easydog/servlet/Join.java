@@ -30,9 +30,6 @@ public class Join extends HttpServlet {
 		// 기본적으로, SELECT구문을 제외한 쿼리문 호출은 POST방식으로만 접근할 수 있도록 한다.
 		
 		UserDAO dao = UserDAO.getInstance();
-	
-		String unum = request.getParameter("unum");
-        int uNum = Integer.parseInt(unum);
         
 	    String Id = request.getParameter("uid");
 	    String Pw = request.getParameter("upw");
@@ -40,7 +37,7 @@ public class Join extends HttpServlet {
         String Email = request.getParameter("uemail");
         String Admin = request.getParameter("uadmin");
 		
-        dao.insertUser(uNum, Id, Pw, Name, Email, Admin);
+        dao.insertUser(Id, Pw, Name, Email, Admin);
        
 	    response.sendRedirect("login_form.jsp");
 

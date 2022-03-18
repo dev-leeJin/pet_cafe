@@ -11,7 +11,7 @@ public class PetDeleteService implements IPetService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		
 		PetDAO petdao = PetDAO.getInstance();
-		petdao.deletePet((String)request.getParameter("pet_num"));
+		petdao.deletePet(Integer.parseInt(request.getParameter("pet_num")));
 		
 	}
 }

@@ -69,14 +69,14 @@ public class UserDAO {
 		return userList;
 	}
 	
-	public void deleteUser(String unum) {
+	public void deleteUser(String uId) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="delete from userinfo where user_num=?";
+			String sql="delete from userinfo where user_id=?";
 			pmt=con.prepareStatement(sql);
-			pmt.setString(1, unum);
+			pmt.setString(1, uId);
 			pmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -90,19 +90,19 @@ public class UserDAO {
 		}
 	}
 	
-	public void insertUser(int unum,String uid,String upw,String uname,String uemail,String uadmin) {
+	public void insertUser(String uid,String upw,String uname,String uemail,String uadmin) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="insert into userinfo value(?,?,?,?,?,?)";
+			String sql="insert into userinfo(user_id, pw, name, email, admin) value(?,?,?,?,?)";
 			pmt=con.prepareStatement(sql);
-			pmt.setInt(1, unum);
-			pmt.setString(2, uid);
-			pmt.setString(3, upw);
-			pmt.setString(4, uname);
-			pmt.setString(5, uemail);
-			pmt.setString(6, uadmin);
+			pmt.setString(1, uid);
+			pmt.setString(2, upw);
+			pmt.setString(3, uname);
+			pmt.setString(4, uemail);
+			pmt.setString(5, uadmin);
+			pmt.executeUpdate();
 		}catch(Exception e) {
 			e.printStackTrace();
 		}finally {
@@ -132,7 +132,7 @@ public class UserDAO {
 				String upw=rs.getString("pw");
 				String uname=rs.getString("name");
 				String uemail=rs.getString("email");
-				String uadmin=rs.getString("uadmin");
+				String uadmin=rs.getString("admin");
 				
 				user=new UserVO(unum,uId,upw,uname,uemail,uadmin);
 				

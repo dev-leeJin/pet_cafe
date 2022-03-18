@@ -11,12 +11,15 @@ public class PetUpdateService implements IPetService{
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 		PetDAO petdao = PetDAO.getInstance();
 		
-		String uid = request.getParameter("user_id");
-		String pkind = request.getParameter("pet_kind");
-		String pname = request.getParameter("pet_name");
-		int page = Integer.parseInt(request.getParameter("pet_age"));
-		Boolean pgender = Boolean.parseBoolean(request.getParameter("pet_gender"));
+		int pnum = Integer.parseInt(request.getParameter("pet_num"));
+		String pkind = request.getParameter("kind");
+		String pname = request.getParameter("name");
+		int page = Integer.parseInt(request.getParameter("age"));
+		Boolean pgender = false;
+		if (request.getParameter("gender") != null) {
+			pgender = true;
+		}
 		
-		petdao.petUpdate(uid, pkind, pname, page, pgender);
+		petdao.petUpdate(pnum, pkind, pname, page, pgender);
 	}
 }

@@ -7,7 +7,6 @@
     <%
     request.setCharacterEncoding("utf-8");
     
-    int unum = Integer.parseInt(request.getParameter("num"));
     String uid = request.getParameter("id");
     String upw = request.getParameter("pw");
     String uname = request.getParameter("name");
@@ -15,7 +14,9 @@
     String uadmin = request.getParameter("admin");
     
     UserDAO dao = UserDAO.getInstance();
-	dao.insertUser(unum, uid, upw, uname, uemail, uadmin);
+	dao.insertUser(uid, upw, uname, uemail, uadmin);
+	
+	response.sendRedirect("/petCafePrj");
     %>
 <!DOCTYPE html>
 <html>
