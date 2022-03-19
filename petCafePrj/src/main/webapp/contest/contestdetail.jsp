@@ -17,7 +17,7 @@
 펫성별:<input type="text" value="${pet.pet_gender}" readonly/><br/><br/>
 조회수:${contest.cont_hit}<br/><br/>
 투표수:${contest.cont_votes}<br/><br/>
-<c:if test="${sessionScope.session_id ne contest.user_id }">
+<c:if test="${sessionScope.session_id eq contest.user_id }">
 <form action="http://localhost:8181/petCafePrj/contestdelete.do" method="post">
 <input type="hidden" name="user_id" value="${contest.user_id }"/><br/>
 <input type="hidden" name="cont_num" value="${contest.cont_num }"/><br/>

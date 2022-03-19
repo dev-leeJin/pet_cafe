@@ -174,6 +174,20 @@ public class ContestDAO {
 		}
 	}
 	
+	public void upHit(int cnum) {
+		Connection con=null;
+		PreparedStatement psmt=null;
+		try {
+			con=ds.getConnection();
+			String sql="update pet_contest set hit=(hit+1) where cont_num=?";
+			psmt=con.prepareStatement(sql);
+			psmt.setInt(1, cnum);
+			psmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	
 	
 	
 	
