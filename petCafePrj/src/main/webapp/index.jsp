@@ -188,7 +188,7 @@ margin-top:70px;}
             </div>
 
             <div class="item item2">
-            <a href ="#"><img src="img/contest.png"></a>
+            <a href ="http://localhost:8181/petCafePrj/contestlist.do"><img src="img/contest.png"></a>
             </div>
 
             <div class="item item3">

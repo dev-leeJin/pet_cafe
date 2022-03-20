@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -435,7 +436,7 @@ padding: 10px;}
   <!-- 헤더 -->
     <header class="header">
       <div class="container">
-      <h1 class="logo"><a href ="#"><img src="img/logo.png"></a></h1>
+      <h1 class="logo"><a href ="/petCafePrj/"><img src="img/logo.png"></a></h1>
 
       <div class="login_Box">
       <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
@@ -448,9 +449,9 @@ padding: 10px;}
     </div>
 
     <ul class="menu">
-      <li class="menu-li"><a href="#">애견콘테스트</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
       <li class="menu-li"><a href="#">애견 분양</a></li>
-      <li class="menu-li"><a href="#">유기견게시판</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
       <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
     </header>

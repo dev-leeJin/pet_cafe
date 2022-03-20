@@ -1,4 +1,3 @@
-
 <%@page import="kr.co.easydog.UserDAO"%>
 <%@page import="java.sql.*"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
