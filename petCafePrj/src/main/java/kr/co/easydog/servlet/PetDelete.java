@@ -30,7 +30,7 @@ public class PetDelete extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
 		PetDAO petdao = PetDAO.getInstance();
-		petdao.deletePet((String)request.getParameter("pet_num"));
+		petdao.deletePet(Integer.parseInt(request.getParameter("pet_num")));
 		
 		response.sendRedirect("http://localhost:8181/petCafePrj/petWelcome");
 	}

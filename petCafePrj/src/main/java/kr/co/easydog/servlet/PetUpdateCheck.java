@@ -31,7 +31,7 @@ public class PetUpdateCheck extends HttpServlet {
 		
 		PetDAO petdao = PetDAO.getInstance();
 		
-		String uid = request.getParameter("user_id");
+		int uid = Integer.parseInt(request.getParameter("user_id"));
 		String pkind = request.getParameter("pet_kind");
 		String pname = request.getParameter("pet_name");
 		int page = Integer.parseInt(request.getParameter("pet_age"));

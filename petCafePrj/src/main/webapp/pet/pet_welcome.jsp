@@ -1,10 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
@@ -14,10 +14,10 @@
 			<td>${pet.pet_name }</td>
 			<td>${pet.pet_age }</td>
 			<td>${pet.pet_gender }</td>
-			<td><a href="http://localhost:8181/MyFirstWeb/petUpdate?pet_num=${pet.pet_num}"><input type="button" value="¼öÁ¤"/></a></td>
-			<td><a href="http://localhost:8181/MyFirstWeb/petDelete?pet_num=${pet.pet_num}"><input type="button" value="»èÁ¦"/></a></td>
+			<td><a href="http://localhost:8181/petCafePrj/petUpdate.do?pet_num=${pet.pet_num}"><input type="button" value="ìˆ˜ì •"/></a></td>
+			<td><a href="http://localhost:8181/petCafePrj/petDelete.do?pet_num=${pet.pet_num}"><input type="button" value="ì‚­ì œ"/></a></td>
 		</tr>
 	</c:forEach>
-	<a href="http://localhost:8181/petCafePrj/petJoin"><input type="button" value="Ãß°¡"></a>
+	<a href="http://localhost:8181/petCafePrj/petjoin.do"><input type="button" value="ì¶”ê°€"></a>
 </body>
 </html>

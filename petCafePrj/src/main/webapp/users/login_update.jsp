@@ -1,20 +1,21 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-	<h1> ${userdata.id}´ÔÀÇ Á¤º¸ ¼öÁ¤ ÆäÀÌÁö</h1>
-	<form action="http://loaclhost:8181/petCafePrj/updateCheck" method="post">
-	ºñ¹Ğ¹øÈ£ : <input type="password" name="pw" required><br/>
-	ÀÌ¸§ : <input type="text" name="name" value="${userdata.name}" required><br/>
-	ÀÌ¸ŞÀÏ : <input type="email" name="email" value="${userdata.email}"><br/>
-	<input type="submit" value="¼öÁ¤ÇÏ±â">
-	<input type="reset" value="ÃÊ±âÈ­">
+	<h1> ${userdata.user_id}ë‹˜ì˜ ì •ë³´ ìˆ˜ì • í˜ì´ì§€</h1>
+	<form action="http://localhost:8181/petCafePrj/updateCheck" method="post">
+	ë¹„ë°€ë²ˆí˜¸ : <input type="password" name="pw" required><br/>
+	ì´ë¦„ : <input type="text" name="name" value="${userdata.name}" required><br/>
+	ì´ë©”ì¼ : <input type="email" name="email" value="${userdata.email}"><br/>
+	<input type="submit" value="ìˆ˜ì •í•˜ê¸°">
+	<input type="reset" value="ì´ˆê¸°í™”">
 	</form>
 
 </body>
