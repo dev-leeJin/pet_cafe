@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -18,7 +19,7 @@
        <c:forEach var="adoptList" items="${adoptList}">
 	      <tr>
 	        <td>${adoptList.adopt_num}<td/>
-	        <td><a href="http://localhost:8181/petCafePrj/adoptInsertForm.do?adopt_num=${adoptList.adopt_num }">${adoptList.adopt_name }</a><td/>
+	        <td><a href="http://localhost:8181/petCafePrj/adoptdetail.do?adopt_num=${adoptList.adopt_num }">${adoptList.adopt_name }</a><td/>
 	      </tr>
 	    </c:forEach>
      </tbody>

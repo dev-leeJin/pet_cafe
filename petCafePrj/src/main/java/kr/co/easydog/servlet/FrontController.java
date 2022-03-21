@@ -212,7 +212,7 @@ public class FrontController extends HttpServlet {
 			av = new AdoptDeleteService();
 			av.execute(request, response);
 			ui = "/adoptlist.do";
-		} else if(uri.equals("/petCafePrj/adoptUpdateform.do")) {
+		} else if(uri.equals("/petCafePrj/adoptUpdateForm.do")) {
 			av = new AdoptUpdateFormService();
 			av.execute(request, response);
 			ui = "/adopt/adoptUpdate.jsp";

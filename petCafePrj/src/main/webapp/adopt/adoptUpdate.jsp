@@ -7,7 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<form action="http://localhost:8181/petcafeprj/updatepetlost.do" method="post">
+	<form action="http://localhost:8181/petCafePrj/adoptUpdate.do" method="post">
         <input type="hidden" name="adopt_num" value="${adopt.adopt_num }">
         품종 <input type="text" name="kind" value="${adopt.adopt_kind}"><br/>
         이름 <input type="text" name="name" value="${adopt.adopt_name}"><br/>
