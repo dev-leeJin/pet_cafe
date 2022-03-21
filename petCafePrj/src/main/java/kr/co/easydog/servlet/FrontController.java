@@ -20,6 +20,13 @@ import kr.co.easydog.servlet.service.PetUpdateService;
 import kr.co.easydog.servlet.service.PetWelcomeService;
 import kr.co.easydog.servlet.service.UserUpdateFormSerivce;
 import kr.co.easydog.servlet.service.UserUpdateService;
+import kr.co.easydog.servlet.service.AdoptDeleteService;
+import kr.co.easydog.servlet.service.AdoptDetailService;
+import kr.co.easydog.servlet.service.AdoptInsertFormService;
+import kr.co.easydog.servlet.service.AdoptInsertService;
+import kr.co.easydog.servlet.service.AdoptListService;
+import kr.co.easydog.servlet.service.AdoptUpdateFormService;
+import kr.co.easydog.servlet.service.AdoptUpdateService;
 import kr.co.easydog.service.ContestDeleteService;
 import kr.co.easydog.service.ContestDetailService;
 import kr.co.easydog.service.ContestInsertFormService;
@@ -28,6 +35,7 @@ import kr.co.easydog.service.ContestUpdateService;
 import kr.co.easydog.service.ContestInsertService;
 import kr.co.easydog.service.ContestListService;
 import kr.co.easydog.service.IContestService;
+import kr.co.easydog.servlet.service.IAdoptService;
 import kr.co.easydog.servlet.service.IPetLostService;
 import kr.co.easydog.servlet.service.PetLostDeleteService;
 import kr.co.easydog.servlet.service.PetLostDetailService;
@@ -81,6 +89,7 @@ public class FrontController extends HttpServlet {
 		IUesrService uv = null;
 		IPetService pv = null;
 		IContestService sv = null;
+		IAdoptService av = null;
 		
 		if(uri.equals("/petCafePrj/logout.do")) {
 			uv = new LogoutService();
@@ -183,8 +192,35 @@ public class FrontController extends HttpServlet {
 	    	lv = new PetLostSearchService();
 	    	lv.excute(request, response);
 	    	ui = "";	    
-	    }
-		else{
+	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
+			av = new AdoptListService();
+			av.execute(request, response);
+			ui = "/adopt/adoptList.jsp";
+		} else if(uri.equals("/petCafePrj/adoptdetail.do")) {
+			av = new AdoptDetailService();
+			av.execute(request, response);
+			ui = "/adopt/adoptDetail.jsp";
+		} else if(uri.equals("/petCafePrj/adoptInsertForm.do")) {
+			av = new AdoptInsertFormService();
+			av.execute(request, response);
+			ui = "/adopt/adoptInsert.jsp";
+		} else if(uri.equals("/petCafePrj/adoptInsert.do")){
+			av = new AdoptInsertService();
+			av.execute(request, response);
+			ui = "/adoptlist.do";
+		} else if(uri.equals("/petCafePrj/adoptdelete.do")) {
+			av = new AdoptDeleteService();
+			av.execute(request, response);
+			ui = "/adoptlist.do";
+		} else if(uri.equals("/petCafePrj/adoptUpdateForm.do")) {
+			av = new AdoptUpdateFormService();
+			av.execute(request, response);
+			ui = "/adopt/adoptUpdate.jsp";
+		} else if(uri.equals("/petCafePrj/adoptUpdate.do")) {
+			av = new AdoptUpdateService();
+			av.execute(request, response);
+			ui = "/adoptdetail.do?adopt_num="+request.getParameter("adopt_num");
+		} else{
 			ui = "/";
 		}
 		

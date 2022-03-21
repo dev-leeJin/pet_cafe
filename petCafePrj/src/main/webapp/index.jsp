@@ -1,6 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -146,23 +145,19 @@ margin-top:70px;}
       <div class="container">
       <h1 class="logo"><a href ="/petCafePrj/"><img src="img/logo.png"></a></h1>
 
-	  <c:if test="${sessionScope.session_id eq null }">
-      	<div class="login_Box">
-      	<form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-        	<input type="text" class="form-control" name="id" placeholder="아이디">
-         	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
-        	<input type="submit" class="btn btn-outline-primary" value="로그인">
-   		</form>
+      <div class="login_Box">
+      <form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+         <input type="text" class="form-control" name="id" placeholder="아이디">
+         <input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        <input type="submit" class="btn btn-outline-primary" value="로그인">
+   
+        </form>
       </div>
-      </c:if>
-      <c:if test="${sessionScope.session_id ne null }">
-      	${session_name }님 환영합니다.
-      </c:if>
     </div>
 
     <ul class="menu">
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
-      <li class="menu-li"><a href="#">애견 분양</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
       <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
