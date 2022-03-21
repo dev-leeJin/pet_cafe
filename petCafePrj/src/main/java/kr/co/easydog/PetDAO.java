@@ -37,7 +37,7 @@ private DataSource ds=null;
 		try {
 			con=ds.getConnection();
 			
-			String sql="insert into petTbl (user_id, per_kind, pet_name, pet_age, pet_gender) value(?,?,?,?,?)";
+			String sql="insert into petTbl (user_id, pet_kind, pet_name, pet_age, pet_gender) value(?,?,?,?,?)";
 			
 			pmt=con.prepareStatement(sql);
 			
@@ -46,6 +46,7 @@ private DataSource ds=null;
 			pmt.setString(3, pname);
 			pmt.setInt(4, page);
 			pmt.setBoolean(5, pgender);
+			pmt.executeUpdate();
 			
 		}catch(Exception e) {
 			e.printStackTrace();
@@ -59,7 +60,7 @@ private DataSource ds=null;
 		}
 	}
 
-	public void deletePet(String pnum) {
+	public void deletePet(int pnum) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
@@ -68,7 +69,7 @@ private DataSource ds=null;
 			
 			pmt=con.prepareStatement(sql);
 			
-			pmt.setString(1, pnum);
+			pmt.setInt(1, pnum);
 			
 			pmt.executeUpdate();
 			
@@ -168,18 +169,18 @@ private DataSource ds=null;
 		return petData;
 	}
 	
-	public void petUpdate(String uid,String pkind,String pname,int page, boolean pgender) {
+	public void petUpdate(int pet_num,String pkind,String pname,int page, boolean pgender) {
 		Connection con=null;
 		PreparedStatement pmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="update petTbl set pet_kind=?,pet_name=?,pet_age=?,pet_gender? where user_id=?";
+			String sql="update petTbl set pet_kind=?,pet_name=?,pet_age=?,pet_gender=? where pet_num=?";
 			pmt=con.prepareStatement(sql);
 			pmt.setString(1, pkind);
 			pmt.setString(2, pname);
 			pmt.setInt(3, page);
 			pmt.setBoolean(4, pgender);
-			pmt.setString(5, uid);
+			pmt.setInt(5, pet_num);
 			pmt.executeUpdate();
 			
 		}catch(Exception e) {

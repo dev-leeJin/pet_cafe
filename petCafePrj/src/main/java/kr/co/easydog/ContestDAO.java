@@ -179,7 +179,7 @@ public class ContestDAO {
 		PreparedStatement psmt=null;
 		try {
 			con=ds.getConnection();
-			String sql="update pet_contest set hit=(hit+1) where cont_num=?";
+			String sql="update pet_contest set cont_hit=(cont_hit+1) where cont_num=?";
 			psmt=con.prepareStatement(sql);
 			psmt.setInt(1, cnum);
 			psmt.executeUpdate();
