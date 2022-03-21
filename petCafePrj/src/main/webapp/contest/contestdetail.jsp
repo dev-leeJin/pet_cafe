@@ -21,12 +21,12 @@
 <form action="http://localhost:8181/petCafePrj/contestdelete.do" method="post">
 <input type="hidden" name="user_id" value="${contest.user_id }"/><br/>
 <input type="hidden" name="cont_num" value="${contest.cont_num }"/><br/>
-<input type="submit" value="삭제하기"/>
+<input type="submit" value="삭제"/>
 </form>
 <form action="http://localhost:8181/petCafePrj/contestUpdateform.do" method="post">
 <input type="hidden" name="user_id" value="${contest.user_id }"/><br/>
 <input type="hidden" name="cont_num" value="${contest.cont_num }"/><br/>
-<input type="submit" value="수정하기"/>
+<input type="submit" value="수정"/>
 </form>
 </c:if>
 <a href="http://localhost:8181/petCafePrj/contestlist.do">컨테스트 게시판으로 이동</a>
