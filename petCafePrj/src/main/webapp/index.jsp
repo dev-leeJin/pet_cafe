@@ -195,11 +195,11 @@ margin-top:70px;}
             </div>
 
             <div class="item item3">
-                <a href ="#"><img src="img/music.png"></a>
+                <a href ="https://www.youtube.com/watch?v=kqEpePJmv4I"><img src="img/music.png"></a>
             </div>
 
             <div class="item item4">
-                <a href ="#"><img src="img/tv.png"></a>
+                <a href ="https://www.youtube.com/watch?v=C8cCzRN-a2E"><img src="img/tv.png"></a>
             </div>
             </div>
 	</div>
