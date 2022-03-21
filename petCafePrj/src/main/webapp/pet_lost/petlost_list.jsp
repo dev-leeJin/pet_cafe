@@ -686,7 +686,6 @@ padding: 10px;}
 
   </section>
   
-  ${petlost }
    <table class="table table-hover">
 	 <thead>
 		  <tr>
