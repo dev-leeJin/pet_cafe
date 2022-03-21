@@ -687,20 +687,20 @@ padding: 10px;}
   </section>
   
    <table class="table table-hover">
-	 <thead>
-		  <tr>
-			  <th>글번호</th>
-			  <th>유기견 이름</th>		  
-	      </tr>
-     </thead>
-     <tbody>
-       <c:forEach var="petlost" items="${petlost }">
-	      <tr>
-	        <td>${petlost.lost_num }<td/>
-	        <td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a><td/>
-	      </tr>
-	    </c:forEach>
-     </tbody>
+		<thead>
+			<tr>
+				<th>글번호</th>
+				<th>유기견 이름</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="petlost" items="${petlost }">
+				<tr>
+					<td>${petlost.lost_num }</td>
+					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a></td>					
+				</tr>
+			</c:forEach>
+		</tbody>
 	</table>
 	<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
 	<input type="submit" value="글쓰기">
