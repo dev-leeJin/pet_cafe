@@ -702,8 +702,10 @@ padding: 10px;}
 			</c:forEach>
 		</tbody>
 	</table>
-	<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
-	<input type="submit" value="글쓰기">
+	<c:if test="${sessionScope.session_id ne null }">
+		<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
+		<input type="submit" value="글쓰기">
+	</c:if>
 	</form>
   
   
