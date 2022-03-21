@@ -8,20 +8,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.co.easydog.AdoptDAO;
-import kr.co.easydog.AdoptVO;
-import kr.co.easydog.servlet.service.IAdoptService;
+import kr.co.easydog.BoardDAO;
+import kr.co.easydog.BoardVO;
 
-public class AdoptListService implements IAdoptService{
+public class BoardListService implements IContestService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		AdoptDAO dao = AdoptDAO.getInstance();
-		List<AdoptVO> adoptList = dao.getAllAdoptList();
-		request.setAttribute("adoptList", adoptList);
+		BoardDAO dao = BoardDAO.getInstance();
+		List<BoardVO> boardList=dao.getAllBoardList();
+		request.setAttribute("boardList", boardList);
 		
 		HttpSession session = request.getSession();
 		String sId = (String)session.getAttribute("session_id");
 		request.setAttribute("sId",sId);
 	}
+
 }

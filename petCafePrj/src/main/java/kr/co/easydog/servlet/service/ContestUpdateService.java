@@ -1,4 +1,4 @@
-package kr.co.easydog.service;
+package kr.co.easydog.servlet.service;
 
 import java.io.IOException;
 
@@ -7,19 +7,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import kr.co.easydog.ContestDAO;
-import kr.co.easydog.ContestVO;
 
-public class ContestDetailService implements IContestService{
+public class ContestUpdateService implements IContestService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		ContestDAO dao = ContestDAO.getInstance();
+		request.setCharacterEncoding("utf-8");
 		String snum=request.getParameter("cont_num");
-		int cnum=Integer.parseInt(snum);
-		dao.upHit(cnum);
-		ContestVO contest = dao.getDetail(cnum);
-		request.setAttribute("contest", contest);
-		
+		int bnum = Integer.parseInt(snum);
+		String title = request.getParameter("title");
+		String content=request.getParameter("content");
+		ContestDAO dao = ContestDAO.getInstance();
+		dao.ContestUpdate(title, content, bnum);
 		
 	}
 

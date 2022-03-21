@@ -12,7 +12,7 @@
    실종 장소: <input type="text" value="${petlost.lost_zone }"><br/>
    유기견 크기: <input type="text" value="${petlost.lost_size }">
    전화번호: <input type="text" value="${petlost.lost_phone }"><br/>
-   <a href="http://localhost:8181/petCafePrj/petlostlist.do">목록으로</a>
+   <a href="http://localhost:8181/petCafePrj/petlostlist">목록으로</a>
    
    <form action="http://localhost:8181/petCafePrj/deletepetlost.do" method="post">
       <input type="hidden" value="${petlost.lost_num }" name="lost_num">

@@ -7,23 +7,22 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-import kr.co.easydog.AdoptDAO;
+import kr.co.easydog.BoardDAO;
 
-public class AdoptDeleteService implements IAdoptService{
+public class BoardDeleteService implements IContestService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
-		int anum = Integer.parseInt(request.getParameter("adopt_num"));
-		
-		String uId = request.getParameter("user_id");
-		
+		String snum= request.getParameter("board_num");
+		int bnum = Integer.parseInt(snum);
+		String writer = request.getParameter("writer");
 		HttpSession session = request.getSession();
-		String sId = (String)session.getAttribute("session_id");
-		
-		if(sId.equals(uId)) {
-			AdoptDAO adoptdao = AdoptDAO.getInstance();
-			adoptdao.deleteAdopt(anum);
+		String sid = (String)session.getAttribute("session_id");
+		if(sid.equals(writer)) {
+		BoardDAO dao = BoardDAO.getInstance();
+		dao.getBoardDelete(bnum);
 		}
+		
 	}
+
 }

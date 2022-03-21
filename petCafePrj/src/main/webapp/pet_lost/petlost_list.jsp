@@ -438,19 +438,14 @@ padding: 10px;}
       <div class="container">
       <h1 class="logo"><a href ="/petCafePrj/"><img src="img/logo.png"></a></h1>
 
-	  <c:if test="${sessionScope.session_id eq null }">
-      	<div class="login_Box">
-      	<form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-         	<input type="text" class="form-control" name="id" placeholder="아이디">
-        	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
-        	<input type="submit" class="btn btn-outline-primary" value="로그인"> 
+      <div class="login_Box">
+      <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+         <input type="text" class="form-control" name="id" placeholder="아이디">
+         <input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        <input type="submit" class="btn btn-outline-primary" value="로그인">
+   
         </form>
       </div>
-      </c:if>
-      <c:if test="${sessionScope.session_id ne null }">
-      	${session_name }님
-      </c:if>
-      
     </div>
 
     <ul class="menu">
@@ -686,26 +681,25 @@ padding: 10px;}
 
   </section>
   
+  ${petlost }
    <table class="table table-hover">
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>유기견 이름</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="petlost" items="${petlost }">
-				<tr>
-					<td>${petlost.lost_num }</td>
-					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a></td>					
-				</tr>
-			</c:forEach>
-		</tbody>
+	 <thead>
+		  <tr>
+			  <th>글번호</th>
+			  <th>유기견 이름</th>		  
+	      </tr>
+     </thead>
+     <tbody>
+       <c:forEach var="petlost" items="${petlost }">
+	      <tr>
+	        <td>${petlost.lost_num }<td/>
+	        <td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a><td/>
+	      </tr>
+	    </c:forEach>
+     </tbody>
 	</table>
-	<c:if test="${sessionScope.session_id ne null }">
-		<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
-		<input type="submit" value="글쓰기">
-	</c:if>
+	<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
+	<input type="submit" value="글쓰기">
 	</form>
   
   

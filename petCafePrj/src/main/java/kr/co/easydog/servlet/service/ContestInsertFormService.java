@@ -7,14 +7,14 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-public class AdoptInsertFormService implements IAdoptService{
+public class ContestInsertFormService implements IContestService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		
 		HttpSession session = request.getSession();
 		String sId = (String)session.getAttribute("session_id");
 		request.setAttribute("sId",sId);
 			
+		}
+		
 	}
-}
