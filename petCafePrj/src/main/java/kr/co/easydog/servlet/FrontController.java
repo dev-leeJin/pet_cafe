@@ -36,6 +36,13 @@ import kr.co.easydog.service.ContestInsertService;
 import kr.co.easydog.service.ContestListService;
 import kr.co.easydog.service.IContestService;
 import kr.co.easydog.servlet.service.IAdoptService;
+import kr.co.easydog.servlet.service.BoardDeleteService;
+import kr.co.easydog.servlet.service.BoardDetailService;
+import kr.co.easydog.servlet.service.BoardInsertFormService;
+import kr.co.easydog.servlet.service.BoardInsertService;
+import kr.co.easydog.servlet.service.BoardListService;
+import kr.co.easydog.servlet.service.BoardUpdateFormService;
+import kr.co.easydog.servlet.service.BoardUpdateService;
 import kr.co.easydog.servlet.service.IPetLostService;
 import kr.co.easydog.servlet.service.PetLostDeleteService;
 import kr.co.easydog.servlet.service.PetLostDetailService;
@@ -136,11 +143,11 @@ public class FrontController extends HttpServlet {
 		}else if(uri.equals("/petCafePrj/contestInsertForm.do")) {
 			sv=new ContestInsertFormService();
 			sv.execute(request, response);
-			ui="/contest/contestInsert.jsp";
+			ui="/contest/contestform.jsp";
 		}else if(uri.equals("/petCafePrj/contestInsert.do")){
 			sv=new ContestInsertService();
 			sv.execute(request, response);
-			ui="/petCafePrj/contestlist";
+			ui="/contestlist.do";
 		}else if(uri.equals("/petCafePrj/contestdelete.do")) {
 			sv=new ContestDeleteService();
 			sv.execute(request, response);
@@ -220,6 +227,34 @@ public class FrontController extends HttpServlet {
 			av = new AdoptUpdateService();
 			av.execute(request, response);
 			ui = "/adoptdetail.do?adopt_num="+request.getParameter("adopt_num");
+		}else if(uri.equals("/petCafePrj/boardlist.do")) {
+			sv=new BoardListService();
+			sv.execute(request, response);
+			ui="/board/boardlist.jsp";
+		}else if(uri.equals("/petCafePrj/boarddetail.do")) {
+			sv=new BoardDetailService();
+			sv.execute(request, response);
+			ui="/board/boarddetail.jsp";
+		}else if(uri.equals("/petCafePrj/boardDelete.do")){
+			sv = new BoardDeleteService();
+			sv.execute(request, response);
+			ui = "/boardlist.do";
+		}else if(uri.equals("/petCafePrj/boardUpdateForm.do")) {
+			sv=new BoardUpdateFormService();
+			sv.execute(request, response);
+			ui="/board/boardUpdateForm.jsp";
+		}else if(uri.equals("/petCafePrj/boardUpdate.do")) {
+		sv= new BoardUpdateService();
+		sv.execute(request, response);
+		ui="/boarddetail.do?board_num"+request.getParameter("board_num");
+		}else if(uri.equals("/petCafePrj/boardInsertForm.do")){
+			sv=new BoardInsertFormService();
+			sv.execute(request, response);
+			ui="/board/boardform.jsp";
+		}else if(uri.equals("/petCafePrj/boardInsert.do")) {
+			sv=new BoardInsertService();
+			sv.execute(request, response);
+			ui="/boardlist.do";
 		} else{
 			ui = "/";
 		}

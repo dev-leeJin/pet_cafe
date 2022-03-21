@@ -1,4 +1,4 @@
-package kr.co.easydog.service;
+package kr.co.easydog.servlet.service;
 
 
 import java.util.List;

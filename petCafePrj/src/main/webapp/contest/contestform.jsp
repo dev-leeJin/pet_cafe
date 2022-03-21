@@ -1,21 +1,29 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+  <c:if test="${sId eq null }">
+   <%
+   response.sendRedirect("http://localhot:8181/petCafePrj/contestlist.do");
+   %>
+   </c:if>
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 
 <!-- 부트스트랩 주소 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<!-- font -->
+   <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
-   
+
 
 <title>Pet</title>
-
 <style>
   *{
       margin: 0;
@@ -29,25 +37,25 @@
   body{background:#fffaed;}
   
   .header{
-    
+    border: 1px solid red;
     width: 1200px;
     margin: 0 auto;
    }
   
    .header .logo{
     padding: 5px;
-    }
+    border: 1px solid red;}
   
    .header .logo img{width: 100%;}
   
    .header .container{display: flex;justify-content:space-between;align-items: center;}
   
-  .header .login_Box{}
+  .header .login_Box{border: 2px solid orange;}
   
   .header .login_Box .form-group{display: flex;align-items: center;}
   
   /* 헤더 폼 */
-  .form-group .form-control{
+  .form-group .form-control{border: 1px solid red;
     width:190px;
     margin-left: 10px;;}
   .form-group .form-control::placeholder{font-size:15px;}
@@ -65,7 +73,7 @@
   
   .header .menu{display: flex;justify-content: center; align-items: center;;
   background: #f19292;}
-  .header .menu .menu-li{
+  .header .menu .menu-li{border: 1px solid red;
     margin-left: 20px;
     font-size: 18px;
     font-weight: 500;
@@ -79,7 +87,7 @@
   transition: 0.5s;}
   
   
-  .header .container{
+  .header .container{border: 1px solid red;
     display: flex;
   }
   
@@ -87,61 +95,34 @@
   
   .header .menu-li:hover a{color:#484848;}
 
+  /* 세션 */
+
+.section1{width: 100%;max-width: 1200px;
+margin: 0 auto;
+text-align: center;
+margin-top: 30px;}
+
+.section1 input[type="text"],
+.section1 textarea,
+.section1 input[type="hidden"]:focus{outline: none;}
+
+.section1 input[type="text"],
+.section1 textarea,
+.section1 input[type="hidden"],
+.section1 input[type="submit"],
+.section1 input[type="reset"]{border: 1px solid #f19292;
+border-radius: 5px;}
 
 
-    /* 세션 */
-
-  .section1 {width: 100%; max-width: 1200px; margin: 0 auto;
-  margin-top: 30px;
-  text-align: center;
-margin-bottom:50px;}
-
-.section1 > h1 {color: #333;
-padding-bottom: 30px;}
-
-.section1 input[type="button"]{border: 2px solid #f19292;
-width: 130px;
-border-radius: 5px;
-background-color: #fff;
-color: #333;
-margin-left: 10px;
-transition: 0.3s;}
-
-.section1 input[type="text"]{border: 1px solid #f19292;
-border-radius: 5px;
-padding: 3px;
-margin-bottom: 20px;}
-
-.section1 input[type="text"]:focus{outline: none;}
-
-.section1 > a {text-decoration: none;}
-.section1 > .form_box {display: flex; justify-content: center;align-items: center;}
-
-.section1 > .form_box input[type="submit"]{width: 130px;height: 30px;
-background-color: #fff;
-color: #333;
-border-radius: 5px;
-border: 1px solid #f19292;
-margin-left: 10px;
-transition: 0.3s;
-margin-top: 10px;}
-
-
-/* 버튼 hover */
-.section1 input[type="submit"]:hover{background-color: #f19292; color: #fff;}
+.section1 textarea{margin-bottom: 20px;}
 
 
 
 
-    /* 푸터 */
-.footer address{
-text-align: center;}  
 
 </style>
-
 </head>
-<section>
-
+<body>
 <!-- 헤더 -->
 <header class="header">
   <div class="container">
@@ -163,45 +144,26 @@ text-align: center;}
   <li class="menu-li"><a href="#">유기견게시판</a></li>
   <li class="menu-li"><a href="#">자유게시판</a></li>
 </ul>
-</header>
+</header> <!--헤더-->
 
+<!-- 세션1 -->
 <section class="section section1">
-  <h1>${petlost.lost_num }번글 상세페이지</h1>
-   유기견 이름: <input type="text" value="${petlost.lost_name }">
-   실종 장소: <input type="text" value="${petlost.lost_zone }"><br/>
-   유기견 크기: <input type="text" value="${petlost.lost_size }">
-   전화번호: <input type="text" value="${petlost.lost_phone }"><br/>
-   <a href="http://localhost:8181/petCafePrj/petlostlist.do">목록으로</a>
 
-   
-   <div class="form_box">
-   <form action="http://localhost:8181/petCafePrj/deletepetlost.do" method="post">
-      <input type="hidden" value="${petlost.lost_num }" name="lost_num">
-      <input type="submit" value="삭제">     
-   </form>
-   
-   <form action="http://localhost:8181/petCafePrj/updateformpetlost.do" method="post">
-      <input type="hidden" value="${petlost.lost_num }" name="lost_num">
-      <input type="submit" value="수정하기">     
-   </form>
-  </div>
-  </section>
-   <!-- 푸터 -->
-  <hr>
-  <footer class="footer">
-  <div class="contaier">
-    <address>
+<form action="/petCafePrj/contestInsert.do" method="post">
+<input type="text" name="uid" value="${sId}"readonly/> 
+<input type="text" name="title" placeholder="글제목" required/><br/><br/>
+<textarea rows="30" cols="50" name="content" placeholder="글내용" required></textarea><br/>
+펫종류:<input type="text" value="${pet.pet_kind}" readonly/><br/>
+펫이름:<input type="text" value="${pet.pet_name}" readonly/><br/>
+펫나이:<input type="text" value="${pet.pet_age}" readonly/><br/>
+펫성별:<input type="text" value="${pet.pet_gender}" readonly/><br/><br/>
+<input type="hidden" name="pnum" value="${contest.pet_num}"/>
+<input type="text" name="pvote"  placeholder="투표수" /><br/><br/>
+<input type="submit" value="글쓰기완료"/>
+<input type="reset" value="초기화"/>
+</form>
 
-           서울특별시 마포구 양화로 첨단빌딩 7층<br>
-          연락처 : 02-0202-0202<br>
-              COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+</section>
 
-  </address>
-</div>
-</footer>
 </body>
-<<<<<<< HEAD
 </html>
-=======
-</html>
->>>>>>> djdh94
