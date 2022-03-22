@@ -176,7 +176,7 @@ padding: 10px;}
   .section1 .search_Box .search_List{
   display: flex;justify-content: center;align-items: center;}
   
-  .search_Box .search_List .last{display: flex;
+  .search_Box .search_List .last{display: flex; align-items: center;
   margin-left: 20px;}
   
   .section1 .input:focus{outline: none;}
@@ -184,11 +184,13 @@ padding: 10px;}
   
   .section1 input[type=date]:focus{outline: none;}
   
-  .section1 input[type=submit]{width:100px;
+  .section1 input[type=submit]{width:100px; height:25px;
   background-color: #f19292;
   border: transparent;
   border-radius: 20px;
-  color: white;}
+  color: white;
+margin-top:13px;
+margin-left: 10px;}
   
   
   ul{padding-left: 0;}
@@ -450,9 +452,9 @@ padding: 10px;}
 
     <ul class="menu">
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
-  	  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
-  	  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
-  	  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/boardlist.do">자유게시판</a></li>
+      <li class="menu-li"><a href="#">애견 분양</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
+      <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
     </header>
 
@@ -507,14 +509,8 @@ padding: 10px;}
             </dl>
 
             <dl>
-              <dt>
-                <label for="search_Gcd">시군구</label>
-              </dt>
             <dd>
-              <select name="search_Gcd" id="search_Gcd" title="시군구선택">
-                <option>전체</option>
-              </select>
-              <input type="submit" value="조회">
+             <dt><input type="submit" value="조회"></dt>
             </dd>
           </li>
         </ul>
