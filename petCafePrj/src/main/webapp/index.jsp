@@ -179,11 +179,13 @@ margin-top:70px;}
           <li>시간</li>
         </ul>
 
+     <c:if test="${sessionScope.session_id eq null }">
         <div class="join_Box">
           <form action="http://localhost:8181/petCafePrj/users/join_form.jsp">
             <input type="submit" value="회원가입하기" class="join_Button">
           </form>
         </div>
+      </c:if>
     </div>
 
         <!-- 컨텐츠  -->
