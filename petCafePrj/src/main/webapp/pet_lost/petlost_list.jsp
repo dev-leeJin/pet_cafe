@@ -657,25 +657,25 @@ padding: 10px;}
                     </li>
         </ul>
   </div>
-                    <nav class="page_Box">
-                      <ul class="pagination">
-                        <li>
-                          <a href="#" aria-label="Previous">
-                            <span aria-hidden="true">&laquo;</span>
-                          </a>
-                        </li>
-                        <li class="active"><a href="#">1</a></li>
-                        <li><a href="#">2</a></li>
-                        <li><a href="#">3</a></li>
-                        <li><a href="#">4</a></li>
-                        <li><a href="#">5</a></li>
-                        <li>
-                          <a href="#" aria-label="Next">
-                            <span aria-hidden="true">&raquo;</span>
-                          </a>
-                        </li>
-                      </ul>
-                    </nav>
+	<nav class="page_Box">
+		<ul class="pagination">
+			<c:if test="${dto.startPage ne 1}">
+				<li class="page-item">
+	    			<a class="page-link" href="petlostlist.do?pageNum=${dto.startPage-10 }">이전</a>
+	    		</li>
+	    	</c:if>
+	    	<c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
+		    	<li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
+		    		<a class="page-link" href="petlostlist.do?pageNum=${pageIndex }">${pageIndex }</a>
+		    	</li>
+	    	</c:forEach>
+	    	<c:if test="${dto.totalPages > dto.endPage }">
+		    	<li class="page-item">
+		     		<a class="page-link" href="petlostlist.do?pageNum=${dto.endPage+1 }">다음</a>
+	    		</li>
+	    	</c:if>
+		</ul>
+	</nav>
 
 
 
@@ -701,7 +701,6 @@ padding: 10px;}
 	<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
 	<input type="submit" value="글쓰기">
 	</form>
-  
   
   
   

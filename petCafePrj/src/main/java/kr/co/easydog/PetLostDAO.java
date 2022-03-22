@@ -73,7 +73,7 @@ private DataSource ds = null;
 			con = ds.getConnection();
 			int limitNum = (pageNum - 1) * BOARD_COUNT;
 			// SELECT * FROM userinfo 실행 및 ResultSet에 저장
-			String sql = "SELECT * FROM pet_lost";
+			String sql = "SELECT * FROM pet_lost ORDER BY lost_num DESC limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, limitNum);
 			pstmt.setInt(2, BOARD_COUNT);
@@ -232,7 +232,7 @@ private DataSource ds = null;
 			
 			Connection con = null;
 			PreparedStatement pstmt = null;
-			String sql = "SELECT COUNT(*) FROM boardTbl";
+			String sql = "SELECT COUNT(*) FROM pet_lost";
 			int pageNum = 0;
 			try {
 				con = ds.getConnection();

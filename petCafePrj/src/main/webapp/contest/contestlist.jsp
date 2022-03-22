@@ -22,14 +22,14 @@
 </thead>
 <tbody>
 <c:forEach var="contest" items="${contestList }">
-<tr>
-<td>${contest.cont_num }</td>
-<td>${contest.user_id }</td>
-<td><a href="http://localhost:8181/petCafePrj/contestdetail.do?cont_num=${contest.cont_num }">${contest.cont_title }</a></td>
-<td>${contest.pet_num }</td>
-<td>${contest.cont_hit }</td>
-<td>${contest.cont_votes }</td>
-</tr>
+	<tr>
+		<td>${contest.cont_num }</td>
+		<td>${contest.user_id }</td>
+		<td><a href="http://localhost:8181/petCafePrj/contestdetail.do?cont_num=${contest.cont_num }">${contest.cont_title }</a></td>
+		<td>${contest.pet_num }</td>
+		<td>${contest.cont_hit }</td>
+		<td>${contest.cont_votes }</td>
+	</tr>
 </c:forEach>
 </tbody>
 </table>
