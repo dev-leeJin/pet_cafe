@@ -4,6 +4,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
@@ -24,8 +25,29 @@
 	    </c:forEach>
      </tbody>
 	</table>
-	<form action="http://localhost:8181/petCafePrj/adoptInsertForm.do">
-	<input type="submit" value="글쓰기">
-	</form>
+	<c:if test="${not empty sId}">
+		<a href="http://localhost:8181/petCafePrj/adoptInsertForm.do">글쓰기</a>
+	</c:if>
+	
+	<nav aria-label="Page navigatione">
+	  <ul class="pagination justify-content-center">
+		<c:if test="${dto.startPage ne 1}">
+			<li class="page-item">
+	    		<a class="page-link" href="adoptlist.do?pageNum=${dto.startPage-10 }">이전</a>
+	    	</li>
+	    </c:if>
+	    <c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
+		    <li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
+		    	<a class="page-link" href="adoptlist.do?pageNum=${pageIndex }">${pageIndex }</a>
+		    </li>
+	    </c:forEach>
+	    <c:if test="${dto.totalPages > dto.endPage }">
+		    <li class="page-item">
+		     	<a class="page-link" href="adoptlist.do?pageNum=${dto.endPage+1 }">다음</a>
+	    	</li>
+	    </c:if>
+	  </ul>
+	</nav>
+	
 </body>
 </html>
