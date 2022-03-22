@@ -688,22 +688,7 @@ padding: 10px;}
 
   </section>
   
-   <table class="table table-hover">
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>유저 아이디</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="petlost" items="${petlost }">
-				<tr>
-					<td>글번호 : ${petlost.lost_num }</td>
-					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">유저 아이디 : ${sessionScope.session_id }</a></td>					
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
+
 	<c:if test="${sessionScope.session_id ne null }">
 		<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
 		<h1><input type="submit" value="글쓰기"></h1>
