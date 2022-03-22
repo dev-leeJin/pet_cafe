@@ -25,7 +25,7 @@ public class PetLostUpdateService implements IPetLostService{
 		String lostnum = request.getParameter("lost_num");
 		int lostNum = Integer.parseInt(lostnum);
 		
-		SimpleDateFormat sdf = new SimpleDateFormat();
+		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 	    String lostdate = request.getParameter("lost_date");
 	    Date lostDate = new Date(sdf.parse(lostdate).getTime());
 	    
