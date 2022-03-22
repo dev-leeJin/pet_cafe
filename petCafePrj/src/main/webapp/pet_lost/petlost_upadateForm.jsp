@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -136,28 +137,24 @@ color:#fff;}
     <header class="header">
       <div class="container">
       <h1 class="logo"><a href ="#"><img src="img/logo.png"></a></h1>
-
-      <div class="login_Box">
-      <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-         <input type="text" class="form-control" name="id" placeholder="아이디">
-         <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-        <input type="submit" class="btn btn-outline-primary" value="로그인">
-   
-        </form>
-      </div>
-    </div>
+		<c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.jsp">마이펫페이지</a>
+      </c:if>
+     </div>
 
     <ul class="menu">
-      <li class="menu-li"><a href="#">애견콘테스트</a></li>
-      <li class="menu-li"><a href="#">애견 분양</a></li>
-      <li class="menu-li"><a href="#">유기견게시판</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
       <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
     </header>
   
     <section class="section section1">
       <div class="board_Update">
-      <form action="http://localhost:8181/petcafeprj/updatepetlost.do" method="post">
+      <form action="http://localhost:8181/petCafePrj/petCafePrj/updatepetlost.do" method="post">
         <input type="hidden" name="lost_num" value="${petlost.lost_num }">
         유기견 이름<input type="text" name="lost_name" value="${petlost.lost_name}"><br/>
         유기견 실종장소 <input type="text" name="lost_zone" value="${petlost.lost_zone}"><br/>

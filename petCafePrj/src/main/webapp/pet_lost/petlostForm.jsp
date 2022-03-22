@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html>
@@ -132,20 +133,16 @@ color:#fff;}
     <header class="header">
       <div class="container">
       <h1 class="logo"><a href ="#"><img src="logo.png"></a></h1>
-
-      <div class="login_Box">
-      <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-         <input type="text" class="form-control" name="id" placeholder="아이디">
-         <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-        <input type="submit" class="btn btn-outline-primary" value="로그인">
-   
-        </form>
-      </div>
-    </div>
+      <c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.jsp">마이펫페이지</a>
+      </c:if>
+     </div>
 
     <ul class="menu">
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
-      <li class="menu-li"><a href="#">애견 분양</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
       <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
@@ -157,6 +154,27 @@ color:#fff;}
       <input type="text" name="lost_zone" placeholder="유기견 실종장소" required><br/>
       <input type="text" name="lost_size" placeholder="유기견 크기" required><br/>
       <input type="text" name="lost_phone" placeholder="전화번호" required><br/>
+      <select name="lost_zone" id="search_Cd" title="시도선택">
+                <option>전체</option>
+                <option>서울특별시</option>
+                <option>부산광역시</option>
+                <option>대구광역시</option>
+                <option>인천광역시</option>
+                <option>광주광역시</option>
+                <option>대전광역시</option>
+                <option>울산광역시</option>
+                <option>세종특별자치시</option>
+                <option>경기도</option>
+                <option>강원도</option>
+                <option>강원도</option>
+                <option>충청북도</option>
+                <option>충청남도</option>
+                <option>전라북도</option>
+                <option>경상북도</option>
+                <option>경상남도</option>
+                <option>제주특별자치도</option>
+     </select><hr/>
+      
       <input type="submit" value="등록">
       <input type="reset" value="초기화">
    </form>
