@@ -61,20 +61,24 @@ private DataSource ds = null;
 		}
 	}
 
-	public List<PetLostVO> getAllPetLostList(){
+	public List<PetLostVO> getAllPetLostList(int pageNum){
 		// try블럭 진입 전 Connection, PreparedStatement, ResultSet 선언
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		final int BOARD_COUNT = 10;
 		// try블럭 진입 전에 ArrayList 선언
 		List<PetLostVO> petlostList = new ArrayList<>();
 		try {
 			// Connection, PreparedStatement, ResultSet을 선언합니다.
 			con = ds.getConnection();
+			int limitNum = (pageNum - 1) * BOARD_COUNT;
 			
 			// SELECT * FROM userinfo 실행 및 ResultSet에 저장
-			String sql = "SELECT * FROM pet_lost";
+			String sql = "SELECT * FROM pet_lost order by cont_num desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, limitNum);
+			pstmt.setInt(2, BOARD_COUNT);
 			
 			rs = pstmt.executeQuery();
 
@@ -231,4 +235,34 @@ private DataSource ds = null;
 			}
 			return petlostSearch;
 		}
-    }
+    
+    public int getPageNum() {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "SELECT COUNT(*) FROM pet_lost";
+		int pageNum = 0;
+		try {
+			con = ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pageNum = rs.getInt(1);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		return pageNum;
+	}
+}
