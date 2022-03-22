@@ -5,6 +5,7 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -88,8 +89,9 @@ private DataSource ds = null;
 				String lostZone = rs.getString("lost_zone");
 				int lostSize = rs.getInt("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
+				Date lostDate = rs.getDate("lost_date");
 				
-				PetLostVO petlostData = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone);
+				PetLostVO petlostData = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
 				petlostList.add(petlostData);
 			}
 		} catch(Exception e) {
@@ -181,8 +183,9 @@ private DataSource ds = null;
 				String lostZone = rs.getString("lost_zone");
 				int lostSize = rs.getInt("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
+				Date lostDate = rs.getDate("lost_date");
 				
-				petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone);
+				petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
 			}
 			
 		}catch(Exception e){
