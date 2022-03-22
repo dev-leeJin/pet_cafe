@@ -200,8 +200,5 @@ text-align: center;}
 </div>
 </footer>
 </body>
-<<<<<<< HEAD
 </html>
-=======
 </html>
->>>>>>> djdh94
