@@ -2,27 +2,27 @@ package kr.co.easydog;
 
 public class PageDTO {
 	
-	private int boardCount; // ÀüÃ¼ ±Û °³¼ö
-	private int currentPage; // ÇöÀç º¸°íÀÖ´Â ÆäÀÌÁö
-	private int totalPages; // ÀüÃ¼ÆäÀÌÁö °³¼ö
-	private int startPage; // ½ÃÀÛÆäÀÌÁö ¹øÈ£
-	private int endPage; // ³¡ ÆäÀÌÁö ¹øÈ£
-	private static final int NAV_NUM = 10; // ÆäÀÌÁö´Â 10°³¾¿ ¸µÅ©Ç¥½Ã(ÇÏ´Ü¿¡ ±ò¸± ¹öÆ°Àº 10°³¾¿)
-	private static final int BOARD_NUM = 10; // ±Ûµµ 10°³¾¿ Ç¥½Ã(DAOÀÇ limit ±¸¹®µµ ÇÔ²² ¼öÁ¤ÇØ¾ßÇÔ)
+	private int boardCount; // ì „ì²´ ê¸€ ê°œìˆ˜
+	private int currentPage; // í˜„ì¬ ë³´ê³ ìˆëŠ” í˜ì´ì§€
+	private int totalPages; // ì „ì²´í˜ì´ì§€ ê°œìˆ˜
+	private int startPage; // ì‹œì‘í˜ì´ì§€ ë²ˆí˜¸
+	private int endPage; // ë í˜ì´ì§€ ë²ˆí˜¸
+	private static final int NAV_NUM = 10; // í˜ì´ì§€ëŠ” 10ê°œì”© ë§í¬í‘œì‹œ(í•˜ë‹¨ì— ê¹”ë¦´ ë²„íŠ¼ì€ 10ê°œì”©)
+	private static final int BOARD_NUM = 10; // ê¸€ë„ 10ê°œì”© í‘œì‹œ(DAOì˜ limit êµ¬ë¬¸ë„ í•¨ê»˜ ìˆ˜ì •í•´ì•¼í•¨)
 	
-	// »ı¼ºÀÚ »ı¼º½Ã ¸ğµç Á¤º¸¸¦ ÀÚµ¿À¸·Î ±¸ÇÏµµ·Ï Ã³¸®
+	// ìƒì„±ì ìƒì„±ì‹œ ëª¨ë“  ì •ë³´ë¥¼ ìë™ìœ¼ë¡œ êµ¬í•˜ë„ë¡ ì²˜ë¦¬
 	public PageDTO(int boardCount, int currentPage) {
-		// ÃÑ ±Û °¹¼ö¿Í, ÇöÀç Á¶È¸ÁßÀÎ ÆäÀÌÁö Á¤º¸¸¦ ÀÔ·Â¹Ş¾Æ ¾Æ·¡¿¡ ±ò¸± ¹öÆ°ÀÇ °³¼ö, ÇöÀç ±ò·Á¾ßÇÏ´Â ¹øÈ£´ë¸¦ ±¸ÇÕ´Ï´Ù.
+		// ì´ ê¸€ ê°¯ìˆ˜ì™€, í˜„ì¬ ì¡°íšŒì¤‘ì¸ í˜ì´ì§€ ì •ë³´ë¥¼ ì…ë ¥ë°›ì•„ ì•„ë˜ì— ê¹”ë¦´ ë²„íŠ¼ì˜ ê°œìˆ˜, í˜„ì¬ ê¹”ë ¤ì•¼í•˜ëŠ” ë²ˆí˜¸ëŒ€ë¥¼ êµ¬í•©ë‹ˆë‹¤.
 		this.boardCount = boardCount;
 		this.currentPage = currentPage;
 		
-		// ±ÛÀÌ ¾ø´Ù¸é
+		// ê¸€ì´ ì—†ë‹¤ë©´
 		if(boardCount == 0) {
 			this.totalPages = 0;
 			this.startPage = 0;
 			this.endPage = 0;
 		} else {
-			// °Ô½Ã±Û °³¼ö¸¦ ÀÌ¿ëÇØ ÀüÃ¼ ÆäÀÌÁö °³¼ö¸¦ ±¸ÇÏ±â
+			// ê²Œì‹œê¸€ ê°œìˆ˜ë¥¼ ì´ìš©í•´ ì „ì²´ í˜ì´ì§€ ê°œìˆ˜ë¥¼ êµ¬í•˜ê¸°
 			if(boardCount % BOARD_NUM == 0) {
 				totalPages = boardCount / BOARD_NUM;
 			} else {
@@ -30,7 +30,7 @@ public class PageDTO {
 			}
 		}
 		
-		// ÇØ´ç ÆäÀÌÁöÀÇ ½ÃÀÛ ÆäÀÌÁö ±¸ÇÏ±â(startPage ±¸ÇÏ±â)
+		// í•´ë‹¹ í˜ì´ì§€ì˜ ì‹œì‘ í˜ì´ì§€ êµ¬í•˜ê¸°(startPage êµ¬í•˜ê¸°)
 		startPage = ((currentPage - 1) / NAV_NUM) * NAV_NUM + 1;
 		
 		endPage = Math.min(startPage + (NAV_NUM -1), totalPages);
@@ -42,26 +42,26 @@ public class PageDTO {
 		return boardCount;
 	}
 	
-	// ¹Ø¿¡ ¹öÆ° ±òÁö ¸»Áö °áÁ¤ bool ÀÚ·áÇü
+	// ë°‘ì— ë²„íŠ¼ ê¹”ì§€ ë§ì§€ ê²°ì • bool ìë£Œí˜•
 	public boolean hasNoBoard() {
-		return boardCount == 0; // Ç¥½ÃÇÒ °Ô½Ã¹°ÀÌ ¾øÀ¸¸é ¹öÆ°µµ ±ò ÇÊ¿ä ¾øÀ½
+		return boardCount == 0; // í‘œì‹œí•  ê²Œì‹œë¬¼ì´ ì—†ìœ¼ë©´ ë²„íŠ¼ë„ ê¹” í•„ìš” ì—†ìŒ
 	}
 	
 	public boolean hasBoard() {
-		return boardCount > 0; // Ç¥½ÃÇÒ °Ô½Ã¹°ÀÌ ÀÖ´Ù¸é ¹öÆ°À» ±ò¾ÆÁà¾ßÇÔ
+		return boardCount > 0; // í‘œì‹œí•  ê²Œì‹œë¬¼ì´ ìˆë‹¤ë©´ ë²„íŠ¼ì„ ê¹”ì•„ì¤˜ì•¼í•¨
 	}
 	
-	// ÆäÀÌÁöÀÇ ÃÑ °³¼ö¸¦ ¾Ë·ÁÁÖ´Â getter
+	// í˜ì´ì§€ì˜ ì´ ê°œìˆ˜ë¥¼ ì•Œë ¤ì£¼ëŠ” getter
 	public int getTotalPages() {
 		return totalPages;
 	}
 	
-	// ÇØ´ç ÆäÀÌÁö ±×·ìÀÇ ½ÃÀÛÆäÀÌÁö
+	// í•´ë‹¹ í˜ì´ì§€ ê·¸ë£¹ì˜ ì‹œì‘í˜ì´ì§€
 	public int getStartPage() {
 		return startPage;
 	}
 	
-	// ÇØ´ç ÆäÀÌÁö ±×·ìÀÇ ³¡ÆäÀÌÁö
+	// í•´ë‹¹ í˜ì´ì§€ ê·¸ë£¹ì˜ ëí˜ì´ì§€
 	public int getEndPage() {
 		return endPage;
 	}
@@ -70,7 +70,7 @@ public class PageDTO {
 		return currentPage;
 	}
 	
-	// µğ¹ö±ëÀ» À§ÇÑ toString
+	// ë””ë²„ê¹…ì„ ìœ„í•œ toString
 	@Override
 	public String toString() {
 		return "BoardDTO [boardCount=" + boardCount + ", currentPage=" + currentPage + ", totalPages=" + totalPages

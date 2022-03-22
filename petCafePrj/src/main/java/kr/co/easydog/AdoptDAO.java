@@ -209,7 +209,7 @@ private DataSource ds = null;
 		
 		Connection con = null;
 		PreparedStatement pstmt = null;
-		String sql = "SELECT COUNT(*) FROM boardTbl";
+		String sql = "SELECT COUNT(*) FROM adoptTbl";
 		int pageNum = 0;
 		try {
 			con = ds.getConnection();
