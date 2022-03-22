@@ -132,7 +132,7 @@ color:#fff;}
   <!-- 헤더 -->
     <header class="header">
       <div class="container">
-      <h1 class="logo"><a href ="#"><img src="logo.png"></a></h1>
+      <h1 class="logo"><a href ="/petCafePrj/"><img src="logo.png"></a></h1>
       <c:if test="${sessionScope.session_id ne null }">
       	${session_name }님
       	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
