@@ -151,7 +151,7 @@ color:#fff;}
     <section class="section section1">
    <form action="http://localhost:8181/petCafePrj/insertpetlost.do" method="post">
       <input type="text" name="lost_name" placeholder="유기견 이름" required><br/>  
-      <input type="text" name="lost_size" placeholder="유기견 크기" required><br/>
+      <input type="text" name="lost_size" placeholder="유기견 크기(소/중/대)" required><br/>
       <input type="text" name="lost_phone" placeholder="전화번호" required><br/>
       실종날짜 - <input type="date" name="lost_date" required><br/>
       <select name="lost_zone" required>
