@@ -155,8 +155,8 @@ margin-top:70px;}
       </c:if>
       <c:if test="${sessionScope.session_id ne null }">
       	${session_name }님 환영합니다.
-      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
-        <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.jsp">마이펫페이지</a>
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.do">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.do">마이펫페이지</a>
       </c:if>
     </div>
 

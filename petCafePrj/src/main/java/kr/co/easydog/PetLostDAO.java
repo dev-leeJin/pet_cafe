@@ -75,7 +75,7 @@ private DataSource ds = null;
 			int limitNum = (pageNum - 1) * BOARD_COUNT;
 			
 			// SELECT * FROM userinfo 실행 및 ResultSet에 저장
-			String sql = "SELECT * FROM pet_lost order by cont_num desc limit ?,?";
+			String sql = "SELECT * FROM pet_lost order by lost_num desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, limitNum);
 			pstmt.setInt(2, BOARD_COUNT);
