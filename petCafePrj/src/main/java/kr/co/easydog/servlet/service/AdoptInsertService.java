@@ -19,15 +19,19 @@ public class AdoptInsertService implements IAdoptService{
 		
 		HttpSession session = request.getSession();
 		String id = (String)session.getAttribute("session_id");
+
 		String uId = request.getParameter("user_id");
+
 		String kind = request.getParameter("kind"); 
 		String name = request.getParameter("name"); 
 		int age = Integer.parseInt(request.getParameter("age")); 
 		Boolean gender = Boolean.parseBoolean(request.getParameter("gender")); 
 		String price = request.getParameter("price"); 
 		String phone = request.getParameter("phone"); 
+
 		if(id.equals(uId)) {
 			adoptdao.insertAdopt(id, kind, name, age, gender, price, phone);
 		}
+
 	}
 }

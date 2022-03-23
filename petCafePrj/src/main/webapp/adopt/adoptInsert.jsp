@@ -6,7 +6,6 @@
    response.sendRedirect("http://localhot:8181/petCafePrj/contestlist.do");
    %>
    </c:if>
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -148,7 +147,6 @@ border-radius: 5px;}
 
 <!-- 세션1 -->
 <section class="section section1">
-
 <form action="http://localhost:8181/petCafePrj/adoptInsert.do" method="post">
       <input type="text" name="kind" placeholder="품종" required><br/>
       <input type="text" name="name" placeholder="이름" required><br/>

@@ -22,6 +22,7 @@
 </thead>
 <tbody>
 <c:forEach var="contest" items="${contestList }">
+
 	<tr>
 		<td>${contest.cont_num }</td>
 		<td>${contest.user_id }</td>

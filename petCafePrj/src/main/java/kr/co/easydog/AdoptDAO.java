@@ -33,6 +33,7 @@ private DataSource ds = null;
 		return dao;
 	}
 	
+<<<<<<< HEAD
 	public List<AdoptVO> getAllAdoptList(int pageNum){
 		Connection con = null;
 		PreparedStatement psmt = null;
@@ -49,7 +50,7 @@ private DataSource ds = null;
 			
 			psmt.setInt(1, limitNum);
 			psmt.setInt(2, BOARD_COUNT);
-			
+
 			rs=psmt.executeQuery();
 			while(rs.next()) {
 				int anum = rs.getInt("adopt_num");
@@ -205,6 +206,7 @@ private DataSource ds = null;
 		}
 	}
 	
+
 	public int getPageNum() {
 		
 		Connection con = null;
@@ -235,4 +237,5 @@ private DataSource ds = null;
 		return pageNum;
 	}
 	
+
 }

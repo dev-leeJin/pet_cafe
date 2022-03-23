@@ -125,6 +125,7 @@ margin-left:10px;}
  <!-- 헤더 -->
  <header class="header">
   <div class="container">
+
   <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
   <div class="login_Box">

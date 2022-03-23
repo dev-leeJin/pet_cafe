@@ -11,6 +11,7 @@ import javax.servlet.http.HttpSession;
 import kr.co.easydog.AdoptDAO;
 import kr.co.easydog.AdoptVO;
 import kr.co.easydog.PageDTO;
+import kr.co.easydog.servlet.service.IAdoptService;
 
 public class AdoptListService implements IAdoptService{
 
@@ -37,7 +38,7 @@ public class AdoptListService implements IAdoptService{
 		PageDTO dto = new PageDTO(boardCount, pageNum);
 		System.out.println(boardCount);
 		request.setAttribute("dto", dto);
-		
+
 		HttpSession session = request.getSession();
 		String sId = (String)session.getAttribute("session_id");
 		request.setAttribute("sId",sId);
