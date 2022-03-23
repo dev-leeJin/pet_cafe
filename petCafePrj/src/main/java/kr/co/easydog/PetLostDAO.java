@@ -33,19 +33,20 @@ private DataSource ds = null;
 		return dao;
 	}
 
-	public void insertPetLost(String lostName, String lostZone, int lostSize, int lostPhone) {
+	public void insertPetLost(String lostName, String lostZone, int lostSize, int lostPhone, int lostDate) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = ds.getConnection();
 
-			String sql = "INSERT INTO pet_lost(lost_name, lost_zone, lost_size, lost_phone) VALUES(?, ?, ?, ?)";
+			String sql = "INSERT INTO pet_lost(lost_name, lost_zone, lost_size, lost_phone, lost_date) VALUES(?, ?, ?, ?, ?)";
 			pstmt = con.prepareStatement(sql);
 
 			pstmt.setString(1, lostName);
 			pstmt.setString(2, lostZone);
 			pstmt.setInt(3, lostSize);
 			pstmt.setInt(4, lostPhone);
+			pstmt.setInt(5, lostDate);
 
 			pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -86,8 +87,9 @@ private DataSource ds = null;
 				String lostZone = rs.getString("lost_zone");
 				int lostSize = rs.getInt("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
+				int lostDate = rs.getInt("lost_date");
 				
-				PetLostVO petlostData = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone);
+				PetLostVO petlostData = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
 				petlostList.add(petlostData);
 			}
 		} catch(Exception e) {
@@ -129,19 +131,20 @@ private DataSource ds = null;
 		}
 	}
 
-	public void updatePetLost(String lostName, String lostZone, int lostSize, int lostPhone, int lostNum) {
+	public void updatePetLost(String lostName, String lostZone, int lostSize, int lostPhone, int lostDate, int lostNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
 			con = ds.getConnection();	
 			    
-			 String sql = "UPDATE pet_lost SET lostName=?, lostZone=?, lostSize=?, lostPhone=? mdate=now() WHERE lost_num=?";
+			 String sql = "UPDATE pet_lost SET lostName=?, lostZone=?, lostSize=?, lostPhone=?, lostDate=?, mdate=now() WHERE lost_num=?";
 			 pstmt = con.prepareStatement(sql);
 			 pstmt.setString(1, lostName);
 			 pstmt.setString(2, lostZone);
 			 pstmt.setInt(3, lostSize);
 			 pstmt.setInt(4, lostPhone);
-			 pstmt.setInt(5, lostNum);
+			 pstmt.setInt(5, lostDate);
+			 pstmt.setInt(6, lostNum);
 			 
 			 pstmt.executeUpdate();
 			 
@@ -179,8 +182,9 @@ private DataSource ds = null;
 				String lostZone = rs.getString("lost_zone");
 				int lostSize = rs.getInt("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
+				int lostDate = rs.getInt("lost_date");
 				
-				petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone);
+				petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
 			}
 			
 		}catch(Exception e){
@@ -197,19 +201,20 @@ private DataSource ds = null;
 		return petlost;
     }
 
-    public void searchPetLost(Date sDate, Date fDate, String sd, String sgg) {
+    public List<PetLostVO> searchPetLost(Date sDate, Date fDate, String sD) {
     	Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		List<PetLostVO> petlostSearch = new ArrayList<>();
 			try {
 				con = ds.getConnection();	
 				    
-				 String sql = "SELECT * FROM pettbl WHERE (날짜컬럼 BETWEEN ? AND ?) AND (시도컬럼 = ?) AND (시군구컬럼 = ?)";
+				 String sql = "SELECT * FROM pet_lost WHERE (lost_date BETWEEN ? AND ?) AND (lost_zone = ?)";
 				 pstmt = con.prepareStatement(sql);
 				 pstmt.setDate(1, sDate);
 				 pstmt.setDate(2, fDate);
-				 pstmt.setString(3, sd);
-				 pstmt.setString(4, sgg);
+				 pstmt.setString(3, sD);
+				 
 								 
 				 pstmt.executeQuery();
 				 
@@ -219,10 +224,11 @@ private DataSource ds = null;
 				try {
 					con.close();
 				    pstmt.close();
-				    
-					}catch(Exception e) {
-						e.printStackTrace();
+				    rs.close();			    
+					}catch(SQLException se) {
+						se.printStackTrace();
 				}
 			}
+			return petlostSearch;
 		}
     }

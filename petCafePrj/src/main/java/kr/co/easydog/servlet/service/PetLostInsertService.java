@@ -1,6 +1,8 @@
 package kr.co.easydog.servlet.service;
 
 import java.io.IOException;
+import java.sql.Date;
+import java.time.LocalDate;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -21,7 +23,9 @@ public class PetLostInsertService implements IPetLostService{
 	    int lostSize = Integer.parseInt(lostsize);
 	    String lostphone = request.getParameter("lost_phone");
 	    int lostPhone = Integer.parseInt(lostphone);
+	    String lostdate = request.getParameter("lost_date");
+	    int lostDate = Integer.parseInt(lostdate);
 
-        dao.insertPetLost(lostName, lostZone, lostSize, lostPhone);	
+        dao.insertPetLost(lostName, lostZone, lostSize, lostPhone, lostDate);	
 	}
 }

@@ -1,4 +1,3 @@
-
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -158,15 +157,12 @@ margin-top:70px;}
       </div>
 
     <ul class="menu">
-<<<<<<< HEAD
       <li class="menu-li"><a href="#">애견콘테스트</a></li>
       <li class="menu-li"><a href="#">애견 분양</a></li>
       <li class="menu-li"><a href="#">유기견게시판</a></li>
-=======
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
       <li class="menu-li"><a href="#">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
->>>>>>> eyonghwan
       <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
     </header>

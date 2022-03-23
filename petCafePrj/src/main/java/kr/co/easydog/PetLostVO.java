@@ -1,5 +1,9 @@
 package kr.co.easydog;
 
+import java.sql.Date;
+
+import javax.xml.crypto.Data;
+
 public class PetLostVO {
 
 	private int lost_num;
@@ -8,11 +12,12 @@ public class PetLostVO {
 	private String lost_zone;
 	private int lost_size;
 	private int lost_phone;
+	private int lost_date;
 	
 	
 	
 	public PetLostVO(int lost_num, String lost_name, String user_id, String lost_zone, int lost_size,
-			int lost_phone) {
+			int lost_phone, int lost_date) {
 		super();
 		this.lost_num = lost_num;
 		this.lost_name = lost_name;
@@ -20,8 +25,8 @@ public class PetLostVO {
 		this.lost_zone = lost_zone;
 		this.lost_size = lost_size;
 		this.lost_phone = lost_phone;
+		this.lost_date = lost_date;
 	}
-
 
 
 	public int getLost_num() {
@@ -95,12 +100,23 @@ public class PetLostVO {
 	}
 
 
+	public int getLost_date() {
+		return lost_date;
+	}
+
+
+
+	public void setLost_date(int lost_date) {
+		this.lost_date = lost_date;
+	}
+
+
 
 	@Override
 	public String toString() {
 		return "PetLostVO [lost_num=" + lost_num + ", lost_name=" + lost_name + ", user_id=" + user_id + ", lost_zone="
-				+ lost_zone + ", lost_size=" + lost_size + ", lost_phone=" + lost_phone + "]";
+				+ lost_zone + ", lost_size=" + lost_size + ", lost_phone=" + lost_phone + ", lost_date=" + lost_date
+				+ "]";
 	}
-	
-	
+
 }

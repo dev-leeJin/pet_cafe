@@ -188,7 +188,18 @@ public class ContestDAO {
 		}
 	}
 	
-	
-	
+	public void votes(int cnum) {
+		Connection con=null;
+		PreparedStatement psmt=null;
+		try {
+			con=ds.getConnection();
+			String sql="update pet_contest set cont_votes=(cont_votes+1) where cont_num=?";
+			psmt=con.prepareStatement(sql);
+			psmt.setInt(1, cnum);
+			psmt.executeUpdate();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
 	
 }

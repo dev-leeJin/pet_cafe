@@ -438,19 +438,26 @@ padding: 10px;}
       <div class="container">
       <h1 class="logo"><a href ="/petCafePrj/"><img src="img/logo.png"></a></h1>
 
-      <div class="login_Box">
-      <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-         <input type="text" class="form-control" name="id" placeholder="아이디">
-         <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-        <input type="submit" class="btn btn-outline-primary" value="로그인">
-   
+	  <c:if test="${sessionScope.session_id eq null }">
+      	<div class="login_Box">
+      	<form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+         	<input type="text" class="form-control" name="id" placeholder="아이디">
+        	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        	<input type="submit" class="btn btn-outline-primary" value="로그인"> 
         </form>
       </div>
+      </c:if>
+      <c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.jsp">마이펫페이지</a>
+      </c:if>
+      
     </div>
 
     <ul class="menu">
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
-      <li class="menu-li"><a href="#">애견 분양</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
       <li class="menu-li"><a href="#">자유게시판</a></li>
     </ul>
@@ -461,7 +468,7 @@ padding: 10px;}
     <hr>
 
     <div class="container">
-      <form class="search_Box">
+      <form class="search_Box" ac>
         <ul class="search_List">
           <li class="first">
 
@@ -681,25 +688,26 @@ padding: 10px;}
 
   </section>
   
-  ${petlost }
    <table class="table table-hover">
-	 <thead>
-		  <tr>
-			  <th>글번호</th>
-			  <th>유기견 이름</th>		  
-	      </tr>
-     </thead>
-     <tbody>
-       <c:forEach var="petlost" items="${petlost }">
-	      <tr>
-	        <td>${petlost.lost_num }<td/>
-	        <td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a><td/>
-	      </tr>
-	    </c:forEach>
-     </tbody>
+		<thead>
+			<tr>
+				<th>글번호</th>
+				<th>유저 아이디</th>
+			</tr>
+		</thead>
+		<tbody>
+			<c:forEach var="petlost" items="${petlost }">
+				<tr>
+					<td>글번호 : ${petlost.lost_num }</td>
+					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">유저 아이디 : ${sessionScope.session_id }</a></td>					
+				</tr>
+			</c:forEach>
+		</tbody>
 	</table>
-	<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
-	<input type="submit" value="글쓰기">
+	<c:if test="${sessionScope.session_id ne null }">
+		<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
+		<h1><input type="submit" value="글쓰기"></h1>
+	</c:if>
 	</form>
   
   
@@ -727,7 +735,7 @@ padding: 10px;}
 
 <script>
   // 자세히보기 클릭했을때
-  //아이템1 ~4번 순
+  // 아이템1 ~4번 순
   $(".section1 .item1 .more_Btn").click(function(){
     $(".popup_box").stop().show();
     $(".box1").stop().show()
