@@ -10,13 +10,13 @@ public class PetLostVO {
 	private String lost_name;
 	private String user_id;
 	private String lost_zone;
-	private int lost_size;
+	private String lost_size;
 	private int lost_phone;
 	private Date lost_date;
 	
 	
 	
-	public PetLostVO(int lost_num, String lost_name, String user_id, String lost_zone, int lost_size,
+	public PetLostVO(int lost_num, String lost_name, String user_id, String lost_zone, String lost_size,
 			int lost_phone, Date lost_date) {
 		super();
 		this.lost_num = lost_num;
@@ -77,13 +77,13 @@ public class PetLostVO {
 
 
 
-	public int getLost_size() {
+	public String getLost_size() {
 		return lost_size;
 	}
 
 
 
-	public void setLost_size(int lost_size) {
+	public void setLost_size(String lost_size) {
 		this.lost_size = lost_size;
 	}
 

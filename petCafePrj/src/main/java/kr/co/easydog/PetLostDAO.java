@@ -33,7 +33,7 @@ private DataSource ds = null;
 		return dao;
 	}
 
-	public void insertPetLost(String lostName, String lostZone, int lostSize, int lostPhone, Date lostDate) {
+	public void insertPetLost(String lostName, String lostZone, String lostSize, int lostPhone, Date lostDate) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -44,7 +44,7 @@ private DataSource ds = null;
 
 			pstmt.setString(1, lostName);
 			pstmt.setString(2, lostZone);
-			pstmt.setInt(3, lostSize);
+			pstmt.setString(3, lostSize);
 			pstmt.setInt(4, lostPhone);
 			pstmt.setDate(5, lostDate);
 
@@ -89,7 +89,7 @@ private DataSource ds = null;
 				String lostName = rs.getString("lost_name");
 				String uId = rs.getString("user_id");
 				String lostZone = rs.getString("lost_zone");
-				int lostSize = rs.getInt("lost_size");
+				String lostSize = rs.getString("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
 				Date lostDate = rs.getDate("lost_date");
 				
@@ -135,7 +135,7 @@ private DataSource ds = null;
 		}
 	}
 
-	public void updatePetLost(String lostName, String lostZone, int lostSize, int lostPhone, Date lostDate, int lostNum) {
+	public void updatePetLost(String lostName, String lostZone, String lostSize, int lostPhone, Date lostDate, int lostNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -145,7 +145,7 @@ private DataSource ds = null;
 			 pstmt = con.prepareStatement(sql);
 			 pstmt.setString(1, lostName);
 			 pstmt.setString(2, lostZone);
-			 pstmt.setInt(3, lostSize);
+			 pstmt.setString(3, lostSize);
 			 pstmt.setInt(4, lostPhone);
 			 pstmt.setDate(5, lostDate);
 			 pstmt.setInt(6, lostNum);
@@ -184,7 +184,7 @@ private DataSource ds = null;
 				String lostName = rs.getString("lost_name");
 				String uId = rs.getString("user_id");
 				String lostZone = rs.getString("lost_zone");
-				int lostSize = rs.getInt("lost_size");
+				String lostSize = rs.getString("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
 				Date lostDate = rs.getDate("lost_date");
 				
@@ -205,7 +205,7 @@ private DataSource ds = null;
 		return petlost;
     }
 
-    public List<PetLostVO> searchPetLost(Date sDate, Date fDate, String sD) {
+	public List<PetLostVO> searchPetLost(Date sDate, Date fDate, String sD) {
     	Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -228,7 +228,7 @@ private DataSource ds = null;
 				try {
 					con.close();
 				    pstmt.close();
-				    rs.close();			    
+				    rs.close();
 					}catch(SQLException se) {
 						se.printStackTrace();
 				}
