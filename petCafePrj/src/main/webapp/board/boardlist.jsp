@@ -33,7 +33,27 @@
 			
 		</c:forEach>
 	</table>
-	${dto }
+	
+	<nav aria-label="Page navigatione">
+	  <ul class="pagination justify-content-center">
+		<c:if test="${dto.startPage ne 1}">
+			<li class="page-item">
+	    		<a class="page-link" href="boardlist.do?pageNum=${dto.startPage-10 }">이전</a>
+	    	</li>
+	    </c:if>
+	    <c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
+		    <li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
+		    	<a class="page-link" href="boardlist.do?pageNum=${pageIndex }">${pageIndex }</a>
+		    </li>
+	    </c:forEach>
+	    <c:if test="${dto.totalPages > dto.endPage }">
+		    <li class="page-item">
+		     	<a class="page-link" href="boardlist.do?pageNum=${dto.endPage+1 }">다음</a>
+	    	</li>
+	    </c:if>
+	  </ul>
+	</nav>
+	
 	<c:if test="${sessionScope.session_id ne null }">
 <a href="http://localhost:8181/petCafePrj/boardInsertForm.do"><button>글쓰기</button></a>
 </c:if>

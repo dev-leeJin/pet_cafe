@@ -31,15 +31,20 @@ public class BoardDAO {
 		return dao;
 	}
 	
-	public List<BoardVO> getAllBoardList(){
+	public List<BoardVO> getAllBoardList(int pageNum){
 		Connection con = null;
 		PreparedStatement pmt = null;
 		ResultSet  rs = null;
+		final int BOARD_COUNT = 10;
 		List<BoardVO> boardList = new ArrayList<>();
 	try {
 		con=ds.getConnection();
-		String sql="select*from boardinfo order by board_num desc";
+		int limitNum = (pageNum - 1) * BOARD_COUNT;
+		String sql="select*from boardinfo order by board_num desc limit ?,?";
 		pmt = con.prepareStatement(sql);
+		pmt.setInt(1, limitNum);
+		pmt.setInt(2, BOARD_COUNT);
+		
 		rs = pmt.executeQuery();
 		while(rs.next()) {
 		int boardNum=rs.getInt("board_num");
@@ -184,5 +189,34 @@ public class BoardDAO {
 		}catch(Exception e) {
 			e.printStackTrace();
 		}
+	}
+	public int getPageNum() {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "SELECT COUNT(*) FROM boardinfo";
+		int pageNum = 0;
+		try {
+			con = ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pageNum = rs.getInt(1);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		return pageNum;
 	}
 }
