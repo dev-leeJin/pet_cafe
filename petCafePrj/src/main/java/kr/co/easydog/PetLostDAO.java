@@ -102,7 +102,7 @@ private DataSource ds = null;
 			try {
 				con.close();
 				pstmt.close();
-				rs.close();
+				
 			} catch(SQLException se) {
 				se.printStackTrace();
 			}
