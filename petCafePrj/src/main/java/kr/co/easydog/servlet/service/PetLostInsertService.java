@@ -20,8 +20,7 @@ public class PetLostInsertService implements IPetLostService{
 		
         String lostName = request.getParameter("lost_name");
         String lostZone = request.getParameter("lost_zone");
-        String lostsize = request.getParameter("lost_size");
-	    int lostSize = Integer.parseInt(lostsize);
+        String lostSize = request.getParameter("lost_size");
 	    String lostphone = request.getParameter("lost_phone");
 	    int lostPhone = Integer.parseInt(lostphone);
 	    
