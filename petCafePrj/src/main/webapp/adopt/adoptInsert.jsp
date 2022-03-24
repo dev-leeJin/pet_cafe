@@ -1,4 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
+ <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
   <c:if test="${sId eq null }">
@@ -36,25 +36,25 @@
   body{background:#fffaed;}
   
   .header{
-    border: 1px solid red;
+   
     width: 1200px;
     margin: 0 auto;
    }
   
    .header .logo{
     padding: 5px;
-    border: 1px solid red;}
+   }
   
    .header .logo img{width: 100%;}
   
    .header .container{display: flex;justify-content:space-between;align-items: center;}
   
-  .header .login_Box{border: 2px solid orange;}
+  .header .login_Box{}
   
   .header .login_Box .form-group{display: flex;align-items: center;}
   
   /* 헤더 폼 */
-  .form-group .form-control{border: 1px solid red;
+  .form-group .form-control{
     width:190px;
     margin-left: 10px;;}
   .form-group .form-control::placeholder{font-size:15px;}
@@ -72,7 +72,7 @@
   
   .header .menu{display: flex;justify-content: center; align-items: center;;
   background: #f19292;}
-  .header .menu .menu-li{border: 1px solid red;
+  .header .menu .menu-li{
     margin-left: 20px;
     font-size: 18px;
     font-weight: 500;
@@ -86,7 +86,7 @@
   transition: 0.5s;}
   
   
-  .header .container{border: 1px solid red;
+  .header .container{
     display: flex;
   }
   
@@ -110,13 +110,25 @@ margin-top: 30px;}
 .section1 input[type="hidden"],
 .section1 input[type="submit"],
 .section1 input[type="reset"]{border: 1px solid #f19292;
-border-radius: 5px;}
+border-radius: 5px;
+margin-bottom: 10px;
+padding: 5px;
+color: #333;}
 
 
 .section1 textarea{margin-bottom: 20px;}
 
+.section1 input[type="submit"],
+.section1 input[type="reset"]{width:160px;
+background-color:#fff;
+transition: 0.3s;}
 
+.section1 input[type="submit"]:hover{background-color: #f19292; color: #fff;}
+.section1 input[type="reset"]:hover{background-color: #f19292; color: #fff;}
 
+      /* 푸터 */
+      .footer address{
+  text-align: center;}  
 
 
 </style>
@@ -155,11 +167,25 @@ border-radius: 5px;}
       <input type="text" name="phone" placeholder="전화번호" ><br/>
       <input type="checkbox" name="gender"><br/>
       <input type="hidden" name="user_id" value="${sId }"><br/>
-      <input type="submit" value="등록">
+      <input type="submit" value="등록"><br />
       <input type="reset" value="초기화">
    </form>
 
 </section>
 
+
+ <!-- 푸터 -->
+ <hr>
+ <footer class="footer">
+ <div class="contaier">
+   <address>
+
+          서울특별시 마포구 양화로 첨단빌딩 7층<br>
+         연락처 : 02-0202-0202<br>
+             COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+
+ </address>
+</div>
+</footer>
 </body>
 </html>
