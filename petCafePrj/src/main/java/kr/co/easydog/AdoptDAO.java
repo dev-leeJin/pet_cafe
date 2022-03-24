@@ -33,7 +33,6 @@ private DataSource ds = null;
 		return dao;
 	}
 	
-<<<<<<< HEAD
 	public List<AdoptVO> getAllAdoptList(int pageNum){
 		Connection con = null;
 		PreparedStatement psmt = null;
