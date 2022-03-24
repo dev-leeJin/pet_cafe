@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -15,15 +16,17 @@
    전화번호: <input type="text" value="${adoptData.adopt_phone }" readonly><br/>
    <a href="http://localhost:8181/petCafePrj/adoptlist.do">목록으로</a>
    
-   <form action="http://localhost:8181/petCafePrj/adoptdelete.do" method="post">
-      <input type="hidden" value="${adoptData.adopt_num }" name="adopt_num">
-      <input type="hidden" value="${adoptData.user_id }" name="user_id">
-      <input type="submit" value="삭제">     
-   </form>
-   
-   <form action="http://localhost:8181/petCafePrj/adoptUpdateForm.do" method="post">
-      <input type="hidden" value="${adoptData.adopt_num }" name="adopt_num">
-      <input type="submit" value="수정하기">     
-   </form>
+   <c:if test="${sessionScope.session_id eq adoptData.user_id}">
+	   <form action="http://localhost:8181/petCafePrj/adoptdelete.do" method="post">
+	      <input type="hidden" value="${adoptData.adopt_num }" name="adopt_num">
+	      <input type="hidden" value="${adoptData.user_id }" name="user_id">
+	      <input type="submit" value="삭제">     
+	   </form>
+	   
+	   <form action="http://localhost:8181/petCafePrj/adoptUpdateForm.do" method="post">
+	      <input type="hidden" value="${adoptData.adopt_num }" name="adopt_num">
+	      <input type="submit" value="수정하기">     
+	   </form>
+   </c:if>
 </body>
 </html>

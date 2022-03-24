@@ -154,6 +154,7 @@ border-radius: 5px;}
       <input type="text" name="price" placeholder="가격" ><br/>
       <input type="text" name="phone" placeholder="전화번호" ><br/>
       <input type="checkbox" name="gender"><br/>
+      <input type="hidden" name="user_id" value="${sId }"><br/>
       <input type="submit" value="등록">
       <input type="reset" value="초기화">
    </form>
