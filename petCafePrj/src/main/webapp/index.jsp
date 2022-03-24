@@ -1,6 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ page import="java.util.Date" %>
+<%@ page import="java.text.SimpleDateFormat" %>
+<%
+	Date nowTime = new Date();
+	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");	
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -177,7 +183,7 @@ margin-top:70px;}
         <ul class="today">
           <li>전체글 / 오늘게시물</li>
           <li>방문자수 / 전체</li>
-          <li>시간</li>
+          <li>현재시간 : <%= sf.format(nowTime) %></li>
         </ul>
 
      <c:if test="${sessionScope.session_id eq null }">
