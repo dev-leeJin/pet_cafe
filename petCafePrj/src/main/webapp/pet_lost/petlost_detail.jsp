@@ -165,9 +165,29 @@ text-align: center;}
 <section class="section section1">
   <h1>${petlost.lost_num }번글 상세페이지</h1>
    유기견 이름: <input type="text" value="${petlost.lost_name }">
-   실종 장소: <input type="text" value="${petlost.lost_zone }"><br/>
+   <select name="lost_zone" required>
+                <option>실종장소</option>
+                <option>서울특별시</option>
+                <option>부산광역시</option>
+                <option>대구광역시</option>
+                <option>인천광역시</option>
+                <option>광주광역시</option>
+                <option>대전광역시</option>
+                <option>울산광역시</option>
+                <option>세종특별자치시</option>
+                <option>경기도</option>
+                <option>강원도</option>
+                <option>강원도</option>
+                <option>충청북도</option>
+                <option>충청남도</option>
+                <option>전라북도</option>
+                <option>경상북도</option>
+                <option>경상남도</option>
+                <option>제주특별자치도</option>
+     </select><br/>
    유기견 크기: <input type="text" value="${petlost.lost_size }">
    전화번호: <input type="text" value="${petlost.lost_phone }"><br/>
+   실종날짜 - <input type="date" name="lost_date" required><hr/>
    <a href="http://localhost:8181/petCafePrj/petlostlist.do">목록으로</a>
 
    
