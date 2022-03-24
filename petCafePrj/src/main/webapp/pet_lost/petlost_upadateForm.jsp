@@ -160,7 +160,8 @@ color:#fff;}
         유기견 크기 <input type="text" name="lost_size" value="${petlost.lost_size}"><br/>
         전화번호 <input type="text" name="lost_phone" value="${petlost.lost_phone}"><br/>
         실종날짜 <input type="date" name="lost_date" value="${petlost.lost_date}"><br/>
-        실종 장소 <select name="lost_zone" required>
+         <select name="lost_zone" required>
+        		<option>실종장소</option>
                 <option>서울특별시</option>
                 <option>부산광역시</option>
                 <option>대구광역시</option>
@@ -178,7 +179,7 @@ color:#fff;}
                 <option>경상북도</option>
                 <option>경상남도</option>
                 <option>제주특별자치도</option>
-     			</select>
+     	</select>
         <hr/>
         <input type="submit" value="수정완료">
         <input type="reset" value="초기화">
