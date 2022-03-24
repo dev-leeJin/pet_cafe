@@ -40,7 +40,6 @@
   body{
   background:#fffaed;}
   
-
   .black_Bg{
     background-color:rgba(0,0,0,0.4);
     width: 100%;
@@ -48,7 +47,6 @@
     position: fixed;
     z-index: 9;
     display: none;}
-
   .popup_box{display:none;}
   
   .pop_Up{
@@ -59,7 +57,6 @@
   z-index: 10;
   display: flex;justify-content: center;align-items: center;}
   
-
   
   .pop_Up .container{
   width: 800px;height:500px;
@@ -90,13 +87,11 @@
   margin: 0 auto;
   display: flex;justify-content:space-between;align-items: center;
   padding: 30px;
-
   position: absolute;}
   
   .pop_Up .txt{
   width: 100%;
 padding: 10px;}
-
   .pop_Up .photo{width:350px;}
   .pop_Up .photo img{width: 100%;}
   
@@ -219,14 +214,11 @@ margin-left: 10px;}
   /* 푸터 */
   .footer address{
   text-align: center;}  
-
-
 </style> 
 </head>
 
 <body>
-
-
+ 
 
 
   <!-- 헤더 -->
@@ -255,7 +247,7 @@ margin-left: 10px;}
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
-      <li class="menu-li"><a href="#">자유게시판</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/boardlist.do">자유게시판</a></li>
     </ul>
     </header>
 
@@ -273,8 +265,8 @@ margin-left: 10px;}
                 <label for="seach_Date">날짜</label>
               </dt>
               <dd>
-              <input type="date" name="search_Date" id="search_Date" title="시작일">~
-              <input type="date" name="seach_Date" id="search_Date" title="마감일" class="input_Date">
+              <input type="date" name="sDate" id="search_Date" title="시작일" value="${petlostsearch.sDate }">
+              <input type="date" name="fDate" id="search_Date" title="마감일" value="${petlostsearch.fDate }" class="input_Date">
             </dd>
             </dl>
           </li>
@@ -283,10 +275,10 @@ margin-left: 10px;}
 
             <dl>
               <dt>
-                <label for="search_Cd">시도</label>
+                <label for="sD">시도</label>
               </dt>
             <dd>
-              <select name="search_Cd" id="search_Cd" title="시도선택">
+              <select name="sD" id="search_Cd" title="시도선택" value="${petlostsearch.sD }">
                 <option>전체</option>
                 <option>서울특별시</option>
                 <option>부산광역시</option>
@@ -311,39 +303,25 @@ margin-left: 10px;}
 
             <dl>
             <dd>
-             <dt><input type="submit" value="조회"></dt>
+             <dt>
+             	<input type="submit" value="조회">
+             </dt>
             </dd>
           </li>
         </ul>
       </form>
     </div>
-   
-    
-	<nav class="page_Box">
-		<ul class="pagination">
-			<c:if test="${dto.startPage ne 1}">
-				<li class="page-item">
-	    			<a class="page-link" href="petlostlist.do?pageNum=${dto.startPage-10 }">이전</a>
-	    		</li>
-	    	</c:if>
-	    	<c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
-		    	<li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
-		    		<a class="page-link" href="petlostlist.do?pageNum=${pageIndex }">${pageIndex }</a>
-		    	</li>
-	    	</c:forEach>
-	    	<c:if test="${dto.totalPages > dto.endPage }">
-		    	<li class="page-item">
-		     		<a class="page-link" href="petlostlist.do?pageNum=${dto.endPage+1 }">다음</a>
-	    		</li>
-	    	</c:if>
-		</ul>
-	</nav>
-
-
 
   </section>
 
-  
+   <table class="table table-hover">
+		<thead>
+			<tr>
+				<th>글번호</th>
+				<th>글쓴이</th>
+				<th>유기견 이름</th>
+			</tr>
+		</thead>
 		<tbody>
 			<c:forEach var="petlost" items="${petlost }">
 				<tr>
@@ -403,5 +381,4 @@ margin-left: 10px;}
   
 </body>
 </html>
-
 

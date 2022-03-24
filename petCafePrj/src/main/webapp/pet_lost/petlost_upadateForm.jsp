@@ -160,7 +160,7 @@ color:#fff;}
         유기견 크기 <input type="text" name="lost_size" value="${petlost.lost_size}"><br/>
         전화번호 <input type="text" name="lost_phone" value="${petlost.lost_phone}"><br/>
         실종날짜 <input type="date" name="lost_date" value="${petlost.lost_date}"><br/>
-         <select name="lost_zone" required>
+        <select name="lost_zone" required>
         		<option>실종장소</option>
                 <option>서울특별시</option>
                 <option>부산광역시</option>
