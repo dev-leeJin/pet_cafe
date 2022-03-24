@@ -688,14 +688,16 @@ margin-left: 10px;}
 		<thead>
 			<tr>
 				<th>글번호</th>
-				<th>유저 아이디</th>
+				<th>글쓴이</th>
+				<th>유기견 이름</th>
 			</tr>
 		</thead>
 		<tbody>
 			<c:forEach var="petlost" items="${petlost }">
 				<tr>
-					<td>글번호 : ${petlost.lost_num }</td>
-					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">유저 아이디 : ${sessionScope.session_id }</a></td>					
+					<td>${petlost.lost_num }</td>
+					<td>${sessionScope.session_id }</td>
+					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a></td>										
 				</tr>
 			</c:forEach>
 		</tbody>
@@ -707,6 +709,28 @@ margin-left: 10px;}
 		</form>
 	</c:if>
   
+  	
+  	
+  	<nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+        <c:if test="${dto.startPage ne 1}">
+          <li class="page-item">
+              <a class="page-link" href="petlostlist.do?pageNum=${dto.startPage-10 }">이전</a>
+            </li>
+          </c:if>
+            <c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
+              <li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
+                <a class="page-link" href="petlostlist.do?pageNum=${pageIndex }">${pageIndex }</a>
+              </li>
+            </c:forEach>
+          <c:if test="${dto.totalPages > dto.endPage }">
+              <li class="page-item">
+                  <a class="page-link" href="petlostlist.do?pageNum=${dto.endPage+1 }">다음</a>
+              </li>
+          </c:if>
+        </ul>
+      </nav>	
+  	
   
   
   <!-- 푸터 -->
