@@ -56,6 +56,8 @@ public class LoginCheck extends HttpServlet {
 				session.setAttribute("session_name", name);
 	
 				response.sendRedirect("http://localhost:8181/petCafePrj/");
+			} else {
+				response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");
 			}
 		} else {
 			response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");

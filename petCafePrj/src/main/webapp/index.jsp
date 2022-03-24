@@ -157,6 +157,7 @@ margin-top:70px;}
       	${session_name }님 환영합니다.
       	<a href="http://localhost:8181/petCafePrj/users/login_welcome.do">마이페이지</a>
         <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.do">마이펫페이지</a>
+        <a href="http://localhost:8181/petCafePrj/logout">로그아웃하기</a>
       </c:if>
     </div>
 
