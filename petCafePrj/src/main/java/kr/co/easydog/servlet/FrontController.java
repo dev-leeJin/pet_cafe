@@ -33,6 +33,7 @@ import kr.co.easydog.servlet.service.ContestDetailService;
 import kr.co.easydog.servlet.service.ContestInsertFormService;
 import kr.co.easydog.servlet.service.ContestUpdateFormService;
 import kr.co.easydog.servlet.service.ContestUpdateService;
+import kr.co.easydog.servlet.service.ContestVoteService;
 import kr.co.easydog.servlet.service.ContestInsertService;
 import kr.co.easydog.servlet.service.ContestListService;
 import kr.co.easydog.servlet.service.IContestService;
@@ -171,7 +172,11 @@ public class FrontController extends HttpServlet {
 			sv=new ContestUpdateService();
 			sv.execute(request, response);
 			ui="/contestdetail.do?cont_num="+request.getParameter("cont_num");
-		}else if(uri.equals("/petCafePrj/petlostlist.do")) {
+		} else if(uri.equals("/petCafePrj/contestvote.do")) {
+			sv=new ContestVoteService();
+			sv.execute(request, response);
+			ui="/contestlist.do";
+		} else if(uri.equals("/petCafePrj/petlostlist.do")) {
 	    	lv = new PetLostListService();
 	    	lv.excute(request, response);
 	    	ui = "/pet_lost/petlost_list.jsp";

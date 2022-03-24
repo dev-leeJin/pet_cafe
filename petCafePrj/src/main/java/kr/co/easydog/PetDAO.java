@@ -85,7 +85,7 @@ private DataSource ds=null;
 		}
 	}
 	
-	public List<PetVO> getPetsList(int pnum){
+	public List<PetVO> getPetsList(String uId){
 		
 		Connection con =null;
 		PreparedStatement pmt=null;
@@ -94,11 +94,11 @@ private DataSource ds=null;
 		try {
 			con=ds.getConnection();
 			
-			String sql="select*from petTbl where pet_num=?";
+			String sql="select*from petTbl where user_id=?";
 			
 			pmt=con.prepareStatement(sql);
 			
-			pmt.setInt(1, pnum);
+			pmt.setString(1, uId);
 			
 			rs=pmt.executeQuery();
 			

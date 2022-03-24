@@ -125,7 +125,7 @@
  <!-- 헤더 -->
  <header class="header">
   <div class="container">
-  <h1 class="logo"><a href ="/"><img src="img/logo.png"></a></h1>
+  <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
   <div class="login_Box">
   <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
@@ -152,16 +152,15 @@
 글제목:<input type="text" value="${contest.cont_title }" readonly/>&nbsp;
 글쓴이:<input type="text" value="${contest.user_id }" readonly/><br/><br/>
 <textarea rows="30" cols="50" readonly>${contest.cont_content }</textarea><br/><br/>
-<c:forEach var="pet" items="${pets }">
-펫종류:<input type="text" value="${pet.pet_kind}" readonly/><br/>
-펫이름:<input type="text" value="${pet.pet_name}" readonly/><br/>
-펫나이:<input type="text" value="${pet.pet_age}" readonly/><br/>
-펫성별:<input type="text" value="${pet.pet_gender}" readonly/><br/><br/>
-</c:forEach>
+
+펫종류:<input type="text" value="${pets.pet_kind}" readonly/><br/>
+펫이름:<input type="text" value="${pets.pet_name}" readonly/><br/>
+펫나이:<input type="text" value="${pets.pet_age}" readonly/><br/>
+펫성별:<input type="text" value="${pets.pet_gender}" readonly/><br/><br/>
 
 조회수:${contest.cont_hit}<br/><br/>
 투표수:${contest.cont_votes}<br/><br/>
-<form action="http://localhost:8181/petCafePrj/contestvote.do">
+<form action="http://localhost:8181/petCafePrj/contestvote.do" method="post">
 <input type="hidden" name="cont_num" value="${contest.cont_num}"/>
 <input type="submit" value="투표하기"/>
 </form>
