@@ -135,7 +135,7 @@ margin-left:80px;}
   <!-- 헤더 -->
   <header class="header">
     <div class="container">
-    <h1 class="logo"><a href ="#"><img src="../img/logo.png"></a></h1>
+    <h1 class="logo"><a href ="/petCafePrj/"><img src="../img/logo.png"></a></h1>
 
     <div class="login_Box">
     <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
