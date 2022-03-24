@@ -304,7 +304,7 @@ margin-left: 10px;}
             <dl>
             <dd>
              <dt>
-             	<input type="submit" value="조회">
+             	<input type="submit" value="조회" onClick="http://localhost:8181/petCafePrj/searchpetlost.do">
              </dt>
             </dd>
           </li>
