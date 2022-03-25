@@ -1,9 +1,9 @@
 package kr.co.easydog.servlet.service;
 
 import java.io.IOException;
-import java.sql.Date;
+
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -18,21 +18,14 @@ public class PetLostSearchService implements IPetLostService{
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
 		
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	    String sdate = request.getParameter("sDate");
-	    Date sDate = new Date(sdf.parse(sdate).getTime());
-
-	    SimpleDateFormat sdf2 = new SimpleDateFormat("yyyy-MM-dd");
-	    String fdate = request.getParameter("fDate");
-	    Date fDate = new Date(sdf2.parse(fdate).getTime());
 		
-		String sD = request.getParameter("sD");
+		String lost_name = request.getParameter("lost_name");
 		
 		
 		PetLostDAO dao = PetLostDAO.getInstance();
-		dao.searchPetLost(sDate, fDate, sD);
+		dao.searchPetLost(lost_name);
 		
-		List<PetLostVO> petlostsearch = dao.searchPetLost(sDate, fDate, sD);
+		List<PetLostVO> petlostsearch = dao.searchPetLost(lost_name);
 		
 		request.setAttribute("petlostsearch", petlostsearch);
 	}
