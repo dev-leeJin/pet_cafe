@@ -208,7 +208,7 @@ margin-top:70px;}
         <!-- 컨텐츠  -->
          <div class="container">
             <div class="item item1">
-                <a href ="#"><img src="img/freeboard.png"></a>
+                <a href ="http://localhost:8181/petCafePrj/boardlist.do"><img src="img/freeboard.png"></a>
             </div>
 
             <div class="item item2">
