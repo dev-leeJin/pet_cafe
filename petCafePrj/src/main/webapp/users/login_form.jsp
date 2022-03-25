@@ -139,7 +139,7 @@ margin: 0 auto;}
   <!-- 헤더 -->
     <header class="header">
       <div class="container">
-      <h1 class="logo"><a href ="/petCafePrj/"><img src="../img/logo.png"></a></h1>
+      <h1 class="logo"><a href ="/petCafePrj/"><img src="img/logo.png"></a></h1>
 
 		
 		<div class="login_Box">
