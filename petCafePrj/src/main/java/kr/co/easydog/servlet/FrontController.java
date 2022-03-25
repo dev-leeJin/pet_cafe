@@ -209,7 +209,7 @@ public class FrontController extends HttpServlet {
 	    }else if(uri.equals("/petCafePrj/searchpetlost.do")) {
 	    	lv = new PetLostSearchService();
 	    	lv.excute(request, response);
-	    	ui = "/petlostlist.do?sDate=&fDate=&sD=" + request.getParameter("sDate") + request.getParameter("fDate") + request.getParameter("sD");
+	    	ui = "/petlostlist.do?lost_name=" + request.getParameter("lost_name");
 	    	
 	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
 			av = new AdoptListService();
