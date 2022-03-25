@@ -256,16 +256,14 @@ margin-left: 10px;}
     <hr>
 
     <div class="container">
-      <form class="search_Box" action="/petCafePrj/searchpetlost.do" method="post">
+      <form class="search_Box" action="http://localhost:8181/petCafePrj/petlostlist.do?lost_name=" method="post">
         <ul class="search_List">
           <li class="first">
 
             <dl>
               <dt>
-              	<form action="http://localhost:8181/petCafePrj/searchpetlost.do">
               		<input type="text" placeholder="유기견 이름">
               		<input type="submit" value="조회">
-              	</form>
               </dt>
             </dl>
           </li>
