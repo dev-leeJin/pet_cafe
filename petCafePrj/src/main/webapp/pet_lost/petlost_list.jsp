@@ -262,51 +262,16 @@ margin-left: 10px;}
 
             <dl>
               <dt>
-                <label for="seach_Date">날짜</label>
+              	<form action="http://localhost:8181/petCafePrj/searchpetlost.do">
+              		<input type="text" placeholder="유기견 이름">
+              		<input type="submit" value="조회">
+              	</form>
               </dt>
-              <dd>
-              <input type="date" name="sDate" id="search_Date" title="시작일" value="${petlostsearch.sDate }">
-              <input type="date" name="fDate" id="search_Date" title="마감일" value="${petlostsearch.fDate }" class="input_Date">
-            </dd>
             </dl>
           </li>
 
           <li class="last">
-
             <dl>
-              <dt>
-                <label for="sD">시도</label>
-              </dt>
-            <dd>
-              <select name="sD" id="search_Cd" title="시도선택" value="${petlostsearch.sD }">
-                <option>전체</option>
-                <option>서울특별시</option>
-                <option>부산광역시</option>
-                <option>대구광역시</option>
-                <option>인천광역시</option>
-                <option>광주광역시</option>
-                <option>대전광역시</option>
-                <option>울산광역시</option>
-                <option>세종특별자치시</option>
-                <option>경기도</option>
-                <option>강원도</option>
-                <option>강원도</option>
-                <option>충청북도</option>
-                <option>충청남도</option>
-                <option>전라북도</option>
-                <option>경상북도</option>
-                <option>경상남도</option>
-                <option>제주특별자치도</option>
-              </select>
-            </dd>
-            </dl>
-
-            <dl>
-            <dd>
-             <dt>
-             	<input type = "submit" value="조회">
-             </dt>
-            </dd>
           </li>
         </ul>
       </form>
