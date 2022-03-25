@@ -7,6 +7,18 @@
 	Date nowTime = new Date();
 	SimpleDateFormat sf = new SimpleDateFormat("yyyy년 MM월 dd일 a hh:mm:ss");	
 %>
+<%
+   int visitCnt = 0;
+
+   Integer temp = (Integer)application.getAttribute("visit");
+   if(temp != null){
+	   visitCnt = temp;
+   }
+   visitCnt++;
+   
+   application.setAttribute("visit", visitCnt);
+%>
+
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -163,7 +175,6 @@ margin-top:70px;}
       	${session_name }님 환영합니다.
       	<a href="http://localhost:8181/petCafePrj/users/login_welcome.do">마이페이지</a>
         <a href="http://localhost:8181/petCafePrj/pet/pet_welcome.do">마이펫페이지</a>
-        <a href="http://localhost:8181/petCafePrj/logout">로그아웃하기</a>
       </c:if>
     </div>
 
@@ -181,9 +192,8 @@ margin-top:70px;}
       <!-- 전체글,오늘게시물 등 -->
       <div class="today_Box">
         <ul class="today">
-          <li>전체글 / 오늘게시물</li>
-          <li>방문자수 / 전체</li>
-          <li>현재시간 : <%= sf.format(nowTime) %></li>
+          <li>방문자수 : <%=visitCnt %></li>
+          <li>현재 시간 : <%= sf.format(nowTime) %></li>
         </ul>
 
      <c:if test="${sessionScope.session_id eq null }">
@@ -198,7 +208,7 @@ margin-top:70px;}
         <!-- 컨텐츠  -->
          <div class="container">
             <div class="item item1">
-                <a href ="http://localhost:8181/petCafePrj/boardlist.do"><img src="img/freeboard.png"></a>
+                <a href ="#"><img src="img/freeboard.png"></a>
             </div>
 
             <div class="item item2">
