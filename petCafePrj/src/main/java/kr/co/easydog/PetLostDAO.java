@@ -205,21 +205,18 @@ private DataSource ds = null;
 		return petlost;
     }
 
-	public List<PetLostVO> searchPetLost(Date sDate, Date fDate, String sD) {
+	public List<PetLostVO> searchPetLost(String lostname) {
     	Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<PetLostVO> petlostSearch = new ArrayList<>();
+		List<PetLostVO> petlostsearch = new ArrayList<>();
 			try {
 				con = ds.getConnection();	
 				    
-				 String sql = "SELECT * FROM pet_lost WHERE (lost_date BETWEEN ? AND ?) AND (lost_zone = ?)";
+				 String sql = "SELECT * FROM pet_lost WHERE lost_name=?";
 				 pstmt = con.prepareStatement(sql);
-				 pstmt.setDate(1, sDate);
-				 pstmt.setDate(2, fDate);
-				 pstmt.setString(3, sD);
-				 
-								 
+				 pstmt.setString(1, lostname);
+				 								 
 				 rs = pstmt.executeQuery();
 				 
 				 if(rs.next()) {
@@ -232,7 +229,7 @@ private DataSource ds = null;
 						Date lostDate = rs.getDate("lost_date");
 						
 						PetLostVO petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
-						petlostSearch.add(petlost);
+						petlostsearch.add(petlost);
 						
 					}
 				 
@@ -247,7 +244,7 @@ private DataSource ds = null;
 						se.printStackTrace();
 				}
 			}
-			return petlostSearch;
+			return petlostsearch;
 		}
     
     public int getPageNum() {
