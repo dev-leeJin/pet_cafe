@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -31,7 +32,7 @@ public class PetLostSearchService implements IPetLostService{
 		PetLostDAO dao = PetLostDAO.getInstance();
 		dao.searchPetLost(sDate, fDate, sD);
 		
-		PetLostVO petlostsearch = (PetLostVO)dao.searchPetLost(sDate, fDate, sD);
+		List<PetLostVO> petlostsearch = dao.searchPetLost(sDate, fDate, sD);
 		
 		request.setAttribute("petlostsearch", petlostsearch);
 	}

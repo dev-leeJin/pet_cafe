@@ -256,7 +256,7 @@ margin-left: 10px;}
     <hr>
 
     <div class="container">
-      <form class="search_Box" ac>
+      <form class="search_Box" action="/petCafePrj/searchpetlost.do" method="post">
         <ul class="search_List">
           <li class="first">
 
@@ -304,7 +304,7 @@ margin-left: 10px;}
             <dl>
             <dd>
              <dt>
-             	<input type = "button" onclick = "window.location='http://localhost:8181/petCafePrj/searchpetlost.do'" value="조회">
+             	<input type = "submit" value="조회">
              </dt>
             </dd>
           </li>

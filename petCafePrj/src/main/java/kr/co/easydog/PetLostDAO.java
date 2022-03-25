@@ -220,7 +220,21 @@ private DataSource ds = null;
 				 pstmt.setString(3, sD);
 				 
 								 
-				 pstmt.executeQuery();
+				 rs = pstmt.executeQuery();
+				 
+				 if(rs.next()) {
+						int lostNum = rs.getInt("lost_num");
+						String lostName = rs.getString("lost_name");
+						String uId = rs.getString("user_id");
+						String lostZone = rs.getString("lost_zone");
+						String lostSize = rs.getString("lost_size");
+						int lostPhone = rs.getInt("lost_phone");
+						Date lostDate = rs.getDate("lost_date");
+						
+						PetLostVO petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
+						petlostSearch.add(petlost);
+						
+					}
 				 
 			}catch(Exception e){
 				e.printStackTrace();
