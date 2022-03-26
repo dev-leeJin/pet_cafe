@@ -33,25 +33,24 @@
     body{background:#fffaed;}
     
     .header{
-      border: 1px solid red;
       width: 1200px;
       margin: 0 auto;
      }
     
      .header .logo{
       padding: 5px;
-      border: 1px solid red;}
+     }
     
      .header .logo img{width: 100%;}
     
      .header .container{display: flex;justify-content:space-between;align-items: center;}
     
-    .header .login_Box{border: 2px solid orange;}
+    .header .login_Box{}
     
     .header .login_Box .form-group{display: flex;align-items: center;}
     
     /* 헤더 폼 */
-    .form-group .form-control{border: 1px solid red;
+    .form-group .form-control{
       width:190px;
       margin-left: 10px;;}
     .form-group .form-control::placeholder{font-size:15px;}
@@ -69,7 +68,7 @@
     
     .header .menu{display: flex;justify-content: center; align-items: center;;
     background: #f19292;}
-    .header .menu .menu-li{border: 1px solid red;
+    .header .menu .menu-li{
       margin-left: 20px;
       font-size: 18px;
       font-weight: 500;
@@ -83,7 +82,7 @@
     transition: 0.5s;}
     
     
-    .header .container{border: 1px solid red;
+    .header .container{
       display: flex;
     }
     
@@ -96,10 +95,9 @@
 
     .section1{width: 1200px;
       margin: 0 auto;
-    border: 1px solid red;
     margin-top: 30px;}
 
-    .board_Update{border: 1px solid red;
+    .board_Update{
     text-align: center;
   padding: 10px;}
 
