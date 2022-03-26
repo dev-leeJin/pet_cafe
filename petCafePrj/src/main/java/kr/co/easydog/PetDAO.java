@@ -85,7 +85,9 @@ private DataSource ds=null;
 		}
 	}
 	
-	public List<PetVO> getPetsList(String uId){
+
+public List<PetVO> getPetsList(int pnum){
+
 		
 		Connection con =null;
 		PreparedStatement pmt=null;
@@ -127,6 +129,7 @@ private DataSource ds=null;
 		return pets;
 	}
 	
+	
 	public PetVO getOnePet(int pnum) {
 		
 		Connection con =null;
@@ -145,13 +148,14 @@ private DataSource ds=null;
 			rs=pmt.executeQuery();
 			
 			if(rs.next()) {
+				int pNum=rs.getInt("pet_num");
 				String uid=rs.getString("user_id");
 				String pkind=rs.getString("pet_kind");
 				String pname=rs.getString("pet_name");
 				int page=rs.getInt("pet_age");
 				Boolean pgender=rs.getBoolean("pet_gender");
 				
-				petData = new PetVO(pnum,uid,pkind,pname,page,pgender);
+				petData = new PetVO(pNum,uid,pkind,pname,page,pgender);
 			}
 			
 		}catch(Exception e) {
@@ -168,6 +172,50 @@ private DataSource ds=null;
 		
 		return petData;
 	}
+
+	public PetVO getOnePet2(String sId) {
+
+		Connection con =null;
+		PreparedStatement pmt=null;
+		ResultSet rs=null;
+		PetVO petData2 = null;
+		try {
+			con=ds.getConnection();
+			
+			String sql="select*from petTbl where user_id=?";
+			
+			pmt=con.prepareStatement(sql);
+			
+			pmt.setString(1, sId);
+			
+			rs=pmt.executeQuery();
+			
+			if(rs.next()) {
+				int pNum=rs.getInt("pet_num");
+				String uid=rs.getString("user_id");
+				String pkind=rs.getString("pet_kind");
+				String pname=rs.getString("pet_name");
+				int page=rs.getInt("pet_age");
+				Boolean pgender=rs.getBoolean("pet_gender");
+				
+				petData2 = new PetVO(pNum,uid,pkind,pname,page,pgender);
+			}
+			
+		}catch(Exception e) {
+			e.printStackTrace();
+		}finally {
+			try {
+				con.close();
+				pmt.close();
+				rs.close();
+			}catch(Exception e) {
+				e.printStackTrace();
+			}
+		}
+		
+		return petData2;
+	}
+	
 	
 	public void petUpdate(int pet_num,String pkind,String pname,int page, boolean pgender) {
 		Connection con=null;

@@ -20,9 +20,14 @@ public class ContestInsertFormService implements IContestService{
 		request.setAttribute("sId",sId);
 			
 		
+		
+		String snum=request.getParameter("pet_num");
+		int pnum=Integer.parseInt(snum);
+		
 		PetDAO dao2 = PetDAO.getInstance();
-		List<PetVO> pets = dao2.getPetsList(sId);
-		request.setAttribute("pets", pets);
+		PetVO petData = dao2.getOnePet(pnum);
+		request.setAttribute("petData", petData);
+		
 		}
 		
 	}

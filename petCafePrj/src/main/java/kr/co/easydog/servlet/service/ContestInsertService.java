@@ -17,10 +17,13 @@ public class ContestInsertService implements IContestService{
 		String title=request.getParameter("title");
 		String content=request.getParameter("content");
 		String uid=request.getParameter("uid");
+		
 		String snum = request.getParameter("pnum");
 		int pnum = Integer.parseInt(snum);
+		
 		String bnum=request.getParameter("pvote");
 		int pvotes=Integer.parseInt(bnum);
+		
 		dao.ContestInsert(uid, title, content, pnum, pvotes);
 		
 	}
