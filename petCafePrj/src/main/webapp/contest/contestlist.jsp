@@ -26,7 +26,12 @@
         font-family: 'Noto Sans KR', sans-serif;
         list-style: none;}
     
-    
+    a {
+    color:inherit;
+    text-decoration:none;
+}
+
+ a{}
      
     body{background:#fffaed;}
     
@@ -106,13 +111,21 @@
     color:#333;
     transition: 0.3s;}
 
+    .section1 .page-item{}
     .section1 .page-link{border: 1px solid #f19292; margin-left:10px;
-    color: #333;}
+    color: #333;
+  background-color:#fff;}
 
     /* 세션버튼 hover */
     .section1 button:hover{background-color: #f19292;color: #fff;}
-    .section1 .page-link:hover{background-color: #f19292; color: #fff;}
-    .section1 .page-link:active{background-color: #f19292; color: #fff;}
+    .section1 .page-item:hover .page-link{background-color: #f19292; color: #fff;}
+    .section1 .page-item:active .page-link {background-color: #f19292; color: #fff;}
+    
+    .page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #f19292;
+    border-color: #f19292;
 
     
    
