@@ -125,14 +125,21 @@ text-align: center;}
   <div class="container">
   <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
-  <div class="login_Box">
-  <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-     <input type="text" class="form-control" name="id" placeholder="아이디">
-     <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-    <input type="submit" class="btn btn-outline-primary" value="로그인">
-
-    </form>
-  </div>
+  <c:if test="${sessionScope.session_id eq null }">
+      	<div class="login_Box">
+      	<form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+        	<input type="text" class="form-control" name="id" placeholder="아이디">
+         	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        	<input type="submit" class="btn btn-outline-primary" value="로그인">
+   		</form>
+      </div>
+      </c:if>
+      <c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님 환영합니다.
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/petWelcome.do">마이펫페이지</a>
+        <a href="http://localhost:8181/petCafePrj/logout.do">로그아웃하기</a>
+      </c:if>
 </div>
 
 <ul class="menu">
@@ -149,11 +156,11 @@ text-align: center;}
 			<td>${pet.pet_kind }</td>
 			<td>${pet.pet_name }</td>
 			<td>${pet.pet_age }</td>
-			<td>${pet.pet_gender }</td>
+			<td>${pet.pet_gender ? "수컷" : "암컷" }</td>
 			<td><a href="http://localhost:8181/petCafePrj/petUpdate.do?pet_num=${pet.pet_num}"><input type="button" value="수정"/></a></td>
-			<td><a href="http://localhost:8181/petCafePrj/petDelete.do?pet_num=${pet.pet_num}"><input type="button" value="삭제"/></a></td>
+			<td><a href="http://localhost:8181/petCafePrj/petDelete.do?pet_num=${pet.pet_num}"><input type="button" value="삭제"/></a></td><br/>
 		</tr>
-	</c:forEach>
+	</c:forEach><br/>
 	<a href="http://localhost:8181/petCafePrj/petjoin.do"><input type="button" value="추가"></a>
 </section>
   <!-- 푸터 -->

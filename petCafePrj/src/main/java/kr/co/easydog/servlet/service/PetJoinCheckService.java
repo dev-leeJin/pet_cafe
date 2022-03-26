@@ -14,13 +14,9 @@ public class PetJoinCheckService implements IPetService {
 		String pkind = request.getParameter("kind");
 		String pname = request.getParameter("name");
 		int page = Integer.parseInt(request.getParameter("age"));
-		boolean pgender = true;
+		boolean pgender = Boolean.parseBoolean(request.getParameter("gender"));
 		
-		if(request.getParameter("gender").equals(null)) {
-			pgender = false;
-		} else {
-			pgender = Boolean.parseBoolean(request.getParameter("gender"));	
-		}
+		
 		
 		PetDAO petdao = PetDAO.getInstance();
 		petdao.insertPet(uid, pkind, pname, page, pgender);

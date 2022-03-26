@@ -139,14 +139,21 @@ transition: 0.3s;}
   <div class="container">
   <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
-  <div class="login_Box">
-  <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-     <input type="text" class="form-control" name="id" placeholder="아이디">
-     <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-    <input type="submit" class="btn btn-outline-primary" value="로그인">
-
-    </form>
-  </div>
+  <c:if test="${sessionScope.session_id eq null }">
+      	<div class="login_Box">
+      	<form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+        	<input type="text" class="form-control" name="id" placeholder="아이디">
+         	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        	<input type="submit" class="btn btn-outline-primary" value="로그인">
+   		</form>
+      </div>
+      </c:if>
+      <c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님 환영합니다.
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/petWelcome.do">마이펫페이지</a>
+        <a href="http://localhost:8181/petCafePrj/logout.do">로그아웃하기</a>
+      </c:if>
 </div>
 
 <ul class="menu">
@@ -160,12 +167,23 @@ transition: 0.3s;}
 <!-- 세션1 -->
 <section class="section section1">
 <form action="http://localhost:8181/petCafePrj/adoptInsert.do" method="post">
-      <input type="text" name="kind" placeholder="품종" required><br/>
+      품종 :  
+		<select class="form-select" name="kind">
+		  <option value="치와와">치와와</option>
+		  <option value="말티즈">말티즈</option>
+		  <option value="레브라도 리트리버">레브라도 리트리버</option>
+		</select><br/>
       <input type="text" name="name" placeholder="이름" required><br/>
-      <input type="text" name="age" placeholder="나이" required><br/>
+      나이 :  
+		<select class="form-select" name="age">
+			<c:forEach var="age" begin="1" end="15">
+		  	<option value="${age }">${age }</option>
+		  </c:forEach>
+		</select><br/>
       <input type="text" name="price" placeholder="가격" ><br/>
       <input type="text" name="phone" placeholder="전화번호" ><br/>
-      <input type="checkbox" name="gender"><br/>
+      성별 : <input type="radio" name="gender" value="True" checked="checked"> 수컷
+			  <input type="radio" name="gender" value="False"> 암컷
       <input type="hidden" name="user_id" value="${sId }"><br/>
       <input type="submit" value="등록"><br />
       <input type="reset" value="초기화">
