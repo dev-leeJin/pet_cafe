@@ -24,10 +24,15 @@
         position: relative;
         font-family: 'Noto Sans KR', sans-serif;
         list-style: none;}
+        
+        a{color:#333;
+        text-decoration:none;}
     
     
      
     body{background:#fffaed;}
+
+    
     
     .header{
       
@@ -110,11 +115,13 @@
   
   .section1 .page-item{margin-left: 5px;}
   .section1 .page-item .page-link{border: 1px solid #f19292; color: #333;}
+.page-item.active .page-link{background-color:#f19292;color:#fff;}
 
   /* section1 버튼 hover,active */
   .section1 .page-item:hover .page-link{background-color: #f19292; color: #fff;}
   .section1 .page-item:active .page-link{background-color: #f19292; color: #fff;}
   .section1 button:hover{background-color: #f19292; color: #fff;}
+
 
       /* 푸터 */
 

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%> 
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,15 +10,6 @@
 
   <!-- 부트스트랩 주소 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-
-<!--  bootstrap.css -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- bootstrap.js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
-<!-- 제이쿼리 -->
-<script src="https://code.jquery.com/jquery-latest.min.js"></script>
 
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
@@ -40,63 +31,7 @@
   body{
   background:#fffaed;}
   
-  .black_Bg{
-    background-color:rgba(0,0,0,0.4);
-    width: 100%;
-    height: 100vh;
-    position: fixed;
-    z-index: 9;
-    display: none;}
-  .popup_box{display:none;}
-  
-  .pop_Up{
-  position: fixed;
-  z-index: 10;
-  width: 100%;
-  height: 100vh;
-  z-index: 10;
-  display: flex;justify-content: center;align-items: center;}
-  
-  
-  .pop_Up .container{
-  width: 800px;height:500px;
-  width: 0 auto;
-  display: flex;justify-content: center;align-items: center;
-  }
-  
-  .pop_Up .x_Btn{
-  width:60px;height:60px;
-  position: absolute;right:10px;top:10px;
-  ;}
-  
-  .pop_Up .x_Btn .bar{width:60px; height: 8px;
-  display: block;
-  background-color: #f19292;
-  transform-origin: center;
-  transition: 0.5s;
-  cursor: pointer;}
-  
-  .pop_Up .x_Btn .bar:nth-child(1){transform: translate(0px,25px)rotate(45deg);}
-  .pop_Up .x_Btn .bar:nth-child(2){transform: translate(0px,16px)rotate(-45deg);}
-  
-  .pop_Up .container{
-  background-color:#ffffff;
-  }
-  .pop_Up .box{
-  width: 600px;
-  margin: 0 auto;
-  display: flex;justify-content:space-between;align-items: center;
-  padding: 30px;
-  position: absolute;}
-  
-  .pop_Up .txt{
-  width: 100%;
-padding: 10px;}
-  .pop_Up .photo{width:350px;}
-  .pop_Up .photo img{width: 100%;}
-  
-  /* x_Btn hover */
-  .pop_Up .x_Btn:hover .bar{background-color: #484848;}
+ 
   
   /* 헤더 */
   .header{
@@ -114,7 +49,8 @@ padding: 10px;}
   
   /* .header .login_Box{border: 2px solid orange;} */
   
-  .header .login_Box .form-group{display: flex;align-items: center;}
+  .header .login_Box .form-group{display: flex;align-items: center;
+  margin-bottom: 0%;}
   
   /* 헤더 폼 */
   .form-group .form-control{
@@ -130,7 +66,8 @@ padding: 10px;}
   
   /* 버튼 hover */
   .btn:hover{background-color: #f19292;
-  border:1px solid #f19292;}
+  border:1px solid #f19292;
+color: #fff;}
   
   
   .header .menu{display: flex;justify-content: center; align-items: center;;
@@ -165,9 +102,7 @@ padding: 10px;}
   .section1 .title{font-size: 30px;
   font-weight:500;
   color: 333;;}
-  
-  /* .section1 .container{}
-  .section1 .search_Box{} */
+
   .section1 .search_Box .search_List{
   display: flex;justify-content: center;align-items: center;}
   
@@ -179,13 +114,15 @@ padding: 10px;}
   
   .section1 input[type=date]:focus{outline: none;}
   
-  .section1 input[type=submit]{width:100px; height:25px;
-  background-color: #f19292;
-  border: transparent;
-  border-radius: 20px;
-  color: white;
-margin-top:13px;
-margin-left: 10px;}
+  .section1 input[type=submit]{width:130px;
+  background-color: #fff;
+  border: 1px solid #f19292;
+  border-radius: 5px;
+  padding: 5px;
+  color: #333;
+  margin-top:13px;
+  margin-left: 10px;
+transition: 0.3s;}
   
   
   ul{padding-left: 0;}
@@ -205,15 +142,27 @@ margin-left: 10px;}
   .pagination>li>a,
   .pagination>li>span{color: #484848!important;}
   
+  .pagination{display: flex;justify-content: center; align-items: center;}
+
+  .page-link{color:#333;
+  border: 1px solid #f19292;
+  padding:10px;
+  margin-left: 5px;}
+
+  /* section hover */
+  .section1 input[type=submit]:hover{background-color: #f19292; color: #fff;}
+
+  .page-link:hover{background-color: #f19292; color: #fff;
+  text-decoration: none;}
   
-  /* more_Btn hover */
-  .boardlist .more_Btn:hover p a{
-  color: #484848;
-  }
-  
-  /* 푸터 */
-  .footer address{
-  text-align: center;}  
+       /* 푸터 */
+.footer{width: 100%;max-width:1200px;
+margin: 0 auto;}   
+.footer address{
+text-align: center;
+color: #333;
+}  
+
 </style> 
 </head>
 
@@ -254,7 +203,6 @@ margin-left: 10px;}
 
   <section class="scetion section1">
     <p class="title">보호중 동물</p>
-    <hr>
 
     <div class="container">
       <form class="search_Box" action="http://localhost:8181/petCafePrj/petlostlist.do?lost_name=" method="post">
@@ -268,78 +216,77 @@ margin-left: 10px;}
               </dt>
             </dl>
           </li>
-
-          <li class="last">
-            <dl>
-          </li>
         </ul>
       </form>
     </div>
 
+    <table class="table table-hover">
+      <thead>
+        <tr>
+          <th>글번호</th>
+          <th>글쓴이</th>
+          <th>유기견 이름</th>
+        </tr>
+      </thead>
+      <tbody>
+        <c:forEach var="petlost" items="${petlost }">
+          <tr>
+            <td>${petlost.lost_num }</td>
+            <td>${sessionScope.session_id }</td>
+            <td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a></td>										
+          </tr>
+        </c:forEach>
+      </tbody>
+    </table>
+    
+    <c:if test="${sessionScope.session_id ne null }">
+      <form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
+      <input type="submit" value="글쓰기">
+      </form>
+    </c:if>
+    
+      
+      
+      <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+          <c:if test="${dto.startPage ne 1}">
+            <li class="page-item">
+                <a class="page-link" href="petlostlist.do?pageNum=${dto.startPage-10 }">이전</a>
+              </li>
+            </c:if>
+              <c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
+                <li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
+                  <a class="page-link" href="petlostlist.do?pageNum=${pageIndex }">${pageIndex }</a>
+                </li>
+              </c:forEach>
+            <c:if test="${dto.totalPages > dto.endPage }">
+                <li class="page-item">
+                    <a class="page-link" href="petlostlist.do?pageNum=${dto.endPage+1 }">다음</a>
+                </li>
+            </c:if>
+          </ul>
+        </nav>	
+
   </section>
 
-   <table class="table table-hover">
-		<thead>
-			<tr>
-				<th>글번호</th>
-				<th>글쓴이</th>
-				<th>유기견 이름</th>
-			</tr>
-		</thead>
-		<tbody>
-			<c:forEach var="petlost" items="${petlost }">
-				<tr>
-					<td>${petlost.lost_num }</td>
-					<td>${sessionScope.session_id }</td>
-					<td><a href="http://localhost:8181/petCafePrj/detailpetlost.do?lost_num=${petlost.lost_num }">${petlost.lost_name }</a></td>										
-				</tr>
-			</c:forEach>
-		</tbody>
-	</table>
-  
-	<c:if test="${sessionScope.session_id ne null }">
-		<form action="http://localhost:8181/petCafePrj/insertpetlostform.do">
-		<h1><input type="submit" value="글쓰기"></h1>
-		</form>
-	</c:if>
-  
-  	
-  	
-  	<nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-        <c:if test="${dto.startPage ne 1}">
-          <li class="page-item">
-              <a class="page-link" href="petlostlist.do?pageNum=${dto.startPage-10 }">이전</a>
-            </li>
-          </c:if>
-            <c:forEach var="pageIndex" begin="${dto.startPage }" end="${dto.endPage }">
-              <li class="page-item ${dto.currentPage eq pageIndex ? 'active' : ''}">
-                <a class="page-link" href="petlostlist.do?pageNum=${pageIndex }">${pageIndex }</a>
-              </li>
-            </c:forEach>
-          <c:if test="${dto.totalPages > dto.endPage }">
-              <li class="page-item">
-                  <a class="page-link" href="petlostlist.do?pageNum=${dto.endPage+1 }">다음</a>
-              </li>
-          </c:if>
-        </ul>
-      </nav>	
+   
   	
   
   
-  <!-- 푸터 -->
+ <!-- 푸터 -->
+
+ <footer class="footer">
   <hr>
-    <footer class="footer">
-    <div class="contaier">
-      <address>
+<div class="contaier">
+  <address>
 
-             서울특별시 마포구 양화로 첨단빌딩 7층<br>
-            연락처 : 02-0202-0202<br>
-                COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+         서울특별시 마포구 양화로 첨단빌딩 7층<br>
+        연락처 : 02-0202-0202<br>
+            COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
 
-    </address>
-  </div>
-  </footer>
+</address>
+</div>
+</footer>
   
   
   

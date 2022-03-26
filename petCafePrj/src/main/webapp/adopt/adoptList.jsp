@@ -11,12 +11,6 @@
   <!-- 부트스트랩 주소 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
 
-<!--  bootstrap.css -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
-
-<!-- bootstrap.js -->
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
-
 <!-- font -->
 <link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
 <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
@@ -38,28 +32,38 @@
   background:#fffaed;}
   
   
-  /* 헤더 */
+  <style>
+  *{
+      margin: 0;
+      padding: 0;
+      position: relative;
+      font-family: 'Noto Sans KR', sans-serif;
+      list-style: none;}
+  
+  
+   
+  body{background:#fffaed;}
+  
   .header{
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+   }
   
-  width: 1200px;
-  margin: 0 auto;
-  }
+   .header .logo{
+    padding: 5px;
+   }
   
-  .header .logo{
-  padding: 5px;}
+   .header .logo img{width: 100%;}
   
-  .header .logo img{width: 100%;}
-  
-  .header .container{display: flex;justify-content:space-between;align-items: center;}
-  
-  /* .header .login_Box{border: 2px solid orange;} */
-  
+   .header .container{display: flex;justify-content:space-between;align-items: center;}
+    
   .header .login_Box .form-group{display: flex;align-items: center;}
   
   /* 헤더 폼 */
   .form-group .form-control{
-  width:190px;
-  margin-left: 10px;;}
+    width:190px;
+    margin-left: 10px;;}
   .form-group .form-control::placeholder{font-size:15px;}
   .btn{
   background-color: white;
@@ -74,29 +78,30 @@
   
   
   .header .menu{display: flex;justify-content: center; align-items: center;;
-  background: #f19292;}
-  
+  background: #f19292;
+margin-top: 15px;}
   .header .menu .menu-li{
-  margin-left: 20px;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 5px;
-  color: white;}
+    margin-left: 20px;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 5px;
+    color: white;}
   
   
   
   .header .menu .menu-li>a{color:white;
-  text-decoration: none;
+    text-decoration: none;
   transition: 0.5s;}
   
   
   .header .container{
-  display: flex;}
+    display: flex;
+  }
   
   /* 헤더 메뉴 hover */
   
   .header .menu-li:hover a{color:#484848;}
-  
+
   
   /* 세션1 */
 
@@ -136,14 +141,20 @@
     display: flex;justify-content: center;align-items: center;}
 
 
-
+ a{color:#333;
+ text-decoration:none;}
   .section1 .pagination{display: flex;} 
-  .section1 .pagination .page-item {margin-left: 10px;
-  background-color: #484848;
-  border-radius: 5px;  padding:3px;
+  
+  .section1 .pagination .page-item{margin-left:5px;}
+  .section1 .pagination .page-link {margin-left: 10px;
+  border-radius: 5px;
   border: 1px solid #f19292;
   background-color: #fff;
-transition: 0.3s;}
+  padding: 5px;
+  color:#333;
+transition: 0.3s;
+width:100%;
+text-align:center;}
 
     .section1 .pagination .page-item:hover a{text-decoration: none;}
 
@@ -151,7 +162,7 @@ transition: 0.3s;}
   .section1 .write_button{
     border: 1px solid #f19292;
     display: flex;justify-content: center;align-items: center;
-    width: 160px;
+    width: 130px;
     height: 35px;
     border-radius: 5px;
     background-color: #fff;
@@ -166,11 +177,14 @@ text-align: center;}
   .section1 .write_button:hover{background-color: #f19292;}
   .section1 .write_button:hover a{color: #fff;}
 
-  .section1 .pagination .page-item:hover {background-color: #f19292;}
-  .section1 .pagination .page-item:hover a {color: #fff;}
+  .section1 .pagination .page-link:hover {background-color: #f19292;}
+  .section1 .pagination .page-link:hover {color: #fff;}
 
 
-  /* 푸터 */
+     /* 푸터 */
+
+     .footer{width: 100%;max-width:1200px;
+    margin: 0 auto;}   
   .footer address{
   text-align: center;}  
 
@@ -263,6 +277,19 @@ text-align: center;}
   
   </section>
 
-	
+	<!-- 푸터 -->
+
+  <footer class="footer">
+    <hr>
+  <div class="contaier">
+    <address>
+
+           서울특별시 마포구 양화로 첨단빌딩 7층<br>
+          연락처 : 02-0202-0202<br>
+              COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+
+  </address>
+</div>
+</footer>
 </body>
 </html>
