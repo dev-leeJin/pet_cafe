@@ -44,7 +44,6 @@
     
      .header .container{display: flex;justify-content:space-between;align-items: center;}
     
-    .header .login_Box{}
     
     .header .login_Box .form-group{display: flex;align-items: center;}
     
@@ -113,10 +112,17 @@
     /* 세션버튼 hover */
     .section1 button:hover{background-color: #f19292;color: #fff;}
     .section1 .page-link:hover{background-color: #f19292; color: #fff;}
+    .section1 .page-link:active{background-color: #f19292; color: #fff;}
 
+    
+   
       /* 푸터 */
+
+      .footer{width: 100%;max-width:1200px;
+    margin: 0 auto;}   
   .footer address{
   text-align: center;}  
+ 
 
   </style>
 </head>
@@ -209,8 +215,9 @@
 </section>
 
 <!-- 푸터 -->
-<hr>
+
 <footer class="footer">
+  <hr>
 <div class="contaier">
   <address>
 

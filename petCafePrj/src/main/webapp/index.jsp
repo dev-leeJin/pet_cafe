@@ -60,8 +60,6 @@ body{background:#fffaed;}
 
  .header .container{display: flex;justify-content:space-between;align-items: center;}
 
-.header .login_Box{}
-
 .header .login_Box .form-group{display: flex;align-items: center;}
 
 /* 헤더 폼 */
@@ -107,17 +105,25 @@ transition: 0.5s;}
 
 
 /* 세선1 */
- .section1 .content{
+ .section1{
  margin-left: 200px;
  margin-top : 100px;
- width:1200px;
- max-width:100%; 
+ max-width:1200px;
+ width:100%; 
  margin:0 auto;
  display: flex;
  }
  
+.section1 > .content{
+position: absolute;top: 0;left: 0;
+width: 200px; height:auto;
+padding: 10px;
+margin-top:20px;}
 
-.section1 .today_Box{}
+.section1 .today_Box{background-color:rgba(0,0,0,0.1);
+border-radius: 5px;
+padding: 10px;
+box-sizing: border-box;}
 .section1 .today{padding-left: 0;
 padding: 10px;}
 .section1 .join_Box{
@@ -134,24 +140,21 @@ letter-spacing: 1px;}
 
 .section1 .join_Box .join_Button:focus{outline: transparent;}
 
-
-
-
-.section1  .content .container{
-width: 800px;
+.section1 .container{
+width: 800px; margin: 0 auto;
 display:grid;
 grid-template-columns:1fr 1fr;
 grid-gap:20px;
-margin-top:70px;}
-.section1 .container .item{}
+margin-top:30px;}
 .section1 .container .item img{width:100%;}
 
 
 
 
-
-.footer address{
- text-align: center;}
+.footer{width: 100%;max-width:1200px;
+    margin: 0 auto;}   
+  .footer address{
+  text-align: center;}  
 
 </style>
 </head>
@@ -189,9 +192,8 @@ margin-top:70px;}
 
     <section class="section section1">
     <div class="content">
-
-      <!-- 전체글,오늘게시물 등 -->
-      <div class="today_Box">
+       <!-- 전체글,오늘게시물 등 -->
+       <div class="today_Box">
         <ul class="today">
           <li>방문자수 : <%=visitCnt %></li>
           <li>현재 시간 : <%= sf.format(nowTime) %></li>
@@ -204,8 +206,8 @@ margin-top:70px;}
           </form>
         </div>
       </c:if>
-    </div>
-
+      </div>
+   </div>
         <!-- 컨텐츠  -->
          <div class="container">
             <div class="item item1">
@@ -224,25 +226,26 @@ margin-top:70px;}
                 <a href ="https://www.youtube.com/watch?v=C8cCzRN-a2E"><img src="img/tv.png"></a>
             </div>
             </div>
-	</div>
+	
     
 
 
        
   </section>
-    <hr>
 <!-- 푸터 -->
-    <footer class="footer">
-    <div class="contaier">
-      <address>
 
-             서울특별시 마포구 양화로 첨단빌딩 7층<br>
-            연락처 : 02-0202-0202<br>
-                COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+<footer class="footer">
+  <hr>
+<div class="contaier">
+  <address>
 
-    </address>
-  </div>
-  </footer>
+         서울특별시 마포구 양화로 첨단빌딩 7층<br>
+        연락처 : 02-0202-0202<br>
+            COPYRIGHT &copy; ICT인재개발원 All Rights Reserved
+
+</address>
+</div>
+</footer>
 
 
 </body>
