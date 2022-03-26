@@ -10,6 +10,8 @@ import javax.servlet.http.HttpSession;
 
 import kr.co.easydog.ContestDAO;
 import kr.co.easydog.ContestVO;
+import kr.co.easydog.PetDAO;
+import kr.co.easydog.PetVO;
 
 public class ContestListService implements IContestService{
 	
@@ -23,6 +25,10 @@ public class ContestListService implements IContestService{
 		String sId = (String)session.getAttribute("session_id");
 		request.setAttribute("sId",sId);
 		
+		PetDAO dao2 = PetDAO.getInstance();
+		PetVO petData2 = dao2.getOnePet2(sId);
+		
+		request.setAttribute("petData2", petData2);
 	}
 	
 }

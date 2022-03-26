@@ -13,8 +13,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="http://localhost:8181/petCafePrj/contestUpdate" method="post">
-<input type="hidden" name="cont_num" value="${contest.cont_num }"/>
+<form action="http://localhost:8181/petCafePrj/contestUpdate.do" method="post">
+<input type="text" name="cont_num" value="${contest.cont_num }"/>
 글제목:<input type="text" name="title"value="${contest.cont_title }" />&nbsp;
 글쓴이:<input type="text" value="${contest.user_id }" readonly/><br/><br/>
 글내용:<textarea rows="30" cols="50" name="content" >${contest.cont_content }</textarea><br/><br/>

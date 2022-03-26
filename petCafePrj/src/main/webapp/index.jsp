@@ -164,7 +164,7 @@ margin-top:70px;}
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
-      <li class="menu-li"><a href="#">자유게시판</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/boardlist.do">자유게시판</a></li>
     </ul>
     </header>
 
@@ -189,7 +189,7 @@ margin-top:70px;}
         <!-- 컨텐츠  -->
          <div class="container">
             <div class="item item1">
-                <a href ="#"><img src="img/freeboard.png"></a>
+                <a href ="http://localhost:8181/petCafePrj/boardlist.do"><img src="img/freeboard.png"></a>
             </div>
 
             <div class="item item2">

@@ -149,19 +149,20 @@ border-radius: 5px;}
 <!-- 세션1 -->
 <section class="section section1">
 
+
 <form action="/petCafePrj/contestInsert.do" method="post">
 <input type="text" name="uid" value="${sId}"readonly/> 
 <input type="text" name="title" placeholder="글제목" required/><br/><br/>
 <textarea rows="30" cols="50" name="content" placeholder="글내용" required></textarea><br/>
-<c:forEach var="pet" items="${pets }">
-펫종류:<input type="text" value="${pet.pet_kind}" readonly/><br/>
-펫이름:<input type="text" value="${pet.pet_name}" readonly/><br/>
-펫나이:<input type="text" value="${pet.pet_age}" readonly/><br/>
-펫성별:<input type="text" value="${pet.pet_gender}" readonly/><br/><br/>
-</c:forEach>
-<input type="text" name="pvote"  placeholder="투표수" /><br/><br/>
+
+펫종류:<input type="text" value="${petData.pet_kind}" readonly/><br/>
+펫이름:<input type="text" value="${petData.pet_name}" readonly/><br/>
+펫나이:<input type="text" value="${petData.pet_age}" readonly/><br/>
+펫성별:<input type="text" value="${petData.pet_gender}" readonly/><br/><br/>
+	<input type="hidden" name="pnum" value="${petData.pet_num}" readonly/>
+<input type="text" name="pvote" value="0" placeholder="투표수" /><br/><br/>
 <input type="submit" value="글쓰기완료"/>
-<input type="reset" value="초기화"/>
+<input type="reset" value="초기화"/> 
 </form>
 
 </section>

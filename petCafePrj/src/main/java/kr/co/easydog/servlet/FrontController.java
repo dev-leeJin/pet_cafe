@@ -151,17 +151,15 @@ public class FrontController extends HttpServlet {
 		}else if(uri.equals("/petCafePrj/contestdelete.do")) {
 			sv=new ContestDeleteService();
 			sv.execute(request, response);
-			//	이것은 URL 호출이죠
 			ui="/contestlist.do";
 		}else if(uri.equals("/petCafePrj/contestUpdateform.do")) {
 			sv=new ContestUpdateFormService();
 			sv.execute(request, response);
-			//	이건 JSP 호출입니다.
 			ui="/contest/contestupdate.jsp";
 		}else if(uri.equals("/petCafePrj/contestUpdate.do")) {
 			sv=new ContestUpdateService();
 			sv.execute(request, response);
-			ui="/contestdetail.do?cont_num="+request.getParameter("cont_num");
+			ui="/contestlist.do";
 		}else if(uri.equals("/petCafePrj/contestvote.do")) {
 			sv=new ContestVoteService();
 			sv.execute(request, response);

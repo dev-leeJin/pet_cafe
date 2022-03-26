@@ -33,7 +33,7 @@
 			
 		</c:forEach>
 	</table>
-	${dto }
+	
 	<c:if test="${sessionScope.session_id ne null }">
 <a href="http://localhost:8181/petCafePrj/boardInsertForm.do"><button>글쓰기</button></a>
 </c:if>

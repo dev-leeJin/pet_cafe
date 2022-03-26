@@ -11,7 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="http://localhost:8181/petCafePrj/contestInsert.do" method="post">
+<form action="http://localhost:8181/petCafePrj/boardInsert.do" method="post">
 		<input type="text" name="title" placeholder="글제목" required><br>
 		<input type="text" name="writer"  value="${sId }"readonly><br>
 		<textarea rows="30" cols="50" name="content" placeholder="내용" required></textarea>
