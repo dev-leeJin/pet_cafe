@@ -178,7 +178,6 @@ color:#fff;}
                 <option>세종특별자치시</option>
                 <option>경기도</option>
                 <option>강원도</option>
-                <option>강원도</option>
                 <option>충청북도</option>
                 <option>충청남도</option>
                 <option>전라북도</option>
