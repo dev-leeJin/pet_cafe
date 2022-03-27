@@ -27,7 +27,7 @@
   list-style: none;
   }
   
-  
+  a{color:#333;text-decoration:none;}
   
   body{
   background:#fffaed;}
