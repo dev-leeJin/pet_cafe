@@ -1,6 +1,7 @@
 package kr.co.easydog.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -74,18 +75,28 @@ public class FrontController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		try {
+			doRequest(request, response);
+		} catch (ServletException | IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest(request, response);
+		try {
+			doRequest(request, response);
+		} catch (ServletException | IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -98,6 +109,7 @@ public class FrontController extends HttpServlet {
 		IPetService pv = null;
 		IContestService sv = null;
 		IAdoptService av = null;
+		
 		if(uri.equals("/petCafePrj/logout.do")) {
 			uv = new LogoutService();
 			uv.execute(request, response);
@@ -168,6 +180,7 @@ public class FrontController extends HttpServlet {
 	    	lv = new PetLostListService();
 	    	lv.excute(request, response);
 	    	ui = "/pet_lost/petlost_list.jsp";
+	    	
 	    }else if(uri.equals("/petCafePrj/detailpetlost.do")) {
 	    	lv = new PetLostDetailService();
 	    	lv.excute(request, response);
@@ -191,17 +204,18 @@ public class FrontController extends HttpServlet {
 	    }else if(uri.equals("/petCafePrj/updateformpetlost.do")) {
 	    	lv = new PetLostUpdateFormService();
 	    	lv.excute(request, response);
-	    	ui = "/pet_lost/petlost_updateForm.jsp";
+	    	ui = "/pet_lost/petlost_upadateForm.jsp";
 	    
 	    }else if(uri.equals("/petCafePrj/updatepetlost.do")) {
 	    	lv = new PetLostUpdateService();
 	    	lv.excute(request, response);
-	    	ui = "/petlostdetail.do?lost_num=" + request.getParameter("lost_num");
+	    	ui = "/detailpetlost.do?lost_num=" + request.getParameter("lost_num");
 	    
 	    }else if(uri.equals("/petCafePrj/searchpetlost.do")) {
 	    	lv = new PetLostSearchService();
 	    	lv.excute(request, response);
-	    	ui = "";	    
+	    	ui = "/petlostlist.do?lost_name=" + request.getParameter("lost_name");
+	    	
 	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
 			av = new AdoptListService();
 			av.execute(request, response);

@@ -37,25 +37,25 @@
   body{background:#fffaed;}
   
   .header{
-    border: 1px solid red;
+
     width: 1200px;
     margin: 0 auto;
    }
   
    .header .logo{
     padding: 5px;
-    border: 1px solid red;}
+   }
   
    .header .logo img{width: 100%;}
   
    .header .container{display: flex;justify-content:space-between;align-items: center;}
   
-  .header .login_Box{border: 2px solid orange;}
+  .header .login_Box{}
   
   .header .login_Box .form-group{display: flex;align-items: center;}
   
   /* 헤더 폼 */
-  .form-group .form-control{border: 1px solid red;
+  .form-group .form-control{
     width:190px;
     margin-left: 10px;;}
   .form-group .form-control::placeholder{font-size:15px;}
@@ -73,7 +73,7 @@
   
   .header .menu{display: flex;justify-content: center; align-items: center;;
   background: #f19292;}
-  .header .menu .menu-li{border: 1px solid red;
+  .header .menu .menu-li{
     margin-left: 20px;
     font-size: 18px;
     font-weight: 500;
@@ -87,7 +87,7 @@
   transition: 0.5s;}
   
   
-  .header .container{border: 1px solid red;
+  .header .container{
     display: flex;
   }
   
@@ -126,23 +126,30 @@ border-radius: 5px;}
 <!-- 헤더 -->
 <header class="header">
   <div class="container">
-  <h1 class="logo"><a href ="#"><img src="img/logo.png"></a></h1>
+  <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
-  <div class="login_Box">
-  <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-     <input type="text" class="form-control" name="id" placeholder="아이디">
-     <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-    <input type="submit" class="btn btn-outline-primary" value="로그인">
-
-    </form>
-  </div>
+  <c:if test="${sessionScope.session_id eq null }">
+      	<div class="login_Box">
+      	<form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+        	<input type="text" class="form-control" name="id" placeholder="아이디">
+         	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        	<input type="submit" class="btn btn-outline-primary" value="로그인">
+   		</form>
+      </div>
+      </c:if>
+      <c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님 환영합니다.
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/petWelcome.do">마이펫페이지</a>
+        <a href="http://localhost:8181/petCafePrj/logout.do">로그아웃하기</a>
+      </c:if>
 </div>
 
 <ul class="menu">
-  <li class="menu-li"><a href="#">애견콘테스트</a></li>
-  <li class="menu-li"><a href="#">애견 분양</a></li>
-  <li class="menu-li"><a href="#">유기견게시판</a></li>
-  <li class="menu-li"><a href="#">자유게시판</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/boardlist.do">자유게시판</a></li>
 </ul>
 </header> <!--헤더-->
 

@@ -33,7 +33,7 @@ private DataSource ds = null;
 		return dao;
 	}
 
-	public void insertPetLost(String lostName, String lostZone, int lostSize, int lostPhone, int lostDate) {
+	public void insertPetLost(String lostName, String lostZone, String lostSize, int lostPhone, Date lostDate) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -44,9 +44,9 @@ private DataSource ds = null;
 
 			pstmt.setString(1, lostName);
 			pstmt.setString(2, lostZone);
-			pstmt.setInt(3, lostSize);
+			pstmt.setString(3, lostSize);
 			pstmt.setInt(4, lostPhone);
-			pstmt.setInt(5, lostDate);
+			pstmt.setDate(5, lostDate);
 
 			pstmt.executeUpdate();
 		}catch(Exception e) {
@@ -61,20 +61,24 @@ private DataSource ds = null;
 		}
 	}
 
-	public List<PetLostVO> getAllPetLostList(){
+	public List<PetLostVO> getAllPetLostList(int pageNum){
 		// try블럭 진입 전 Connection, PreparedStatement, ResultSet 선언
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
+		final int BOARD_COUNT = 10;
 		// try블럭 진입 전에 ArrayList 선언
 		List<PetLostVO> petlostList = new ArrayList<>();
 		try {
 			// Connection, PreparedStatement, ResultSet을 선언합니다.
 			con = ds.getConnection();
+			int limitNum = (pageNum - 1) * BOARD_COUNT;
 			
 			// SELECT * FROM userinfo 실행 및 ResultSet에 저장
-			String sql = "SELECT * FROM pet_lost";
+			String sql = "SELECT * FROM pet_lost order by lost_num desc limit ?,?";
 			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, limitNum);
+			pstmt.setInt(2, BOARD_COUNT);
 			
 			rs = pstmt.executeQuery();
 
@@ -85,9 +89,9 @@ private DataSource ds = null;
 				String lostName = rs.getString("lost_name");
 				String uId = rs.getString("user_id");
 				String lostZone = rs.getString("lost_zone");
-				int lostSize = rs.getInt("lost_size");
+				String lostSize = rs.getString("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
-				int lostDate = rs.getInt("lost_date");
+				Date lostDate = rs.getDate("lost_date");
 				
 				PetLostVO petlostData = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
 				petlostList.add(petlostData);
@@ -98,7 +102,7 @@ private DataSource ds = null;
 			try {
 				con.close();
 				pstmt.close();
-				rs.close();
+				
 			} catch(SQLException se) {
 				se.printStackTrace();
 			}
@@ -131,7 +135,7 @@ private DataSource ds = null;
 		}
 	}
 
-	public void updatePetLost(String lostName, String lostZone, int lostSize, int lostPhone, int lostDate, int lostNum) {
+	public void updatePetLost(String lostName, String lostZone, String lostSize, int lostPhone, Date lostDate, int lostNum) {
 		Connection con = null;
 		PreparedStatement pstmt = null;
 		try {
@@ -141,9 +145,9 @@ private DataSource ds = null;
 			 pstmt = con.prepareStatement(sql);
 			 pstmt.setString(1, lostName);
 			 pstmt.setString(2, lostZone);
-			 pstmt.setInt(3, lostSize);
+			 pstmt.setString(3, lostSize);
 			 pstmt.setInt(4, lostPhone);
-			 pstmt.setInt(5, lostDate);
+			 pstmt.setDate(5, lostDate);
 			 pstmt.setInt(6, lostNum);
 			 
 			 pstmt.executeUpdate();
@@ -180,9 +184,9 @@ private DataSource ds = null;
 				String lostName = rs.getString("lost_name");
 				String uId = rs.getString("user_id");
 				String lostZone = rs.getString("lost_zone");
-				int lostSize = rs.getInt("lost_size");
+				String lostSize = rs.getString("lost_size");
 				int lostPhone = rs.getInt("lost_phone");
-				int lostDate = rs.getInt("lost_date");
+				Date lostDate = rs.getDate("lost_date");
 				
 				petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
 			}
@@ -201,22 +205,33 @@ private DataSource ds = null;
 		return petlost;
     }
 
-    public List<PetLostVO> searchPetLost(Date sDate, Date fDate, String sD) {
+	public List<PetLostVO> searchPetLost(String lostname) {
     	Connection con = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		List<PetLostVO> petlostSearch = new ArrayList<>();
+		List<PetLostVO> petlostsearch = new ArrayList<>();
 			try {
 				con = ds.getConnection();	
 				    
-				 String sql = "SELECT * FROM pet_lost WHERE (lost_date BETWEEN ? AND ?) AND (lost_zone = ?)";
+				 String sql = "SELECT * FROM pet_lost WHERE lost_name=?";
 				 pstmt = con.prepareStatement(sql);
-				 pstmt.setDate(1, sDate);
-				 pstmt.setDate(2, fDate);
-				 pstmt.setString(3, sD);
+				 pstmt.setString(1, lostname);
+				 								 
+				 rs = pstmt.executeQuery();
 				 
-								 
-				 pstmt.executeQuery();
+				 if(rs.next()) {
+						int lostNum = rs.getInt("lost_num");
+						String lostName = rs.getString("lost_name");
+						String uId = rs.getString("user_id");
+						String lostZone = rs.getString("lost_zone");
+						String lostSize = rs.getString("lost_size");
+						int lostPhone = rs.getInt("lost_phone");
+						Date lostDate = rs.getDate("lost_date");
+						
+						PetLostVO petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
+						petlostsearch.add(petlost);
+						
+					}
 				 
 			}catch(Exception e){
 				e.printStackTrace();
@@ -224,11 +239,41 @@ private DataSource ds = null;
 				try {
 					con.close();
 				    pstmt.close();
-				    rs.close();			    
+				    rs.close();
 					}catch(SQLException se) {
 						se.printStackTrace();
 				}
 			}
-			return petlostSearch;
+			return petlostsearch;
 		}
-    }
+    
+    public int getPageNum() {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "SELECT COUNT(*) FROM pet_lost";
+		int pageNum = 0;
+		try {
+			con = ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pageNum = rs.getInt(1);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		return pageNum;
+	}
+}

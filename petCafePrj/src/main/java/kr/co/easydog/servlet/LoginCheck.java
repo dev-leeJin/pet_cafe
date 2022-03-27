@@ -47,7 +47,7 @@ public class LoginCheck extends HttpServlet {
 		UserDAO userdao = UserDAO.getInstance();
 		UserVO uservo = userdao.getUserData(id);
 
-	
+		System.out.println(uservo);
 		if(id.equals(uservo.getUser_id())) {
 			if(pw.equals(uservo.getPw())) {
 				String name = uservo.getName();
@@ -56,6 +56,8 @@ public class LoginCheck extends HttpServlet {
 				session.setAttribute("session_name", name);
 	
 				response.sendRedirect("http://localhost:8181/petCafePrj/");
+			} else {
+				response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");
 			}
 		} else {
 			response.sendRedirect("http://localhost:8181/petCafePrj/users/login_form.jsp");

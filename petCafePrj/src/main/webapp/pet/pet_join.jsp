@@ -125,23 +125,31 @@ margin-left:10px;}
  <!-- 헤더 -->
  <header class="header">
   <div class="container">
-  <h1 class="logo"><a href ="#"><img src="img/logo.png"></a></h1>
 
-  <div class="login_Box">
-  <form action="http://loaclhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
-     <input type="text" class="form-control" name="id" placeholder="아이디">
-     <input type="password" class="form-control" name="pw" placeholder="비밀번호">
-    <input type="submit" class="btn btn-outline-primary" value="로그인">
+  <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
-    </form>
-  </div>
+  <c:if test="${sessionScope.session_id eq null }">
+      	<div class="login_Box">
+      	<form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
+        	<input type="text" class="form-control" name="id" placeholder="아이디">
+         	<input type="password" class="form-control" name="pw" placeholder="비밀번호">
+        	<input type="submit" class="btn btn-outline-primary" value="로그인">
+   		</form>
+      </div>
+      </c:if>
+      <c:if test="${sessionScope.session_id ne null }">
+      	${session_name }님 환영합니다.
+      	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
+        <a href="http://localhost:8181/petCafePrj/petWelcome.do">마이펫페이지</a>
+        <a href="http://localhost:8181/petCafePrj/logout.do">로그아웃하기</a>
+      </c:if>
 </div>
 
 <ul class="menu">
-  <li class="menu-li"><a href="#">애견콘테스트</a></li>
-  <li class="menu-li"><a href="#">애견 분양</a></li>
-  <li class="menu-li"><a href="#">유기견게시판</a></li>
-  <li class="menu-li"><a href="#">자유게시판</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
+  <li class="menu-li"><a href="http://localhost:8181/petCafePrj/boardlist.do">자유게시판</a></li>
 </ul>
 </header>
 
@@ -149,21 +157,22 @@ margin-left:10px;}
 <!-- section1 -->
 <section class="section section1">
 	<form action="http://localhost:8181/petCafePrj/petJoinCheck.do" method="post">
-		<input type="text" name="id" value="${session_id}" readonly >
+		<input type="text" name="id" value="${session_id}" readonly ><br/>
 		품종 :  
 		<select class="form-select" name="kind">
 		  <option value="1">치와와</option>
 		  <option value="2">말티즈</option>
 		  <option value="3">레브라도 리트리버</option>
 		</select>
-		<input type="text" name="name" placeholder="이름" required>
+		<input type="text" name="name" placeholder="이름" required><br/>
 		나이 :  
 		<select class="form-select" name="age">
 			<c:forEach var="age" begin="1" end="15">
 		  	<option value="${age }">${age }</option>
 		  </c:forEach>
 		</select>
-		<input type="checkbox" name="gender">
+		성별 : <input type="radio" name="gender" value="True" checked="checked"> 수컷
+			  <input type="radio" name="gender" value="False"> 암컷
 		<input type="submit" value="생성">
 	</form>
 </section>

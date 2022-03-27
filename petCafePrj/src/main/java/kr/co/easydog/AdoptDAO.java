@@ -33,18 +33,23 @@ private DataSource ds = null;
 		return dao;
 	}
 	
-	public List<AdoptVO> getAllAdoptList(){
+	public List<AdoptVO> getAllAdoptList(int pageNum){
 		Connection con = null;
 		PreparedStatement psmt = null;
 		ResultSet rs = null;
+		final int BOARD_COUNT = 10;
 		List<AdoptVO> adoptList = new ArrayList<>();
 		try {
 			con=ds.getConnection();
+			int limitNum = (pageNum - 1) * BOARD_COUNT;
 			
-			String sql="select*from adoptTbl order by adopt_num desc";
+			String sql="select*from adoptTbl order by adopt_num desc limit ?,?";
 			
 			psmt=con.prepareStatement(sql);
 			
+			psmt.setInt(1, limitNum);
+			psmt.setInt(2, BOARD_COUNT);
+
 			rs=psmt.executeQuery();
 			while(rs.next()) {
 				int anum = rs.getInt("adopt_num");
@@ -200,4 +205,36 @@ private DataSource ds = null;
 		}
 	}
 	
+
+	public int getPageNum() {
+		
+		Connection con = null;
+		PreparedStatement pstmt = null;
+		String sql = "SELECT COUNT(*) FROM adoptTbl";
+		int pageNum = 0;
+		try {
+			con = ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			
+			ResultSet rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				pageNum = rs.getInt(1);
+			}
+			
+		} catch(Exception e) {
+			e.printStackTrace();
+		} finally {
+			try {
+				con.close();
+				pstmt.close();
+			} catch(SQLException se) {
+				se.printStackTrace();
+			}
+		}
+		return pageNum;
+	}
+	
+
 }
