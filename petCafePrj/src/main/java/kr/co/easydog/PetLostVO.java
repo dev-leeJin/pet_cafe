@@ -1,18 +1,23 @@
 package kr.co.easydog;
 
+import java.sql.Date;
+
+import javax.xml.crypto.Data;
+
 public class PetLostVO {
 
 	private int lost_num;
 	private String lost_name;
 	private String user_id;
 	private String lost_zone;
-	private int lost_size;
+	private String lost_size;
 	private int lost_phone;
+	private Date lost_date;
 	
 	
 	
-	public PetLostVO(int lost_num, String lost_name, String user_id, String lost_zone, int lost_size,
-			int lost_phone) {
+	public PetLostVO(int lost_num, String lost_name, String user_id, String lost_zone, String lost_size,
+			int lost_phone, Date lost_date) {
 		super();
 		this.lost_num = lost_num;
 		this.lost_name = lost_name;
@@ -20,8 +25,8 @@ public class PetLostVO {
 		this.lost_zone = lost_zone;
 		this.lost_size = lost_size;
 		this.lost_phone = lost_phone;
+		this.lost_date = lost_date;
 	}
-
 
 
 	public int getLost_num() {
@@ -72,13 +77,13 @@ public class PetLostVO {
 
 
 
-	public int getLost_size() {
+	public String getLost_size() {
 		return lost_size;
 	}
 
 
 
-	public void setLost_size(int lost_size) {
+	public void setLost_size(String lost_size) {
 		this.lost_size = lost_size;
 	}
 
@@ -95,12 +100,22 @@ public class PetLostVO {
 	}
 
 
+	public Date getLost_date() {
+		return lost_date;
+	}
+
+
+
+	public void setLost_date(Date lost_date) {
+		this.lost_date = lost_date;
+	}
+
 
 	@Override
 	public String toString() {
 		return "PetLostVO [lost_num=" + lost_num + ", lost_name=" + lost_name + ", user_id=" + user_id + ", lost_zone="
-				+ lost_zone + ", lost_size=" + lost_size + ", lost_phone=" + lost_phone + "]";
+				+ lost_zone + ", lost_size=" + lost_size + ", lost_phone=" + lost_phone + ", lost_date=" + lost_date
+				+ "]";
 	}
-	
-	
+
 }

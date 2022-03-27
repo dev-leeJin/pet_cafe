@@ -16,13 +16,11 @@ public class ContestDeleteService implements IContestService{
 		
 		String snum=request.getParameter("cont_num");
 		int bnum=Integer.parseInt(snum);
-		String uId=request.getParameter("user_id");
-		HttpSession session = request.getSession();
-		String sId=(String)request.getAttribute("session_id");
-		if(sId.equals(uId)) {
+		
+		
 			ContestDAO dao = ContestDAO.getInstance();
 			dao.ContestDelete(bnum);
-		}
+	
 		
 		
 	}

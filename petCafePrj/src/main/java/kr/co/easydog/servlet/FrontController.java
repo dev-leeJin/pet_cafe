@@ -1,6 +1,7 @@
 package kr.co.easydog.servlet;
 
 import java.io.IOException;
+import java.text.ParseException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -20,6 +21,25 @@ import kr.co.easydog.servlet.service.PetUpdateService;
 import kr.co.easydog.servlet.service.PetWelcomeService;
 import kr.co.easydog.servlet.service.UserUpdateFormSerivce;
 import kr.co.easydog.servlet.service.UserUpdateService;
+<<<<<<< HEAD
+=======
+import kr.co.easydog.servlet.service.AdoptDeleteService;
+import kr.co.easydog.servlet.service.AdoptDetailService;
+import kr.co.easydog.servlet.service.AdoptInsertFormService;
+import kr.co.easydog.servlet.service.AdoptInsertService;
+import kr.co.easydog.servlet.service.AdoptListService;
+import kr.co.easydog.servlet.service.AdoptUpdateFormService;
+import kr.co.easydog.servlet.service.AdoptUpdateService;
+import kr.co.easydog.servlet.service.ContestDeleteService;
+import kr.co.easydog.servlet.service.ContestDetailService;
+import kr.co.easydog.servlet.service.ContestInsertFormService;
+import kr.co.easydog.servlet.service.ContestUpdateFormService;
+import kr.co.easydog.servlet.service.ContestUpdateService;
+import kr.co.easydog.servlet.service.ContestInsertService;
+import kr.co.easydog.servlet.service.ContestListService;
+import kr.co.easydog.servlet.service.IContestService;
+import kr.co.easydog.servlet.service.IAdoptService;
+>>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 import kr.co.easydog.servlet.service.BoardDeleteService;
 import kr.co.easydog.servlet.service.BoardDetailService;
 import kr.co.easydog.servlet.service.BoardInsertFormService;
@@ -27,6 +47,7 @@ import kr.co.easydog.servlet.service.BoardInsertService;
 import kr.co.easydog.servlet.service.BoardListService;
 import kr.co.easydog.servlet.service.BoardUpdateFormService;
 import kr.co.easydog.servlet.service.BoardUpdateService;
+<<<<<<< HEAD
 import kr.co.easydog.servlet.service.ContestDeleteService;
 import kr.co.easydog.servlet.service.ContestDetailService;
 import kr.co.easydog.servlet.service.ContestInsertFormService;
@@ -35,6 +56,8 @@ import kr.co.easydog.servlet.service.ContestListService;
 import kr.co.easydog.servlet.service.ContestUpdateFormService;
 import kr.co.easydog.servlet.service.ContestUpdateService;
 import kr.co.easydog.servlet.service.IContestService;
+=======
+>>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 import kr.co.easydog.servlet.service.IPetLostService;
 import kr.co.easydog.servlet.service.PetLostDeleteService;
 import kr.co.easydog.servlet.service.PetLostDetailService;
@@ -65,18 +88,28 @@ public class FrontController extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest(request, response);
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
+		try {
+			doRequest(request, response);
+		} catch (ServletException | IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doRequest(request, response);
+		try {
+			doRequest(request, response);
+		} catch (ServletException | IOException | ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
-	private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	private void doRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
 		
 		request.setCharacterEncoding("utf-8");
 		
@@ -123,8 +156,40 @@ public class FrontController extends HttpServlet {
 			pv = new PetDeleteService();
 			pv.execute(request, response);
 			ui = "/petWelcome.do";
+<<<<<<< HEAD
 		} 
 		else if(uri.equals("/petCafePrj/petlostlist.do")) {
+=======
+		} else if(uri.equals("/petCafePrj/contestlist.do")) {
+			sv=new ContestListService();
+			sv.execute(request, response);
+			ui = "/contest/contestlist.jsp";
+		}else if(uri.equals("/petCafePrj/contestdetail.do")) {
+			sv=new ContestDetailService();
+			sv.execute(request, response);
+			ui="/contest/contestdetail.jsp";
+		}else if(uri.equals("/petCafePrj/contestInsertForm.do")) {
+			sv=new ContestInsertFormService();
+			sv.execute(request, response);
+			ui="/contest/contestform.jsp";
+		}else if(uri.equals("/petCafePrj/contestInsert.do")){
+			sv=new ContestInsertService();
+			sv.execute(request, response);
+			ui="/contestlist.do";
+		}else if(uri.equals("/petCafePrj/contestdelete.do")) {
+			sv=new ContestDeleteService();
+			sv.execute(request, response);
+			ui="/contestlist.do";
+		}else if(uri.equals("/petCafePrj/contestUpdateform.do")) {
+			sv=new ContestUpdateFormService();
+			sv.execute(request, response);
+			ui="/contest/contestupdate.jsp";
+		}else if(uri.equals("/petCafePrj/contestUpdate.do")) {
+			sv=new ContestUpdateService();
+			sv.execute(request, response);
+			ui="/contestlist.do";
+		}else if(uri.equals("/petCafePrj/petlostlist.do")) {
+>>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 	    	lv = new PetLostListService();
 	    	lv.excute(request, response);
 	    	ui = "/pet_lost/petlost_list.jsp";
@@ -152,16 +217,17 @@ public class FrontController extends HttpServlet {
 	    }else if(uri.equals("/petCafePrj/updateformpetlost.do")) {
 	    	lv = new PetLostUpdateFormService();
 	    	lv.excute(request, response);
-	    	ui = "/pet_lost/petlost_updateForm.jsp";
+	    	ui = "/pet_lost/petlost_upadateForm.jsp";
 	    
 	    }else if(uri.equals("/petCafePrj/updatepetlost.do")) {
 	    	lv = new PetLostUpdateService();
 	    	lv.excute(request, response);
-	    	ui = "/petlostdetail.do?lost_num=" + request.getParameter("lost_num");
+	    	ui = "/detailpetlost.do?lost_num=" + request.getParameter("lost_num");
 	    
 	    }else if(uri.equals("/petCafePrj/searchpetlost.do")) {
 	    	lv = new PetLostSearchService();
 	    	lv.excute(request, response);
+<<<<<<< HEAD
 	    	ui = "";	    
 	    }else if(uri.equals("/petCafePrj/contestlist.do")) {
 			sv=new ContestListService();
@@ -191,6 +257,38 @@ public class FrontController extends HttpServlet {
 			sv=new ContestUpdateService();
 			sv.execute(request, response);
 			ui="/contestdetail.do?"+request.getParameter("cont_num");
+=======
+	    	ui = "/petlostlist.do?lost_name=" + request.getParameter("lost_name");
+	    	
+	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
+			av = new AdoptListService();
+			av.execute(request, response);
+			ui = "/adopt/adoptList.jsp";
+		} else if(uri.equals("/petCafePrj/adoptdetail.do")) {
+			av = new AdoptDetailService();
+			av.execute(request, response);
+			ui = "/adopt/adoptDetail.jsp";
+		} else if(uri.equals("/petCafePrj/adoptInsertForm.do")) {
+			av = new AdoptInsertFormService();
+			av.execute(request, response);
+			ui = "/adopt/adoptInsert.jsp";
+		} else if(uri.equals("/petCafePrj/adoptInsert.do")){
+			av = new AdoptInsertService();
+			av.execute(request, response);
+			ui = "/adoptlist.do";
+		} else if(uri.equals("/petCafePrj/adoptdelete.do")) {
+			av = new AdoptDeleteService();
+			av.execute(request, response);
+			ui = "/adoptlist.do";
+		} else if(uri.equals("/petCafePrj/adoptUpdateForm.do")) {
+			av = new AdoptUpdateFormService();
+			av.execute(request, response);
+			ui = "/adopt/adoptUpdate.jsp";
+		} else if(uri.equals("/petCafePrj/adoptUpdate.do")) {
+			av = new AdoptUpdateService();
+			av.execute(request, response);
+			ui = "/adoptdetail.do?adopt_num="+request.getParameter("adopt_num");
+>>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 		}else if(uri.equals("/petCafePrj/boardlist.do")) {
 			sv=new BoardListService();
 			sv.execute(request, response);
@@ -219,8 +317,12 @@ public class FrontController extends HttpServlet {
 			sv=new BoardInsertService();
 			sv.execute(request, response);
 			ui="/boardlist.do";
+<<<<<<< HEAD
 		}
 		else{
+=======
+		} else{
+>>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 			ui = "/";
 		}
 		

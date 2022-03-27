@@ -10,12 +10,12 @@
     String upw = request.getParameter("pw");
     String uname = request.getParameter("name");
     String uemail = request.getParameter("email");
-    String uadmin = request.getParameter("admin");
+    String uadmin = "0";
     
     UserDAO dao = UserDAO.getInstance();
 	dao.insertUser(uid, upw, uname, uemail, uadmin);
 	
-	response.sendRedirect("/petCafePrj");
+	response.sendRedirect("/petCafePrj/");
     %>
 <!DOCTYPE html>
 <html>

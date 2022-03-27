@@ -15,10 +15,7 @@ public class PetUpdateService implements IPetService{
 		String pkind = request.getParameter("kind");
 		String pname = request.getParameter("name");
 		int page = Integer.parseInt(request.getParameter("age"));
-		Boolean pgender = false;
-		if (request.getParameter("gender") != null) {
-			pgender = true;
-		}
+		boolean pgender = Boolean.parseBoolean(request.getParameter("gender"));
 		
 		petdao.petUpdate(pnum, pkind, pname, page, pgender);
 	}
