@@ -125,16 +125,25 @@
     z-index: 3;
     color: #fff;
     background-color: #f19292;
-    border-color: #f19292;
+    border-color: #f19292;}
 
     
-   
+   input[type="submit"]{width: 130px;padding: 5px;
+  background-color: #fff;
+border-radius: 5px;
+border: 1px solid #f19292;
+color: #333;
+transition: 0.3s;}
+
+input[type="submit"]:hover{background-color: #f19292;color: #fff;}
+
       /* 푸터 */
 
-      .footer{width: 100%;max-width:1200px;
-    margin: 0 auto;}   
-  .footer address{
-  text-align: center;}  
+footer{width: 100%;max-width:1200px;
+  margin: 0 auto;} 
+
+.footer address{
+text-align: center;}  
  
 
   </style>
