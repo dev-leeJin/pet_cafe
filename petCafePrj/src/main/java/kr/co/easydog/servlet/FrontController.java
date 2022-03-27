@@ -54,7 +54,6 @@ import kr.co.easydog.servlet.service.PetLostDetailService;
 import kr.co.easydog.servlet.service.PetLostInsertFormService;
 import kr.co.easydog.servlet.service.PetLostInsertService;
 import kr.co.easydog.servlet.service.PetLostListService;
-import kr.co.easydog.servlet.service.PetLostSearchService;
 import kr.co.easydog.servlet.service.PetLostUpdateFormService;
 import kr.co.easydog.servlet.service.PetLostUpdateService;
 
@@ -213,11 +212,7 @@ public class FrontController extends HttpServlet {
 	    	lv = new PetLostUpdateService();
 	    	lv.excute(request, response);
 	    	ui = "/petlostdetail.do?lost_num=" + request.getParameter("lost_num");
-	    
-	    }else if(uri.equals("/petCafePrj/searchpetlost.do")) {
-	    	lv = new PetLostSearchService();
-	    	lv.excute(request, response);
-	    	ui = "";	    
+	    	   	    
 	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
 			av = new AdoptListService();
 			av.execute(request, response);
