@@ -208,49 +208,6 @@ private DataSource ds = null;
 		}
 		return petlost;
     }
-
-	public List<PetLostVO> searchPetLost(String lostname) {
-    	Connection con = null;
-		PreparedStatement pstmt = null;
-		ResultSet rs = null;
-		List<PetLostVO> petlostsearch = new ArrayList<>();
-			try {
-				con = ds.getConnection();	
-				    
-				 String sql = "SELECT * FROM pet_lost WHERE lost_name=?";
-				 pstmt = con.prepareStatement(sql);
-				 pstmt.setString(1, lostname);
-				 								 
-				 rs = pstmt.executeQuery();
-				 
-				 if(rs.next()) {
-						int lostNum = rs.getInt("lost_num");
-						String lostName = rs.getString("lost_name");
-						String uId = rs.getString("user_id");
-						String lostZone = rs.getString("lost_zone");
-						String lostSize = rs.getString("lost_size");
-						int lostPhone = rs.getInt("lost_phone");
-						Date lostDate = rs.getDate("lost_date");
-						
-						PetLostVO petlost = new PetLostVO(lostNum, lostName, uId, lostZone, lostSize, lostPhone, lostDate);
-						petlostsearch.add(petlost);
-						
-					}
-				 
-			}catch(Exception e){
-				e.printStackTrace();
-			}finally {
-				try {
-					con.close();
-				    pstmt.close();
-				    rs.close();
-					}catch(SQLException se) {
-						se.printStackTrace();
-				}
-			}
-			return petlostsearch;
-		}
-    
     public int getPageNum() {
 		
 		Connection con = null;
