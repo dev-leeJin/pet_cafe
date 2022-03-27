@@ -18,6 +18,7 @@ public class PetLostUpdateService implements IPetLostService{
 	@Override
 	public void excute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
 		
+		request.setCharacterEncoding("utf-8");
 		String lostName = request.getParameter("lost_name");
         String lostZone = request.getParameter("lost_zone");
         String lostSize = request.getParameter("lost_size");
