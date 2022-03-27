@@ -200,9 +200,18 @@
     </c:forEach>
     </tbody>
     </table>
+<<<<<<< HEAD
     <c:if test="${sessionScope.session_id ne null }">
     <a href="http://localhost:8181/petCafePrj/contestInsertForm.do"><button>글등록하기</button></a>
     </c:if>
+=======
+<c:if test="${sessionScope.session_id ne null }">
+	<form action="http://localhost:8181/petCafePrj/contestInsertForm.do">
+	<input type="hidden" name="pet_num" value="${petData2.pet_num }"/>
+	<input type="submit" value="글등록하기"/>
+</form>
+</c:if>
+>>>>>>> djdh94
       
       <nav aria-label="Page navigation">
         <ul class="pagination justify-content-center">

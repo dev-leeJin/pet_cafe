@@ -11,7 +11,10 @@ import javax.servlet.http.HttpSession;
 import kr.co.easydog.ContestDAO;
 import kr.co.easydog.ContestVO;
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> djdh94
 import kr.co.easydog.PageDTO;
 import kr.co.easydog.PetDAO;
 import kr.co.easydog.PetVO;
@@ -22,10 +25,26 @@ public class ContestListService implements IContestService{
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) {
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+		
+		String strpageNum = request.getParameter("pageNum");
+		int pageNum = 1;
+		
+		try {
+			if(strpageNum != null) {
+				pageNum = Integer.parseInt(strpageNum);
+			}
+		} catch(Exception e) {
+
+		}
+		
+>>>>>>> djdh94
 		ContestDAO dao = ContestDAO.getInstance();
-		List<ContestVO> contestList = dao.getAllContestList();
+		List<ContestVO> contestList = dao.getAllContestList(pageNum);
 		request.setAttribute("contestList", contestList);
 		
+<<<<<<< HEAD
 =======
 		
 		String strpageNum = request.getParameter("pageNum");
@@ -43,12 +62,17 @@ public class ContestListService implements IContestService{
 		List<ContestVO> contestList = dao.getAllContestList(pageNum);
 		request.setAttribute("contestList", contestList);
 		
+=======
+>>>>>>> djdh94
 		int boardCount = dao.getPageNum();
 		
 		PageDTO dto = new PageDTO(boardCount, pageNum);
 		request.setAttribute("dto", dto);
 		
+<<<<<<< HEAD
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+=======
+>>>>>>> djdh94
 		HttpSession session = request.getSession();
 		String sId = (String)session.getAttribute("session_id");
 		request.setAttribute("sId",sId);

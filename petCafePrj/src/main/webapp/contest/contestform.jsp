@@ -315,9 +315,12 @@ text-align: center;}
   
   .header{
 <<<<<<< HEAD
+<<<<<<< HEAD
     width: 100%;
     max-width: 1200px;
 =======
+=======
+>>>>>>> djdh94
 
     width: 1200px;
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
@@ -363,7 +366,10 @@ text-align: center;}
 margin-top: 15px;}
 =======
   background: #f19292;}
+<<<<<<< HEAD
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+=======
+>>>>>>> djdh94
   .header .menu .menu-li{
     margin-left: 20px;
     font-size: 18px;

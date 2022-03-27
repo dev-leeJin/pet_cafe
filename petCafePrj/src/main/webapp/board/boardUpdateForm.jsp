@@ -9,6 +9,7 @@
 <head>
 <meta charset="UTF-8">
 <<<<<<< HEAD
+<<<<<<< HEAD
 <title>Insert title here</title>
 </head>
 <body>
@@ -141,6 +142,125 @@ outline: none;}
   </style>
 </head>
 <body>
+=======
+<!-- 부트스트랩 주소 -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+   <!-- font -->
+<link rel="preconnect" href="https://fonts.googleapis.com/%22%3E">
+<link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+
+  <title>Pet</title>
+  <style>
+    *{
+        margin: 0;
+        padding: 0;
+        position: relative;
+        font-family: 'Noto Sans KR', sans-serif;
+        list-style: none;}
+    
+    
+     
+    body{background:#fffaed;}
+    
+    .header{
+      
+      width: 1200px;
+      margin: 0 auto;
+     }
+    
+     .header .logo{
+      padding: 5px;
+      }
+    
+     .header .logo img{width: 100%;}
+    
+     .header .container{display: flex;justify-content:space-between;align-items: center;}
+    
+    .header .login_Box{}
+    
+    .header .login_Box .form-group{display: flex;align-items: center;}
+    
+    /* 헤더 폼 */
+    .form-group .form-control{
+      width:190px;
+      margin-left: 10px;;}
+    .form-group .form-control::placeholder{font-size:15px;}
+    .btn{
+    background-color: white;
+    color: #484848;
+    font-size: 15px;
+    margin-left: 10px;
+    border:1px solid #f19292;}
+    
+    /* 버튼 hover */
+    .btn:hover{background-color: #f19292;
+    border:1px solid #f19292;}
+    
+    
+    .header .menu{display: flex;justify-content: center; align-items: center;;
+    background: #f19292;}
+    .header .menu .menu-li{
+      margin-left: 20px;
+      font-size: 18px;
+      font-weight: 500;
+      padding: 5px;
+      color: white;}
+    
+    
+    
+    .header .menu .menu-li>a{color:white;
+      text-decoration: none;
+    transition: 0.5s;}
+    
+    
+    .header .container{
+      display: flex;
+    }
+    
+    /* 헤더 메뉴 hover */
+    
+    .header .menu-li:hover a{color:#484848;}
+
+
+
+  /* section1 */
+
+  .section1{width: 100%; max-width: 1200px; margin: 0 auto; 
+  margin-top: 30px;
+text-align: center;}
+
+
+  .section1 input[type="text"],
+  .section1 textarea,
+  .section1 input[type="submit"],
+  .section1 input[type="reset"]{border: 1px solid #f19292;
+  padding: 5px;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  color: #333;
+outline: none;}
+  
+  .section1 input[type="submit"],
+  .section1 input[type="reset"]{width: 160px; background-color: #fff; transition: 0.3s;}
+
+  /* 세션 버튼 hover */
+
+  .section1 input[type="submit"]:hover{background-color: #f19292;color: #fff;}
+  .section1 input[type="reset"]:hover{background-color: #f19292;color: #fff;}
+
+      /* 푸터 */
+
+   .footer{width: 100%;max-width:1200px;
+    margin: 0 auto;}   
+  .footer address{
+  text-align: center;}  
+
+  </style>
+</head>
+<body>
+>>>>>>> djdh94
 
   <!-- 헤더 -->
   <header class="header">
@@ -205,6 +325,9 @@ outline: none;}
 </footer>
 
 
+<<<<<<< HEAD
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+=======
+>>>>>>> djdh94
 </body>
 </html>

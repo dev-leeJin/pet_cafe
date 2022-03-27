@@ -28,8 +28,11 @@
     -->
     
 <<<<<<< HEAD
+<<<<<<< HEAD
     <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="300" maxWait="1000" name="jdbc/mysql" password="mysql" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/tpj" username="root"/>
 =======
+=======
+>>>>>>> djdh94
 
     <Resource auth="Container" driverClassName="com.mysql.cj.jdbc.Driver" maxActive="300" maxWait="1000" name="jdbc/mysql" password="mysql" type="javax.sql.DataSource" url="jdbc:mysql://localhost:3306/easydog" username="root"/>
 

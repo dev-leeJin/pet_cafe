@@ -12,6 +12,7 @@ import javax.servlet.http.HttpSession;
 <<<<<<<< HEAD:petCafePrj/src/main/java/kr/co/easydog/servlet/service/BoardListService.java
 import kr.co.easydog.BoardDAO;
 import kr.co.easydog.BoardVO;
+<<<<<<< HEAD
 ========
 import kr.co.easydog.AdoptDAO;
 import kr.co.easydog.AdoptVO;
@@ -23,20 +24,38 @@ import kr.co.easydog.BoardDAO;
 import kr.co.easydog.BoardVO;
 import kr.co.easydog.PageDTO;
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+=======
+import kr.co.easydog.PageDTO;
+>>>>>>> djdh94
 
 public class BoardListService implements IContestService{
 
 	@Override
 	public void execute(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 <<<<<<< HEAD
+<<<<<<< HEAD
 <<<<<<<< HEAD:petCafePrj/src/main/java/kr/co/easydog/servlet/service/BoardListService.java
+=======
+		
+		String strpageNum = request.getParameter("pageNum");
+		int pageNum = 1;
+		
+		try {
+			if(strpageNum != null) {
+				pageNum = Integer.parseInt(strpageNum);
+			}
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+>>>>>>> djdh94
 		BoardDAO dao = BoardDAO.getInstance();
-		List<BoardVO> boardList=dao.getAllBoardList();
+		List<BoardVO> boardList=dao.getAllBoardList(pageNum);
 		request.setAttribute("boardList", boardList);
 ========
 =======
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 		
+<<<<<<< HEAD
 		String strpageNum = request.getParameter("pageNum");
 		int pageNum = 1;
 		
@@ -59,16 +78,22 @@ public class BoardListService implements IContestService{
 		request.setAttribute("boardList", boardList);
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 		
+=======
+>>>>>>> djdh94
 		int boardCount = dao.getPageNum();
 		// 아래에 DTO 생성
 		PageDTO dto = new PageDTO(boardCount, pageNum);
 		System.out.println(boardCount);
 		request.setAttribute("dto", dto);
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
 		
 >>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+=======
+		
+>>>>>>> djdh94
 		HttpSession session = request.getSession();
 		String sId = (String)session.getAttribute("session_id");
 		request.setAttribute("sId",sId);

@@ -150,7 +150,11 @@ text-align: center;}
 </ul>
   </header>
 <section class="section section1">
+<<<<<<< HEAD
   <form action="http://localhost:8181/petCafePrj/contestUpdate" method="post">
+=======
+  <form action="http://localhost:8181/petCafePrj/contestUpdate.do" method="post">
+>>>>>>> djdh94
     <input type="hidden" name="cont_num" value="${contest.cont_num }"/>
     글제목:<input type="text" name="title"value="${contest.cont_title }" />&nbsp;
     글쓴이:<input type="text" value="${contest.user_id }" readonly/><br/><br/>

@@ -121,6 +121,10 @@ public class FrontController extends HttpServlet {
 		IUesrService uv = null;
 		IPetService pv = null;
 		IContestService sv = null;
+<<<<<<< HEAD
+=======
+		IAdoptService av = null;
+>>>>>>> djdh94
 		
 		if(uri.equals("/petCafePrj/logout.do")) {
 			uv = new LogoutService();
@@ -228,6 +232,7 @@ public class FrontController extends HttpServlet {
 	    	lv = new PetLostSearchService();
 	    	lv.excute(request, response);
 <<<<<<< HEAD
+<<<<<<< HEAD
 	    	ui = "";	    
 	    }else if(uri.equals("/petCafePrj/contestlist.do")) {
 			sv=new ContestListService();
@@ -258,6 +263,8 @@ public class FrontController extends HttpServlet {
 			sv.execute(request, response);
 			ui="/contestdetail.do?"+request.getParameter("cont_num");
 =======
+=======
+>>>>>>> djdh94
 	    	ui = "/petlostlist.do?lost_name=" + request.getParameter("lost_name");
 	    	
 	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
