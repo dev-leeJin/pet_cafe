@@ -160,7 +160,7 @@ display: flex;justify-content: center;align-items: center;}
   <!-- 헤더 -->
     <header class="header">
       <div class="container">
-      <h1 class="logo"><a href ="/petCafePrj/"><img src="../img/logo.png"></a></h1>
+      <h1 class="logo"><a href ="/petCafePrj/"><img src="img/logo.png"></a></h1>
 
       <c:if test="${sessionScope.session_id eq null }">
       	<div class="login_Box">
