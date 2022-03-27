@@ -187,13 +187,9 @@
 <input type="submit" value="수정하기"/>
 </form>
 </c:if>
-<<<<<<< HEAD
-<a href="http://localhost:8181/petCafePrj/contestlist.do">컨테스트 게시판으로 이동</a>
-=======
 
 <a href="http://localhost:8181/petCafePrj/contestlist.do">컨테스트 게시판으로 이동</a>
 
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 </section> <!-- 세션1-->
 
 <!-- 푸터 -->

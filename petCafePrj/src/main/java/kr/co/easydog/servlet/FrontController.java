@@ -21,8 +21,7 @@ import kr.co.easydog.servlet.service.PetUpdateService;
 import kr.co.easydog.servlet.service.PetWelcomeService;
 import kr.co.easydog.servlet.service.UserUpdateFormSerivce;
 import kr.co.easydog.servlet.service.UserUpdateService;
-<<<<<<< HEAD
-=======
+
 import kr.co.easydog.servlet.service.AdoptDeleteService;
 import kr.co.easydog.servlet.service.AdoptDetailService;
 import kr.co.easydog.servlet.service.AdoptInsertFormService;
@@ -35,11 +34,12 @@ import kr.co.easydog.servlet.service.ContestDetailService;
 import kr.co.easydog.servlet.service.ContestInsertFormService;
 import kr.co.easydog.servlet.service.ContestUpdateFormService;
 import kr.co.easydog.servlet.service.ContestUpdateService;
+import kr.co.easydog.servlet.service.ContestVoteService;
 import kr.co.easydog.servlet.service.ContestInsertService;
 import kr.co.easydog.servlet.service.ContestListService;
 import kr.co.easydog.servlet.service.IContestService;
 import kr.co.easydog.servlet.service.IAdoptService;
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+
 import kr.co.easydog.servlet.service.BoardDeleteService;
 import kr.co.easydog.servlet.service.BoardDetailService;
 import kr.co.easydog.servlet.service.BoardInsertFormService;
@@ -47,17 +47,7 @@ import kr.co.easydog.servlet.service.BoardInsertService;
 import kr.co.easydog.servlet.service.BoardListService;
 import kr.co.easydog.servlet.service.BoardUpdateFormService;
 import kr.co.easydog.servlet.service.BoardUpdateService;
-<<<<<<< HEAD
-import kr.co.easydog.servlet.service.ContestDeleteService;
-import kr.co.easydog.servlet.service.ContestDetailService;
-import kr.co.easydog.servlet.service.ContestInsertFormService;
-import kr.co.easydog.servlet.service.ContestInsertService;
-import kr.co.easydog.servlet.service.ContestListService;
-import kr.co.easydog.servlet.service.ContestUpdateFormService;
-import kr.co.easydog.servlet.service.ContestUpdateService;
-import kr.co.easydog.servlet.service.IContestService;
-=======
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
+
 import kr.co.easydog.servlet.service.IPetLostService;
 import kr.co.easydog.servlet.service.PetLostDeleteService;
 import kr.co.easydog.servlet.service.PetLostDetailService;
@@ -121,10 +111,8 @@ public class FrontController extends HttpServlet {
 		IUesrService uv = null;
 		IPetService pv = null;
 		IContestService sv = null;
-<<<<<<< HEAD
-=======
 		IAdoptService av = null;
->>>>>>> djdh94
+
 		
 		if(uri.equals("/petCafePrj/logout.do")) {
 			uv = new LogoutService();
@@ -160,10 +148,6 @@ public class FrontController extends HttpServlet {
 			pv = new PetDeleteService();
 			pv.execute(request, response);
 			ui = "/petWelcome.do";
-<<<<<<< HEAD
-		} 
-		else if(uri.equals("/petCafePrj/petlostlist.do")) {
-=======
 		} else if(uri.equals("/petCafePrj/contestlist.do")) {
 			sv=new ContestListService();
 			sv.execute(request, response);
@@ -192,12 +176,14 @@ public class FrontController extends HttpServlet {
 			sv=new ContestUpdateService();
 			sv.execute(request, response);
 			ui="/contestlist.do";
+		}else if(uri.equals("/petCafePrj/contestvote.do")) {
+			sv=new ContestVoteService();
+			sv.execute(request, response);
+			ui="/contestlist.do";
 		}else if(uri.equals("/petCafePrj/petlostlist.do")) {
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 	    	lv = new PetLostListService();
 	    	lv.excute(request, response);
 	    	ui = "/pet_lost/petlost_list.jsp";
-	    	
 	    }else if(uri.equals("/petCafePrj/detailpetlost.do")) {
 	    	lv = new PetLostDetailService();
 	    	lv.excute(request, response);
@@ -221,52 +207,17 @@ public class FrontController extends HttpServlet {
 	    }else if(uri.equals("/petCafePrj/updateformpetlost.do")) {
 	    	lv = new PetLostUpdateFormService();
 	    	lv.excute(request, response);
-	    	ui = "/pet_lost/petlost_upadateForm.jsp";
+	    	ui = "/pet_lost/petlost_updateForm.jsp";
 	    
 	    }else if(uri.equals("/petCafePrj/updatepetlost.do")) {
 	    	lv = new PetLostUpdateService();
 	    	lv.excute(request, response);
-	    	ui = "/detailpetlost.do?lost_num=" + request.getParameter("lost_num");
+	    	ui = "/petlostdetail.do?lost_num=" + request.getParameter("lost_num");
 	    
 	    }else if(uri.equals("/petCafePrj/searchpetlost.do")) {
 	    	lv = new PetLostSearchService();
 	    	lv.excute(request, response);
-<<<<<<< HEAD
-<<<<<<< HEAD
 	    	ui = "";	    
-	    }else if(uri.equals("/petCafePrj/contestlist.do")) {
-			sv=new ContestListService();
-			sv.execute(request, response);
-			ui = "/contest/contestlist.jsp";
-		}else if(uri.equals("/petCafePrj/contestdetail.do")) {
-			sv=new ContestDetailService();
-			sv.execute(request, response);
-			ui="/contest/contestdetail.jsp";
-		}else if(uri.equals("/petCafePrj/contestInsertForm.do")) {
-			sv=new ContestInsertFormService();
-			sv.execute(request, response);
-			ui="/contest/contestform.jsp";
-		}else if(uri.equals("/petCafePrj/contestInsert.do")){
-			sv=new ContestInsertService();
-			sv.execute(request, response);
-			ui="/contestlist.do";
-		}else if(uri.equals("/petCafePrj/contestdelete.do")) {
-			sv=new ContestDeleteService();
-			sv.execute(request, response);
-			ui="/contestlist.do";
-		}else if(uri.equals("/petCafePrj/contestUpdateform.do")) {
-			sv=new ContestUpdateFormService();
-			sv.execute(request, response);
-			ui="/contest/contestupdate.jsp";
-		}else if(uri.equals("/petCafePrj/contestUpdate.do")) {
-			sv=new ContestUpdateService();
-			sv.execute(request, response);
-			ui="/contestdetail.do?"+request.getParameter("cont_num");
-=======
-=======
->>>>>>> djdh94
-	    	ui = "/petlostlist.do?lost_name=" + request.getParameter("lost_name");
-	    	
 	    } else if(uri.equals("/petCafePrj/adoptlist.do")) {
 			av = new AdoptListService();
 			av.execute(request, response);
@@ -295,7 +246,6 @@ public class FrontController extends HttpServlet {
 			av = new AdoptUpdateService();
 			av.execute(request, response);
 			ui = "/adoptdetail.do?adopt_num="+request.getParameter("adopt_num");
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 		}else if(uri.equals("/petCafePrj/boardlist.do")) {
 			sv=new BoardListService();
 			sv.execute(request, response);
@@ -324,12 +274,7 @@ public class FrontController extends HttpServlet {
 			sv=new BoardInsertService();
 			sv.execute(request, response);
 			ui="/boardlist.do";
-<<<<<<< HEAD
-		}
-		else{
-=======
 		} else{
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
 			ui = "/";
 		}
 		

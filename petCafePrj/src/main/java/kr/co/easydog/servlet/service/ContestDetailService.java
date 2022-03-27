@@ -32,7 +32,7 @@ public class ContestDetailService implements IContestService{
 		String pnum=request.getParameter("pet_num");
 		int pNum=Integer.parseInt(pnum);
 		PetDAO dao2 = PetDAO.getInstance();
-		PetVO pets = dao2.getOnePet(pNum);
+		List<PetVO> pets = dao2.getPetsList2(pNum);
 		request.setAttribute("pets", pets);
 	}
 

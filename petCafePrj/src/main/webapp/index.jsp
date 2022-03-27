@@ -1,11 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> djdh94
 <%@ page import="java.util.Date" %>
 <%@ page import="java.text.SimpleDateFormat" %>
 <%
@@ -24,10 +19,6 @@
    application.setAttribute("visit", visitCnt);
 %>
 
-<<<<<<< HEAD
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
-=======
->>>>>>> djdh94
 <!DOCTYPE html>
 <html lang="en">
 <head> 
@@ -185,21 +176,17 @@ margin-top:30px;}
       </c:if>
       <c:if test="${sessionScope.session_id ne null }">
       	${session_name }님 환영합니다.
-<<<<<<< HEAD
-=======
+
       	<a href="http://localhost:8181/petCafePrj/users/login_welcome.jsp">마이페이지</a>
         <a href="http://localhost:8181/petCafePrj/petWelcome.do">마이펫페이지</a>
         <a href="http://localhost:8181/petCafePrj/logout.do">로그아웃하기</a>
-<<<<<<< HEAD
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
-=======
->>>>>>> djdh94
+
       </c:if>
     </div>
 
     <ul class="menu">
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/contestlist.do">애견콘테스트</a></li>
-      <li class="menu-li"><a href="#">애견 분양</a></li>
+      <li class="menu-li"><a href="http://localhost:8181/petCafePrj/adoptlist.do">애견 분양</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/petlostlist.do">유기견게시판</a></li>
       <li class="menu-li"><a href="http://localhost:8181/petCafePrj/boardlist.do">자유게시판</a></li>
     </ul>

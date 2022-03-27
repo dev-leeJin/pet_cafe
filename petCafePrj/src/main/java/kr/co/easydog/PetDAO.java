@@ -86,7 +86,7 @@ private DataSource ds=null;
 	}
 	
 
-public List<PetVO> getPetsList(int pnum){
+public List<PetVO> getPetsList(String uId){
 
 		
 		Connection con =null;
@@ -128,6 +128,50 @@ public List<PetVO> getPetsList(int pnum){
 		}
 		return pets;
 	}
+
+
+public List<PetVO> getPetsList2(int pnum){
+
+	
+	Connection con =null;
+	PreparedStatement pmt=null;
+	ResultSet rs=null;
+	List<PetVO> pets2=new ArrayList<>();
+	try {
+		con=ds.getConnection();
+		
+		String sql="select*from petTbl where pet_num=?";
+		
+		pmt=con.prepareStatement(sql);
+		
+		pmt.setInt(1, pnum);
+		
+		rs=pmt.executeQuery();
+		
+		while(rs.next()) {
+			int pNum=rs.getInt("pet_num");
+			String uid=rs.getString("user_id");
+			String pkind=rs.getString("pet_kind");
+			String pname=rs.getString("pet_name");
+			int page=rs.getInt("pet_age");
+			Boolean pgender=rs.getBoolean("pet_gender");
+			
+			PetVO PetDate = new PetVO(pNum,uid,pkind,pname,page,pgender);
+			pets2.add(PetDate);
+		}
+	}catch(Exception e) {
+		e.printStackTrace();
+	}finally {
+		try {
+			con.close();
+			pmt.close();
+			rs.close();
+		}catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+	return pets2;
+}
 	
 	
 	public PetVO getOnePet(int pnum) {

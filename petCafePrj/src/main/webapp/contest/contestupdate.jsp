@@ -125,7 +125,7 @@ text-align: center;}
     <div class="container">
     <h1 class="logo"><a href ="/petCafePrj"><img src="img/logo.png"></a></h1>
 
-    <<c:if test="${sessionScope.session_id eq null }">
+    <c:if test="${sessionScope.session_id eq null }">
       	<div class="login_Box">
       	<form action="http://localhost:8181/petCafePrj/loginCheck"  class="form-group form-inline" method="post">
         	<input type="text" class="form-control" name="id" placeholder="아이디">
@@ -150,11 +150,8 @@ text-align: center;}
 </ul>
   </header>
 <section class="section section1">
-<<<<<<< HEAD
-  <form action="http://localhost:8181/petCafePrj/contestUpdate" method="post">
-=======
+
   <form action="http://localhost:8181/petCafePrj/contestUpdate.do" method="post">
->>>>>>> djdh94
     <input type="hidden" name="cont_num" value="${contest.cont_num }"/>
     글제목:<input type="text" name="title"value="${contest.cont_title }" />&nbsp;
     글쓴이:<input type="text" value="${contest.user_id }" readonly/><br/><br/>

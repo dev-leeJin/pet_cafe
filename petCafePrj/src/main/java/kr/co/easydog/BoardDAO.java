@@ -31,24 +31,9 @@ public class BoardDAO {
 		return dao;
 	}
 	
-<<<<<<< HEAD
-<<<<<<< HEAD
-	public List<BoardVO> getAllBoardList(){
-=======
-	public List<BoardVO> getAllBoardList(int pageNum){
->>>>>>> djdh94
-		Connection con = null;
-		PreparedStatement pmt = null;
-		ResultSet  rs = null;
-		final int BOARD_COUNT = 10;
-		List<BoardVO> boardList = new ArrayList<>();
-	try {
-		con=ds.getConnection();
-		int limitNum = (pageNum - 1) * BOARD_COUNT;
-		String sql="select*from boardinfo order by board_num desc limit ?,?";
-		pmt = con.prepareStatement(sql);
-<<<<<<< HEAD
-=======
+
+
+
 	public List<BoardVO> getAllBoardList(int pageNum){
 		Connection con = null;
 		PreparedStatement pmt = null;
@@ -63,12 +48,11 @@ public class BoardDAO {
 		pmt.setInt(1, limitNum);
 		pmt.setInt(2, BOARD_COUNT);
 		
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
-=======
+
 		pmt.setInt(1, limitNum);
 		pmt.setInt(2, BOARD_COUNT);
 		
->>>>>>> djdh94
+
 		rs = pmt.executeQuery();
 		while(rs.next()) {
 		int boardNum=rs.getInt("board_num");
@@ -214,11 +198,7 @@ public class BoardDAO {
 			e.printStackTrace();
 		}
 	}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-=======
->>>>>>> djdh94
+
 	public int getPageNum() {
 		
 		Connection con = null;
@@ -248,8 +228,5 @@ public class BoardDAO {
 		}
 		return pageNum;
 	}
-<<<<<<< HEAD
->>>>>>> 55dab14bae69972985c2a89c760df6c2694bcdde
-=======
->>>>>>> djdh94
+
 }
